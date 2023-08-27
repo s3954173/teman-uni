@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
-     'temanuni': {
+    'temanuni': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': os.environ.get('TEMANUNI_DATABASE_NAME'),
         'USER': os.environ.get('TEMANUNI_DATABASE_USER'),
@@ -132,3 +132,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+    },
+}
