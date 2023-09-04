@@ -3,8 +3,82 @@ html, body {
     padding: 0;
 }
 
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #FFD400;
+    justify-content: flex-end; /* Added to push the logo to the right */
+}
+
+.navbar {
+    background-color: #000000; 
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 80px;
+    box-shadow: 0px 2px 5px rgba(209, 207, 207, 0.1);
+    display: flex;              /* Ensure flex layout */
+    justify-content: space-between; /* Space between logo and nav items */
+    align-items: center;       /* Align items vertically in the center */
+    padding: 0 20px;           /* Add some padding on left and right for breathing room */
+}
+
+.container-header {
+    display: flex;
+    justify-content: center;  /* To center the navbar if the parent container is larger than 1440px */
+}
+
+.navbar {
+    display: flex;
+    width: 1440px;
+    height: 70px;
+    padding: 0px 20px;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+}
+
+.nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    text-align: center;
+    position: relative;
+}
+
+.nav-item a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    color: #fff; 
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+}
+
+.nav-item a:hover {
+    background-color: #808080;
+}
+
 .app {
-    border: 3px solid #031426;
+    border: 3px solid #ffffff;
     width: 95%;
     margin: 25px auto;
     display: grid;
@@ -44,7 +118,6 @@ html, body {
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 1fr 1fr 6fr;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
 }
 
 .header-left .glyphicon {
@@ -55,13 +128,6 @@ html, body {
     /* border: 5px solid blue; */
 }
 
-.hamburger-btn, .search-btn {
-    place-self: center start;
-}
-
-.option-btn {
-    place-self: center end;
-}
 
 .chat-list {
     /* border: 5px solid cyan; */
@@ -86,7 +152,7 @@ html, body {
 }
 
 .friends:hover {
-    background: #041a31;
+    background: #d4d4d4;
 }
 
 .friends-photo {
@@ -380,78 +446,6 @@ flex: 1 0 0;
 align-self: stretch;
  */
  
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
 
-.header {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    background-color: #FFD400;
-    justify-content: flex-end; /* Added to push the logo to the right */
-}
-
-.navbar {
-    background-color: #000000; 
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    height: 80px;
-    box-shadow: 0px 2px 5px rgba(209, 207, 207, 0.1);
-    display: flex;              /* Ensure flex layout */
-    justify-content: space-between; /* Space between logo and nav items */
-    align-items: center;       /* Align items vertically in the center */
-    padding: 0 20px;           /* Add some padding on left and right for breathing room */
-}
-
-.container-header {
-    display: flex;
-    justify-content: center;  /* To center the navbar if the parent container is larger than 1440px */
-}
-
-.navbar {
-    display: flex;
-    width: 1440px;
-    height: 70px;
-    padding: 0px 20px;
-    justify-content: space-between;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.logo {
-    width: 50px;
-    height: auto;
-}
-
-.nav-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-item {
-    text-align: center;
-    position: relative;
-}
-
-.nav-item a {
-    display: block;
-    padding: 20px;
-    text-decoration: none;
-    color: #fff; 
-    font-weight: 600;
-    transition: background-color 0.3s, color 0.3s;
-    border-radius: 5px;
-}
-
-.nav-item a:hover {
-    background-color: #808080;
-}
 
 
