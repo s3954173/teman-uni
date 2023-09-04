@@ -377,8 +377,9 @@ justify-content: center;
 align-items: center;
 gap: 10px;
 flex: 1 0 0;
-align-self: stretch; */
-
+align-self: stretch;
+ */
+ 
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -405,6 +406,21 @@ body {
     padding: 0 20px;           /* Add some padding on left and right for breathing room */
 }
 
+.container-header {
+    display: flex;
+    justify-content: center;  /* To center the navbar if the parent container is larger than 1440px */
+}
+
+.navbar {
+    display: flex;
+    width: 1440px;
+    height: 70px;
+    padding: 0px 20px;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
 .logo {
     width: 50px;
     height: auto;
@@ -415,7 +431,7 @@ body {
     padding: 0;
     list-style: none;
     display: flex;
-    justify-content: space-between; /* Adjust as needed */
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -436,7 +452,6 @@ body {
 
 .nav-item a:hover {
     background-color: #808080;
-    border-radius: 5px;
 }
 
 
