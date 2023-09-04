@@ -32,7 +32,7 @@ html, body {
 }
 
 .main-left {
-    background: #031426;
+    background: #fff;
     display: grid;
     grid-template-rows: 1fr 6fr 1fr;
     grid-auto-flow: row;
@@ -110,7 +110,7 @@ html, body {
 }
 
 .friends-name {
-    color: white;
+    color: black;
     place-self: end start;
     font-size: 1.25em;
     /* border: 5px solid magenta; */
