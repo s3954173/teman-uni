@@ -12,6 +12,12 @@ class TemanUniUserRegistrationForm(forms.ModelForm):
     class Meta:
         model = tmUser  # Use your custom user model
         fields = ['email', 'password']
+    
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if tmUser.objects.filter(email=email).exists():
+            raise ValidationError('This email address is already registered.')
+        return email
 
     def save(self, commit=True, using='temanuni'):
         user = super(TemanUniUserRegistrationForm, self).save(commit=False)
