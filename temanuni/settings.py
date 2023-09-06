@@ -84,10 +84,10 @@ DATABASES = {
     'temanuni': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'temanuni',
-        'USER': os.environ.get('TEMANUNI_DATABASE_USER'),
+        'USER': 'root',
         'PASSWORD': os.environ.get('TEMANUNI_DATABASE_PASSWORD'),
-        'HOST': os.environ.get('TEMANUNI_DATABASE_HOST'),
-        'PORT': os.environ.get('TEMANUNI_DATABASE_PORT'),
+        'HOST': "localhost",
+        'PORT': 3306,
     }
 }
 
