@@ -12,7 +12,7 @@ body {
     background-color: #000000; 
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 999;
     height: 80px;
     box-shadow: 0px 2px 5px rgba(209, 207, 207, 0.1);
     display: flex;              /* Ensure flex layout */
@@ -24,8 +24,6 @@ body {
 .container-header {
     display: flex;
     justify-content: center;  /* To center the navbar if the parent container is larger than 1440px */
-    padding: 30px 50px;
-    justify-content: center;
     align-items: center;
     gap: 10px;
     flex: 1 0 0;
@@ -223,13 +221,10 @@ body {
 
 .header-right {
     /* border: 5px solid greenyellow; */
-    padding: 5px;
-    background: white;
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 1fr 6fr 2fr;
     place-items: center;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
 }
 
 .header-img {
@@ -408,6 +403,41 @@ input::placeholder {
     color: #777;
     font-family: 'Courier New', Courier, monospace;
 }
+
+.main-right {
+    /* Just to ensure the containing section has some default styling; this can be adjusted to your preference */
+    width: 300px;
+    height: auto;
+    padding: 20px;
+}
+
+.header-right {
+    /* Center everything inside this div */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-right img {
+    /* Just to ensure the image scales appropriately within its container; this can be adjusted to your preference */
+    width: 100%;
+    max-width: 250px; /* Or whatever your desired max width is */
+    height: auto;
+    margin-bottom: 10px; /* space between the image and the text */
+}
+
+.text-container {
+    /* Stacking text on top of each other */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.match-name {
+    /* Add some space between the text elements */
+    margin: 5px 0;
+}
+
 
 /* display: flex;
 padding: 30px 50px;
