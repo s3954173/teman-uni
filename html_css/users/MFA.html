@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #F9F1D8;
+        }
+    </style>
+
+    <link rel="stylesheet" href="MFA.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="MFA.js"></script>
+
+</head>
+
+
+    <div class="MFA-form">
+
+        <div class="MFA">Multi-Factor Authentication</div>
+
+        <div>
+            <label for="enter-code">Enter your Code</label>
+            <div class="enter-code">
+                <input type="text" maxlength="1" name="enter-code1" id="enter-code" required>
+                <input type="text" maxlength="1" name="enter-code2" id="enter-code" required>
+                <input type="text" maxlength="1" name="enter-code3" id="enter-code" required>
+                <input type="text" maxlength="1" name="enter-code4" id="enter-code" required>
+                <input type="text" maxlength="1" name="enter-code5" id="enter-code" required>
+                <input type="text" maxlength="1" name="enter-code6" id="enter-code" required>
+            </div>
+        </div>
+
+        <div class="error-message">Passwords don't match</div>
+
+        <div class="verify">
+            <input type="submit" value="Verify">
+        </div>
+
+
+        <div class="login-page">
+            <a href="login.html">Back</a>
+        </div>
+            
+    </div>
+
+
+
+</html>

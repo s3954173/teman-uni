@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create Event</title>
+        <link rel="stylesheet" type="text/css" href="eventStyle.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+
+    <body>
+        <!--popup button-->
+        <button id="openPopupButton">Create Event</button>
+
+        <div id="popupOverlay" class="popup-overlay"></div>
+
+        <div id="eventPopup" class="popup">
+            <!--event creation form-->
+            <form onsubmit="return validateForm()">
+                <!-- <label for="eventID">Event ID:</label>
+                <input type="text" id="eventID" name="eventID" readonly>
+
+                <label for="eventAdmin">Admin of Event:</label>
+                <input type="text" id="eventAdmin" name="eventAdmin" readonly> -->
+
+                <div class="form-field">
+                    <label for="eventName">Event Name:</label>
+                    <input type="text" id="eventName" name="eventName" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="eventDate">Event Date:</label>
+                    <input type="date" id="eventDate" name="eventDate" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="eventTime">Event Time:</label>
+                    <input type="time" id="eventTime" name="eventTime" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="eventDesc">Description: (max 100 words)</label>
+                    <textarea id="eventDesc" name="eventDesc" rows="4" cols="50" required></textarea>
+                </div>
+
+                <div class="form-field">
+                    <label for="inviteFriends">Invite Friends:</label>
+                    <ul class="friend-list">
+                        <li class="friend-list-item">
+                            <label><input type="checkbox" name="invitedFriends" value="friend1">Friend 1</label>
+                        </li>
+                        <li class="friend-list-item">
+                            <label><input type="checkbox" name="invitedFriends" value="friend2">Friend 2</label>
+                        </li>
+                        <li class="friend-list-item">
+                            <label><input type="checkbox" name="invitedFriends" value="friend3">Friend 3</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="button-container">
+                    <input type="submit" class="create-event" value="Create Event">
+                    <button type="button" class="cancel" onclick="closePopupButton()">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <script src="eventCreation.js"></script>
+    </body>
+</html>

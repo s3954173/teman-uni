@@ -1,0 +1,149 @@
+
+
+.split-right {
+    height: 100%;
+    width: 50%;
+    position:fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    right: 0;
+    background-color: #F9F1D8;
+}
+
+.login-form {
+    background-color: white;
+    border-radius: 20px;
+    width: 340px;
+    height: 563px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.image-1 {
+    justify-content: center;
+    text-align: center;
+    padding: 0px;
+    margin-bottom: 30px;
+}
+
+.Welcome-Back {
+    font-family: Lexend Deca;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+    padding: 0px;
+    margin-bottom: 30px;
+}
+
+.email {
+    & label {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+    & input {
+    text-align: center;    
+    margin: auto;
+    display: block;
+    width: 250px;
+    height: 39px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+}
+
+.password {
+    & label {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+    & input {
+    text-align: center;
+    margin: auto;
+    display: block;
+    width: 250px;
+    height: 39px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+    & .Cant-login {
+        text-align: right;
+        & a {
+            text-decoration: none;
+            color: #3B82F6;
+        }
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;;
+        margin-bottom: 25px;
+    }
+
+    width: fit-content;
+    margin: auto;
+}
+
+.login {
+    background-color: #FBC000;
+    width: 250px;
+    height: 39px;
+    border-radius: 10px;
+    margin: auto;
+    margin-bottom: 30px;;
+}
+
+input[type=submit] {
+    background-color: #FBC000;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width: 250px;
+    height: 39px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: #FBC000;
+}
+
+input[type=submit]:hover {
+    background-color: #e8b200;
+    border: #e8b200;
+}
+
+.create-account {
+    text-align: center;
+        & a {
+            text-decoration: none;
+            color: #3B82F6;
+        }
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;;
+}
