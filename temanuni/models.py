@@ -15,6 +15,9 @@ class User(models.Model):
     class Meta:
         managed = False
         db_table = 'user'
+    
+    def __str__(self):
+        return self.email
 
 class Events(models.Model):
     event_id = models.BigAutoField(primary_key=True)
