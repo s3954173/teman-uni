@@ -3,6 +3,7 @@ from temanuni.models import User as tmUser
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password  # Import Django's password hashing function
+from django.core.exceptions import ValidationError
 
 
 class TemanUniUserRegistrationForm(forms.ModelForm):
@@ -15,8 +16,9 @@ class TemanUniUserRegistrationForm(forms.ModelForm):
     
     def clean_email(self):
         email = self.cleaned_data.get('email')
-        if tmUser.objects.filter(email=email).exists():
+        if tmUser.objects.using('temanuni').filter(email=email).exists():
             raise ValidationError('This email address is already registered.')
+            return false;        
         return email
 
     def save(self, commit=True, using='temanuni'):

@@ -14,11 +14,14 @@ def register(request):
                 'password': form.cleaned_data['password1'],  # Use 'password' instead of 'password1'
             })
             
-            if temanuni_form.is_valid():
+            if temanuni_form.is_valid() and temanuni_form.clean_email():
                 # Save user data to the temanuni database using temanuni_form
                 temanuni_form.save(commit=True)  # Save the data using your custom form
 
                 messages.success(request, f"You've been successfully registered!")
+                return redirect('home')
+            else:
+                messages.success(request, f"Email found, not registered")
                 return redirect('home')
             
     else:
