@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'home.apps.HomeConfig',
+    'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -81,11 +83,11 @@ DATABASES = {
     },
     'temanuni': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('TEMANUNI_DATABASE_NAME'),
-        'USER': os.environ.get('TEMANUNI_DATABASE_USER'),
+        'NAME': 'temanuni',
+        'USER': 'root',
         'PASSWORD': os.environ.get('TEMANUNI_DATABASE_PASSWORD'),
-        'HOST': os.environ.get('TEMANUNI_DATABASE_HOST'),
-        'PORT': os.environ.get('TEMANUNI_DATABASE_PORT'),
+        'HOST': "localhost",
+        'PORT': 3306,
     }
 }
 
@@ -147,3 +149,4 @@ LOGGING = {
         'level': 'DEBUG',
     },
 }
+
