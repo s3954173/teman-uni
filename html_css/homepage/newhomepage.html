@@ -4,162 +4,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Homepage</title>
     <link rel="stylesheet" href="bootstrap3.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap">
     <link rel="stylesheet" href="chat.css">
-    <link rel="stylesheet" href="newhomepage.css">
+    <link rel="stylesheet" href="homepage.css">
 </head>
 
 <body>
 
     <!-- NAV BAR SECTION -->
-    <div class="container-header">
-        <div class="navbar">
-            <img class="logo" src="logo.png">
+    <header class="container-header">
+        <nav class="navbar">
+            <img class="logo" src="logo.png" alt="Logo">
             <ul class="nav-list">
-                <li class="nav-item"><a href="about.hml">About</a></li>
-                <li class="nav-item"><a href="messages.html"><img src="message.png" alt="Messages"></a></li>
-                <li class="nav-item"><a href="profile.html"><img src="profile.png" alt="Profile"></a></li>
-                <li class="nav-item"><a href="notifications.html"><img src="notification.png" alt="Notifications"></a>
-                <li class="nav-item"><a href="#"><img src="logout.png" alt="Log Out"></a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="messages.html"><img src="message.png" alt="Messages"></a></li>
+                <li><a href="profile.html"><img src="profile.png" alt="Profile"></a></li>
+                <li><a href="notifications.html"><img src="notification.png" alt="Notifications"></a></li>
+                <li><a href="#"><img src="logout.png" alt="Log Out"></a></li>
             </ul>
-        </div>
-    </div>
-    <div id="app" class="app">
+        </nav>
+    </header>
 
-        <!-- DIV SPACING BELOW NAVBAR -->
-        <div class="space-below-navbar">
-            <!-- CONTAINER DIV -->
-            <div class="container-div">
+    <main id="app" class="app">
 
-                <!-- MAIN LEFT PADDING CONTAINER -->
-                <div class="main-left-padding">
-                    <!-- MAIN LEFT CONTAINER -->
-                    <div class="main-left-container">
-                        <!-- HEADER LEFT -->
-                        <div class="header-left">
-                            <span>Messages</span>
-                        </div>
+        <!-- LEFT SECTION -->
+        <section class="main-left">
 
-                        <!-- CHAT LIST CONTAINER -->
-                        <div id="chat-list" class="chat-list">
-                            <!-- FRIEND CHAT MESSAGE CONTAINER -->
-                            <div class="friend-message-container">
-                                <!-- FRIEND PICTURE -->
-                                <div class="friend-picture">
-                                    <img src="rebeccaicon.png" alt="">
-                                </div>
+            <div class="header-left">Messages</div>
 
-                                <!-- FRIEND NAME & MESSAGE -->
-                                <div class="friend-details">
-                                    <span class="friends-name">Rebecca</span>
-                                    <span class="friends-message">about to sleep LOL wbu</span>
-                                </div>
-                                <!-- ONLINE INDICATOR (example) -->
-                                <span class="online-indicator"><img src="onlinedot.png" alt=""></span>
-                            </div>
+            <div class="chat-list">
+                <!-- A JS loop will be useful here to iterate over friend's data -->
+                <div class="friends">
+                    <div class="profile friends-photo">
+                        <img src="rebeccaicon.png" alt="Rebecca">
+                    </div>
+                    <div class="friends-credent">
+                        <span class="friends-name">Rebecca</span>
+                        <span class="friends-message">about to sleep LOL wbu</span>
+                    </div>
+                    <span class="badge notif-badge"><img src="onlinedot.png" alt="Online Status"></span>
+                </div>
+            
+                <div class="friends">
+                    <div class="profile friends-photo">
+                        <img src="rebeccaicon.png" alt="Rebecca">
+                    </div>
+                    <div class="friends-credent">
+                        <span class="friends-name">Rebecca</span>
+                        <span class="friends-message">about to sleep LOL wbu</span>
+                    </div>
+                    <span class="badge notif-badge"><img src="onlinedot.png" alt="Online Status"></span>
+                </div>
+            
+                <div class="friends">
+                    <div class="profile friends-photo">
+                        <img src="rebeccaicon.png" alt="Rebecca">
+                    </div>
+                    <div class="friends-credent">
+                        <span class="friends-name">Rebecca</span>
+                        <span class="friends-message">about to sleep LOL wbu</span>
+                    </div>
+                    <span class="badge notif-badge"><img src="onlinedot.png" alt="Online Status"></span>
+                </div>
+            
+                <div class="friends">
+                    <div class="profile friends-photo">
+                        <img src="rebeccaicon.png" alt="Rebecca">
+                    </div>
+                    <div class="friends-credent">
+                        <span class="friends-name">Rebecca</span>
+                        <span class="friends-message">about to sleep LOL wbu</span>
+                    </div>
+                    <span class="badge notif-badge"><img src="onlinedot.png" alt="Online Status"></span>
+                </div>
 
-                                <!-- FRIEND CHAT MESSAGE CONTAINER -->
-                                <div class="friend-message-container">
-                                    <!-- FRIEND PICTURE -->
-                                    <div class="friend-picture">
-                                        <img src="rebeccaicon.png" alt="">
-                                    </div>
+                <div class="friends">
+                    <div class="profile friends-photo">
+                        <img src="rebeccaicon.png" alt="Rebecca">
+                    </div>
+                    <div class="friends-credent">
+                        <span class="friends-name">Rebecca</span>
+                        <span class="friends-message">about to sleep LOL wbu</span>
+                    </div>
+                    <span class="badge notif-badge"><img src="onlinedot.png" alt="Online Status"></span>
+                </div>
 
-                                    <!-- FRIEND NAME & MESSAGE -->
-                                    <div class="friend-details">
-                                        <span class="friends-name">Rebecca</span>
-                                        <span class="friends-message">about to sleep LOL wbu</span>
-                                    </div>
-                                    <!-- ONLINE INDICATOR (example) -->
-                                    <span class="online-indicator"><img src="onlinedot.png" alt=""></span>
-                                </div>
+                <div class="friends">
+                    <div class="profile friends-photo">
+                        <img src="rebeccaicon.png" alt="Rebecca">
+                    </div>
+                    <div class="friends-credent">
+                        <span class="friends-name">Rebecca</span>
+                        <span class="friends-message">about to sleep LOL wbu</span>
+                    </div>
+                    <span class="badge notif-badge"><img src="onlinedot.png" alt="Online Status"></span>
+                </div>
+                <!-- Repeat the above block for other friends -->
 
-                                <!-- FRIEND CHAT MESSAGE CONTAINER -->
-                                <div class="friend-message-container">
-                                    <!-- FRIEND PICTURE -->
-                                    <div class="friend-picture">
-                                        <img src="rebeccaicon.png" alt="">
-                                    </div>
+            </div>
 
-                                    <!-- FRIEND NAME & MESSAGE -->
-                                    <div class="friend-details">
-                                        <span class="friends-name">Rebecca</span>
-                                        <span class="friends-message">about to sleep LOL wbu</span>
-                                    </div>
-                                    <!-- ONLINE INDICATOR (example) -->
-                                    <span class="online-indicator"><img src="onlinedot.png" alt=""></span>
-                                </div>
+            <div class="see-all-messages">
+                <a href="#">See all messages</a>
+            </div>
 
+        </section>
 
-                                <!-- FRIEND CHAT MESSAGE CONTAINER -->
-                                <div class="friend-message-container">
-                                    <!-- FRIEND PICTURE -->
-                                    <div class="friend-picture">
-                                        <img src="rebeccaicon.png" alt="">
-                                    </div>
+        <!-- RIGHT SECTION -->
+        <section class="main-right">
+            <div class="header-right">
+                <img src="matchpic.png" alt="Match Picture">
+                <div class="text-container">
+                    <span class="match-name">Karolina Dame</span>
+                    <span class="match-detail">Studying Bachelors of Arts</span>
+                    <span class="match-detail">RMIT University</span>
+                </div>
+            </div>
+        </section>
 
-                                    <!-- FRIEND NAME & MESSAGE -->
-                                    <div class="friend-details">
-                                        <span class="friends-name">Rebecca</span>
-                                        <span class="friends-message">about to sleep LOL wbu</span>
-                                    </div>
-                                    <!-- ONLINE INDICATOR (example) -->
-                                    <span class="online-indicator"><img src="onlinedot.png" alt=""></span>
-                                </div>
+    </main>
 
-                                <!-- FRIEND CHAT MESSAGE CONTAINER -->
-                                <div class="friend-message-container">
-                                    <!-- FRIEND PICTURE -->
-                                    <div class="friend-picture">
-                                        <img src="rebeccaicon.png" alt="">
-                                    </div>
+    <!-- jQuery, Popper, BootstrapJS -->
+    <script src="bootstrap3.3/js/jquery-3.3.1.min.js"></script>
+    <script src="bootstrap3.3/js/bootstrap.min.js"></script>
+</body>
 
-                                    <!-- FRIEND NAME & MESSAGE -->
-                                    <div class="friend-details">
-                                        <span class="friends-name">Rebecca</span>
-                                        <span class="friends-message">about to sleep LOL wbu</span>
-                                    </div>
-                                    <!-- ONLINE INDICATOR (example) -->
-                                    <span class="online-indicator"><img src="onlinedot.png" alt=""></span>
-                                </div>
-
-                                <!-- FRIEND CHAT MESSAGE CONTAINER -->
-                                <div class="friend-message-container">
-                                    <!-- FRIEND PICTURE -->
-                                    <div class="friend-picture">
-                                        <img src="rebeccaicon.png" alt="">
-                                    </div>
-
-                                    <!-- FRIEND NAME & MESSAGE -->
-                                    <div class="friend-details">
-                                        <span class="friends-name">Rebecca</span>
-                                        <span class="friends-message">about to sleep LOL wbu</span>
-                                    </div>
-                                    <!-- ONLINE INDICATOR (example) -->
-                                    <span class="online-indicator"><img src="onlinedot.png"
-                                            alt=""></span>
-                                </div>
-                                        
-                                </div>
-
-                                <!-- FOOTER LEFT -->
-                                <div class="footer-left">
-                                    <a href="#">See all messages</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </section>
-                    <!-- RIGHT SECTION -->
-                
-                    <section id="main-right" class="main-right">
-                
-                
-                    <!-- jQuey, Popper, BootstrapJS -->
-                    <script src="bootstrap3.3/js/jquery-3.3.1.min.js"></script>
-                    <script src="bootstrap3.3/js/bootstrap.min.js"></script>
-                </body>
-                </html>
+</html>
