@@ -155,5 +155,16 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',  # Default backend
 ]
 
-
 LOGIN_REDIRECT_URL = 'home'
+# LOGOUT_REDIRECT_URL = 'home'
+
+
+# Set the session engine (use the default database-based session engine)
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+# Set the session cookie age (in seconds)
+SESSION_COOKIE_AGE = 3600  # Example: 1 hour
+
+
+# Set the session cookie secure flag (True for HTTPS only, in production)
+SESSION_COOKIE_SECURE = False  # Set to True in production

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from .forms import TemanUniUserRegistrationForm as tmUserRegistrationForm
 from .forms import UserRegisterForm
 from .forms import TemanUniLoginForm as tmLoginForm
@@ -36,38 +36,52 @@ def register(request):
 
 
 def login_view(request):
-    if request.method == 'POST':
-        form = tmLoginForm(request.POST)
-        if form.is_valid():
-            # Get the email and password from the form
-            email = form.cleaned_data['email']
-            password = form.cleaned_data['password']
-            authenticator = tmLogin()   
-        
-            # Authenticate the user using your custom authentication backend
-            user = authenticator.authenticate(request=request, email=email, password=password)
+    user = request.user
+    if user is not None:
+        if request.method == 'POST':
+            form = tmLoginForm(request.POST)
+            if form.is_valid():
+                # Get the email and password from the form
+                email = form.cleaned_data['email']
+                password = form.cleaned_data['password']
+                authenticator = tmLogin()   
             
-            if user is not None:
-                # Set the backend attribute on the user
-                user.backend = 'users.backends.TemanUniLogin'
+                # Authenticate the user using your custom authentication backend
+                user = authenticator.authenticate(request=request, email=email, password=password)
+                
+                if user is not None:
+                    # Set the backend attribute on the user
+                    user.backend = 'users.backends.TemanUniLogin'
+                     # Store user_id in the session
+                    request.session['user_id'] = user.user_id
 
-                # Log the user in
-                login(request, user)
-                messages.success(request, f"You've been successfully logged in!")
+                    # Log the user in
+                    login(request, user)
+                    
 
-                return redirect('home')  # Redirect to the home page or any other page
-            else:
-                # Authentication failed, show an error message
-                form.add_error(None, 'Invalid email or password')
+                    return redirect('test')  # Redirect to the home page or any other page
+                else:
+                    # Authentication failed, show an error message
+                    form.add_error(None, 'Invalid email or password')
+        else:
+            form = tmLoginForm()
+        
+        return render(request, 'users/login.html', {'form': form})
     else:
-        form = tmLoginForm()
-    
-    return render(request, 'users/login.html', {'form': form})
+        return redirect('home')
 
 
-def logout(request):
-    # if request.method == 'POST':
-    #     form = loginForm(request.POST)
-    # else:
-    #     form = loginForm()
+def logout_view(request):
+    logout(request)
     return render(request, 'users/logout.html')
+
+# Testing Purposes
+def test(request):
+    if 'user_id' in request.session and request.session['user_id']:
+        # The user is authenticated, perform actions accordingly
+        # You can also pass 'user' to the template context for use in the template
+        return render(request, 'users/test_authenticated.html')
+    else:
+        # The user is not authenticated, display a different template or message
+        return render(request, 'users/test_unauthenticated.html')
+
