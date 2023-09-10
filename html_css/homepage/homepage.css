@@ -211,9 +211,9 @@ body {
 
 .main-right {
     border-radius: 10px;
-    background: var(--Neutral-Radial-Background, radial-gradient(93.27% 61.2% at 50% 50%, rgba(255, 255, 255, 0.20) 0%, rgba(255, 173, 0, 0.20) 100%), #FFE2A5);
+    background-color: #FFE2A5;
     display: flex;
-    width: 1006px;
+    width: auto;
     height: 588px;
     padding: 40px 0px;
     flex-direction: column;
@@ -238,185 +238,6 @@ body {
     place-self: center end;
 }
 
-.name {
-    font-size: 1.2em;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.friend-name {
-    /* border: 5px solid violet; */
-    place-self: center start;
-    margin-left: 20px;
-    color: #485373;
-}
-
-.some-btn {
-    /* border: 5px solid maroon; */
-    font-size: 1.5em;
-    place-items: center end;
-}
-
-.some-btn .glyphicon {
-    margin: 0px 10px;
-    cursor: pointer;
-}
-
-.chat-area {
-    /* border: 5px solid lightseagreen; */
-    overflow-y: auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.chat-area::-webkit-scrollbar {
-    width: 0;
-}
-
-.friends-chat {
-    /* border: 3px solid beige; */
-    padding-top: 5px;
-    padding-bottom: 5px;
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: 1fr 9fr;
-}
-
-.friends-chat-photo {
-    /* border: 3px solid orchid; */
-    place-self: start end;
-    margin: 0px 5px;
-}
-
-.friends-chat-content {
-    /* border: 3px solid red; */
-    display: grid;
-    grid-auto-flow: row;
-    grid-template-rows: 1fr min-content min-content;
-    place-items: start;
-}
-
-.friends-chat-name {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #485373;
-    font-size: 1em;
-    margin: 0px 0px 3px 0px;
-    font-weight: bold;
-}
-
-
-.friends-chat-balloon{
-    /* border: 3px solid navy; */
-    max-width: 90%;
-    padding: 10px 20px;
-    margin: 0;
-    min-width: min-content;
-    border-radius: 0px 20px 20px 20px; /* TL-TR-BR-BL*/
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #485373;
-    background: white;
-    font-size: 0.9em;
-}
-
-.chat-datetime {
-    /* border: 3px solid yellow; */
-    margin: 3px 10px;
-    font-size: 0.75em;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #aaa;
-}
-
-.your-chat {
-    /* border: 3px solid chocolate; */
-    display: grid;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 10px;
-    grid-auto-flow: row;
-    grid-template-rows: min-content min-content;
-    place-items: start end;
-}
-
-.your-chat-balloon {
-    /* border: 3px solid blueviolet; */
-    max-width: 80%;
-    padding: 10px 20px;
-    margin: 0;
-    min-width: min-content;
-    border-radius: 20px 20px 0px 20px; /* TL-TR-BR-BL*/
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-    background: darkslateblue;
-    font-size: 0.9em;
-}
-
-.your-chat-datetime .glyphicon {
-    margin-right: 5px;
-    color: green;
-}
-
-.typing-area {
-    /* border: 5px solid goldenrod; */
-    background: white;
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: 8fr 2fr 1fr;
-    overflow-x: hidden;
-    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.type-area {
-    /* border: 5px solid blueviolet; */
-    border: none;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    outline: none;
-    background: none;
-    padding: 10px 20px;
-    color: #333;
-    font-size: 1.1em;
-}
-
-input::placeholder {
-    color: #777;
-}
-
-.typing-area .glyphicon, .attach-btn {
-    color: #555;
-    cursor: pointer;
-    place-self: center;
-    transition: .2s linear;
-}
-
-.typing-area .glyphicon:hover, .attach-btn span:hover {
-    color: darkslateblue;
-}
-
-.attach-btn {
-    /* border: 5px solid coral; */
-    font-size: 1.25em;
-}
-
-.attach-btn span {
-    margin: 0px 10px;
-}
-
-.send-btn {
-    /* border: 5px solid darkcyan; */
-    font-size: 2.25em;
-}
-
-.creator {
-    text-align: center;
-    color: #777;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-.main-right {
-    /* Just to ensure the containing section has some default styling; this can be adjusted to your preference */
-    width: 300px;
-    height: auto;
-    padding: 20px;
-}
-
 .header-right {
     /* Center everything inside this div */
     display: flex;
@@ -427,9 +248,9 @@ input::placeholder {
 .header-right img {
     /* Just to ensure the image scales appropriately within its container; this can be adjusted to your preference */
     width: 100%;
-    max-width: 250px; /* Or whatever your desired max width is */
+    max-width: 250px; 
     height: auto;
-    margin-bottom: 10px; /* space between the image and the text */
+    margin-bottom: 10px; 
 }
 
 .text-container {
@@ -465,14 +286,69 @@ input::placeholder {
 }
 
 
-/* display: flex;
-padding: 30px 50px;
-justify-content: center;
-align-items: center;
-gap: 10px;
-flex: 1 0 0;
-align-self: stretch;
- */
+.main-tag {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .tag {
+    display: flex;
+    padding: 5px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    color: var(--White, #FFF);
+    text-align: center;
+    margin: .25em .1em;
+    background: var(--Placeholder-Grey, rgba(128, 128, 128, 0.57));
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .tag:nth-child(-n+3) {
+    order: -1;
+  }
+
+
+  .for-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+  }
+  
+  .btn-close {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    border-radius: 50%;
+    width: 57px;
+    height: 57px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .btn-star {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    border-radius: 50%;
+    width: 57px;
+    height: 57px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
  
 
 

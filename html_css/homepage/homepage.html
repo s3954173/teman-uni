@@ -15,13 +15,13 @@
     <!-- NAV BAR SECTION -->
     <div class="container-header">
         <div class="navbar">
-            <img class="logo" src="logo.png">
+            <img class="logo" src="./img/logo.png">
             <ul class="nav-list">
                 <li class="nav-item"><a href="about.hml">About</a></li>
-                <li class="nav-item"><a href="messages.html"><img src="message.png" alt="Messages"></a></li>
-                <li class="nav-item"><a href="profile.html"><img src="profile.png" alt="Profile"></a></li>
-                <li class="nav-item"><a href="notifications.html"><img src="notification.png" alt="Notifications"></a></li>
-                <li class="nav-item"><a href="#"><img src="logout.png" alt="Log Out"></a></li>
+                <li class="nav-item"><a href="messages.html"><img src="./img/message.png" alt="Messages"></a></li>
+                <li class="nav-item"><a href="profile.html"><img src="./img/profile.png" alt="Profile"></a></li>
+                <li class="nav-item"><a href="notifications.html"><img src="./img/notification.png" alt="Notifications"></a></li>
+                <li class="nav-item"><a href="#"><img src="./img/logout.png" alt="Log Out"></a></li>
             </ul>
         </div>
     </div>
@@ -39,30 +39,27 @@
 <!-- chat list -->
 <div id="chat-list" class="chat-list">
   
-  <a href="messages.html">
-    <!-- user lists -->
-    <div id="friends" class="friends">
-        <!-- photo -->
-        <div class="profile friends-photo">
-            <img src="rebeccaicon.png" alt="">
-        </div>
-
-        <div class="friends-credent">
+        <!-- user lists -->
+        <div id="friends" class="friends">
+          <!-- photo -->
+          <div class="profile friends-photo">
+            <img src="./img/rebeccaicon.png" alt="">
+          </div>
+          
+          <div class="friends-credent">
             <!-- name -->
             <span class="friends-name">Rebecca</span>
             <!-- last message -->
             <span class="friends-message">about to sleep LOL wbu</span>
+          </div>
+          <!-- online activity -->
+          <span class="badge notif-badge"><img src="./img/./img/onlinedot.png" alt=""></span>
         </div>
-        <!-- online activity -->
-        <span class="badge notif-badge"><img src="onlinedot.png" alt=""></span>
-    </div>
-</a>
-
 
         <div id="friends" class="friends">
           <!-- photo -->
           <div class="profile friends-photo">
-            <img src="ellioticon.png" alt="">
+            <img src="./img/ellioticon.png" alt="">
           </div>
           
           <div class="friends-credent">
@@ -72,13 +69,13 @@
             <span class="friends-message">Last Online 3 days ago</span>
           </div>
           <!-- online activity -->
-          <span class="badge notif-badge"><img src="offlinedot.png" alt=""></span>
+          <span class="badge notif-badge"><img src="./img/offlinedot.png" alt=""></span>
         </div>
 
         <div id="friends" class="friends">
           <!-- photo -->
           <div class="profile friends-photo">
-            <img src="pedroicon.png" alt="">
+            <img src="./img/pedroicon.png" alt="">
           </div>
           
           <div class="friends-credent">
@@ -88,13 +85,13 @@
             <span class="friends-message">Let's meet up again!</span>
           </div>
            <!-- online activity -->
-          <span class="badge notif-badge"><img src="onlinedot.png" alt=""></span>
+          <span class="badge notif-badge"><img src="./img/onlinedot.png" alt=""></span>
         </div>
 
         <div id="friends" class="friends">
           <!-- photo -->
           <div class="profile friends-photo">
-            <img src="anhicon.png" alt="">
+            <img src="./img/anhicon.png" alt="">
           </div>
           
           <div class="friends-credent">
@@ -104,13 +101,13 @@
             <span class="friends-message">omw to class -_-</span>
           </div>
            <!-- online activity -->
-          <span class="badge notif-badge"><img src="onlinedot.png" alt=""></span>
+          <span class="badge notif-badge"><img src="./img/onlinedot.png" alt=""></span>
         </div>
 
         <div id="friends" class="friends">
           <!-- photo -->
           <div class="profile friends-photo">
-            <img src="theresaicon.png" alt="">
+            <img src="./img/theresaicon.png" alt="">
           </div>
           
           <div class="friends-credent">
@@ -120,13 +117,13 @@
             <span class="friends-message">Last online 5 days ago</span>
           </div>
            <!-- online activity -->
-          <span class="badge notif-badge"><img src="offlinedot.png" alt=""></span>
+          <span class="badge notif-badge"><img src="./img/offlinedot.png" alt=""></span>
         </div>
 
         <div id="friends" class="friends">
           <!-- photo -->
           <div class="profile friends-photo">
-            <img src="ellioticon.png" alt="">
+            <img src="./img/ellioticon.png" alt="">
           </div>
           
           <div class="friends-credent">
@@ -136,7 +133,7 @@
             <span class="friends-message">Hey! I'm James, how are you?</span>
           </div>
            <!-- online activity -->
-          <span class="badge notif-badge"><img src="offlinedot.png" alt=""></span>
+          <span class="badge notif-badge"><img src="./img/offlinedot.png" alt=""></span>
         </div>
       </div>
       
@@ -151,13 +148,30 @@
     <section id="main-right" class="main-right">
       <div id="header-right" class="header-right">
           <!-- match picture -->
-          <img src="matchpic.png">
+          <img src="./img/matchpic.png">
           <!-- match name -->
           <div class="text-container">
               <span class="match-name">Karolina Dame</span>
               <span class="match-detail">Studying Bachelors of Arts</span>
               <span class="match-detail">RMIT University</span>
-              <!-- <div class="text-container-details">RMIT</div> -->
+          </div>
+
+          <div class="main-tag">
+            <a ><span class="tag">Drawing</span></a>
+            <a ><span class="tag">Yoga</span></a>
+            <a ><span class="tag">Arts and crafts</span></a>
+          </div>
+          <div class="main-tag">
+            <a ><span class="tag">Arts and crafts</span></a>
+          </div>
+
+          <div class="for-button">
+            <button type="button" class="btn-close">
+              <img src="./img/notmatch.png" alt="Not Matched">
+            </button>
+            <button type="button" class="btn-star">
+              <img src="./img/yesmatch.png" alt="Yes Matched">
+            </button>
           </div>
       </div>
   </section>
