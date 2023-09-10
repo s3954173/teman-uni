@@ -154,6 +154,6 @@ AUTHENTICATION_BACKENDS = [
     'users.backends.TemanUniLogin', 
     'django.contrib.auth.backends.ModelBackend',  # Default backend
 ]
-AUTH_USER_MODEL = 'temanuni.User'
+
 
 LOGIN_REDIRECT_URL = 'home'

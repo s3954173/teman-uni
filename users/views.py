@@ -7,6 +7,8 @@ from .forms import TemanUniLoginForm as tmLoginForm
 from .backends import TemanUniLogin as tmLogin
 from django.views.decorators.csrf import csrf_protect
 
+
+
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
@@ -48,9 +50,11 @@ def login_view(request):
             if user is not None:
                 # Set the backend attribute on the user
                 user.backend = 'users.backends.TemanUniLogin'
-                
+
                 # Log the user in
                 login(request, user)
+                messages.success(request, f"You've been successfully logged in!")
+
                 return redirect('home')  # Redirect to the home page or any other page
             else:
                 # Authentication failed, show an error message
