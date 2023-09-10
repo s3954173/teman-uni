@@ -17,7 +17,7 @@ class User(models.Model):
         db_table = 'user'
     
     def __str__(self):
-        return self.email
+        return self.user_id
 
 class Events(models.Model):
     event_id = models.BigAutoField(primary_key=True)
