@@ -33,6 +33,13 @@ class TemanUniUserRegistrationForm(forms.ModelForm):
 
         return user
 
+
+# Login Form
+class TemanUniLoginForm(forms.Form):
+    email = forms.EmailField(label='Email', required=True, help_text="Please enter a valid email") 
+    password = forms.CharField(label='Password', widget=forms.PasswordInput, required=True)
+
+
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField(label='Email', required=True, help_text="Please enter a valid email")
 

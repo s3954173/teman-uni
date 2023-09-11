@@ -18,9 +18,15 @@ from django.contrib import admin
 from django.urls import path, include
 from home import views as home_views
 from users import views as user_views
+from events import views as events_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_views.home, name='home'),
     path('register/', user_views.register, name='register'),
+    path('login/', user_views.login_view, name='login'),
+    path('logout/', user_views.logout_view, name='logout'),
+    path('events/', events_views.createEvent, name='events'),
+     path('test/', user_views.test, name='test'), # To be removed
+     
 ]
