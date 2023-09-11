@@ -226,7 +226,6 @@ body {
 }
 
 .header-right {
-    /* border: 5px solid greenyellow; */
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 1fr 6fr 2fr;
