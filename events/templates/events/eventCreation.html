@@ -1,11 +1,14 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>Create Event</title>
-        <link rel="stylesheet" type="text/css" href="eventStyle.css">
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
+        <link rel="stylesheet" type="text/css" href="{% static 'eventStyle.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 
+    </head>
+    {% block content %}
     <body>
         <!--popup button-->
         <button id="openPopupButton">Create Event</button>
@@ -15,6 +18,7 @@
         <div id="eventPopup" class="popup">
             <!--event creation form-->
             <form onsubmit="return validateForm()">
+                {% csrf_token %}
                 <!-- <label for="eventID">Event ID:</label>
                 <input type="text" id="eventID" name="eventID" readonly>
 
@@ -23,12 +27,15 @@
 
                 <div class="form-field">
                     <label for="eventName">Event Name:</label>
-                    <input type="text" id="eventName" name="eventName" maxlength="100" required>
+                    {{ form.eventName }} 
+                    <!-- form.eventName calling the form field from forms.py -->
+                    <!-- <input type="text" id="eventName" name="eventName" maxlength="100" required> -->
                 </div>
 
                 <div class="form-field">
                     <label for="eventDate">Event Date:</label>
-                    <input type="date" id="eventDate" name="eventDate" required>
+                    {{ form.eventDate }}
+                    <!-- <input type="date" id="eventDate" name="eventDate" required> -->
                 </div>
 
                 <div class="form-field">
@@ -65,4 +72,5 @@
         <script src="eventCreation.js"></script>
         <script src="date_timeValidation.js"></script>
     </body>
+    {% endblock content %}
 </html>
