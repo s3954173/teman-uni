@@ -28,5 +28,6 @@ urlpatterns = [
     path('logout/', user_views.logout_view, name='logout'),
     path('events/', events_views.createEvent, name='events'),
      path('test/', user_views.test, name='test'), # To be removed
+     path('new_login/', user_views.new_login, name='new_login'), # To be removed
      
 ]

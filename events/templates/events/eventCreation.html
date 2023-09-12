@@ -4,8 +4,8 @@
 <html>
     <head>
         <title>Create Event</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'eventStyle.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'events/eventStyle.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'events/style.css' %}">
 
     </head>
     {% block content %}
@@ -69,8 +69,8 @@
                 </div>
             </form>
         </div>
-        <script src="eventCreation.js"></script>
-        <script src="date_timeValidation.js"></script>
+        <script src="{% static 'events/eventCreation.js' %}"></script>
+        <script src="{% static 'events/date_timeValidation.js' %}"></script>
     </body>
     {% endblock content %}
 </html>

@@ -32,7 +32,7 @@ def register(request):
             
     else:
         form = UserRegisterForm()
-    return render(request, 'users/register.html', {'form': form})
+    return render(request, 'users/registerold.html', {'form': form})
 
 
 def login_view(request):
@@ -66,9 +66,10 @@ def login_view(request):
         else:
             form = tmLoginForm()
         
-        return render(request, 'users/login.html', {'form': form})
+        return render(request, 'users/loginold.html', {'form': form})
     else:
         return redirect('home')
+
 
 
 def logout_view(request):
@@ -85,3 +86,5 @@ def test(request):
         # The user is not authenticated, display a different template or message
         return render(request, 'users/test_unauthenticated.html')
 
+def new_login(request):
+    return render(request, 'users/login.html')

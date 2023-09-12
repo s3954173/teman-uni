@@ -1,0 +1,84 @@
+:root {
+	--primary-color: #FBC000;
+	--secondary-color: #1C152D;
+	--red: #DA2B2B;
+	--grey: #808080;
+	--green: #8DCF6F;
+	--blue: #3B82F6;
+	--neutral-one: #F9F1D8;
+--neutral-two: #FFFBF0;
+}
+
+.main title text {
+	color: #000;
+text-align: center;
+font-family: Lexend Deca;
+font-size: 96px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+}
+
+.title text {
+	color: #000;
+
+/* Title */
+font-family: Lexend Deca;
+font-size: 42px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.subtitle text {
+	color: #000;
+
+/* Subtitle */
+font-family: Lexend Deca;
+font-size: 28px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.heading-one text {
+	color: #000;
+
+/* Heading 1 */
+font-family: Lexend Deca;
+font-size: 32px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.heading-two text {
+	color: #000;
+
+/* Heading 2 */
+font-family: Lexend Deca;
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.heading-three text {
+	color: #000;
+font-family: Lexend Deca;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.normal-text {
+	color: #000;
+
+/* Text */
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}

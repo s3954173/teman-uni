@@ -1,20 +1,52 @@
-{% block content %}
-<div >
-    <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-        {{ form.email.label_tag }} {{ form.email }}
-        {{ form.password.label_tag }} {{ form.password }}
-        <button type="submit">Login</button>
-    </form>
-    {% if error_message %}
-<p>{{ error_message }}</p>
-{% endif %}
+{% load static %}
 
-    <!-- Create an account link-->
-    <div class="border-top pt-3">
-        
-        <a class="ml-2" href="{% url 'register' %}">Create an Account?</a>
-        
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="{% static 'users/login.css' %}">
+
+</head>
+
+<div class="split-right">
+    <div class="login-form">
+
+        <div class="image-1">
+            <img src="{% static 'users/Teman-uni-logo.png' %}" alt="Teman-uni-logo" width="165px" height="120px">
+        </div>
+
+        <div class="Welcome-Back">
+            Welcome Back!
+        </div>
+
+        <div>
+            <div class="email">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" placeholder="Enter your email" required>
+            </div>
+        </div>
+
+        <div>
+            <div class="password">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                <div class="Cant-login"><a href="forgot-password.html">Can't log in?</a></div>
+            </div>
+        </div>
+
+        <div class="login">
+            <!-- MFA Link -->
+            <a href="MFA.html">
+                <input type="submit" value="Log in">
+            </a>
+
+        </div>
+
+        <div class="create-account">
+            <a href="register.html">Create an account</a>
+        </div>
+            
     </div>
 </div>
-{% endblock content %}
+
+</html>

@@ -13,5 +13,7 @@ def createEvent(request):
             return redirect('success_url')
     else:
         form = EventForm()
+    
+    
 
     return render(request, 'events/eventCreation.html', {'form' : form})
