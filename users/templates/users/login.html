@@ -8,6 +8,7 @@
 
 </head>
 
+<body>
 <div class="split-right">
     <div class="login-form">
 
@@ -18,29 +19,29 @@
         <div class="Welcome-Back">
             Welcome Back!
         </div>
-
-        <div>
+        <!-- Post Form for Login -->
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
             <div class="email">
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email" placeholder="Enter your email" required>
+                <label for="{{ form.email.id_for_label }}">Email</label>
+                <div class="error-message" id="email-error"></div>
+                {{ form.email }}
+                
             </div>
-        </div>
 
-        <div>
             <div class="password">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                <label for="{{ form.password.id_for_label }}">Password</label>
+                <div class="error-message" id="password-error">{{error_message}}</div>              
+                {{ form.password }}
+
                 <div class="Cant-login"><a href="forgot-password.html">Can't log in?</a></div>
             </div>
-        </div>
 
-        <div class="login">
-            <!-- MFA Link -->
-            <a href="MFA.html">
+            <div class="login">
                 <input type="submit" value="Log in">
-            </a>
+            </div>
+        </form>
 
-        </div>
 
         <div class="create-account">
             <a href="register.html">Create an account</a>
@@ -48,5 +49,47 @@
             
     </div>
 </div>
+<!-- Include the JavaScript file -->
 
+   <!-- Include jQuery -->
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js">
+  
+    document.addEventListener("DOMContentLoaded", function () {
+        const emailField = document.getElementById("id_email"); // Corrected ID
+        const passwordField = document.getElementById("id_password"); // Corrected ID
+        const emailError = document.getElementById("email-error");
+        const passwordError = document.getElementById("password-error");
+
+        emailField.addEventListener("blur", function () {
+            if (!emailField.value.trim()) {
+                emailError.textContent = "Email is required";
+            } else {
+                emailError.textContent = ""; // Clear the error message
+            }
+        });
+
+        passwordField.addEventListener("blur", function () {
+            if (!passwordField.value.trim()) {
+                passwordError.textContent = "Password is required";
+            } else {
+                passwordError.textContent = ""; // Clear the error message
+            }
+        });
+
+        // Wait for the document to be ready
+        $(document).ready(function () {
+                // Get the error message from the server (assuming you've passed it to the template)
+                var serverErrorMessage = "{{ error_message }}";
+
+                // Check if the server error message matches "Invalid email or password"
+                if (serverErrorMessage === "Invalid email or password") {
+                    // Replace the error message in the HTML with the server error message
+                    $('#password-error').text(serverErrorMessage);
+                }
+            });
+    </script>
+
+   <!-- <script src="{% static 'users/login.js' %}"></script> -->
+   
+</body>
 </html>
