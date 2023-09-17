@@ -19,6 +19,7 @@
             <ul class="nav-list">
                 <li class="nav-item"><a href="about.hml">About</a></li>
                 <li class="nav-item"><a href="messages.html"><img src="./img/message.png" alt="Messages"></a></li>
+                <li class="nav-item"><a href="#"><img src="./img/events.png" alt="Events"></a></li>
                 <li class="nav-item"><a href="profile.html"><img src="./img/profile.png" alt="Profile"></a></li>
                 <li class="nav-item"><a href="notifications.html"><img src="./img/notification.png" alt="Notifications"></a></li>
                 <li class="nav-item"><a href="#"><img src="./img/logout.png" alt="Log Out"></a></li>
@@ -260,10 +261,74 @@
 
   </section>
   
-
-
-    <!-- jQuey, Popper, BootstrapJS -->
+    jQuey, Popper, BootstrapJS
     <script src="bootstrap3.3/js/jquery-3.3.1.min.js"></script>
     <script src="bootstrap3.3/js/bootstrap.min.js"></script>
+
+       <!--  <script>
+      const chatArea = document.querySelector("#chat-area");
+      const messageInput = document.querySelector("#type-area");
+      const sendButton = document.querySelector(".glyphicon-send");
+  
+      // Connect to WebSocket
+      const socket = new WebSocket('ws://your-domain-or-ip/chat/');
+  
+      socket.onopen = function(event) {
+          console.log('WebSocket is connected.');
+      };
+  
+      socket.onmessage = function(event) {
+          const data = JSON.parse(event.data);
+          if (data.message) {
+              let messageBlock = '';
+              
+              // Assuming `type` is either 'send' or 'receive' to differentiate between messages from the user and their friend
+              if (data.type === 'send') {
+                  messageBlock = `
+                      <div class="your-chat">
+                          <p class="your-chat-balloon">${data.message}</p>
+                      </div>
+                  `;
+              } else {
+                  messageBlock = `
+                      <div class="friends-chat">
+                          <div class="profile friends-chat-photo">
+                              <img src="${data.image}" alt="">
+                          </div>
+                          <div class="friends-chat-content">
+                              <p class="friends-chat-name">${data.sender}</p>
+                              <p class="friends-chat-balloon">${data.message}</p>
+                          </div>
+                      </div>
+                  `;
+              }
+  
+              chatArea.innerHTML += messageBlock;
+              chatArea.scrollTop = chatArea.scrollHeight;
+          }
+      };
+  
+      sendButton.onclick = function() {
+          const message = messageInput.value;
+  
+          if (message) {
+              socket.send(JSON.stringify({
+                  'message': message,
+                  'type': 'send'
+              }));
+  
+              messageInput.value = '';
+          }
+      };
+  
+      // Optional: Send the message with the "Enter" key
+      messageInput.addEventListener('keydown', function(event) {
+          if (event.keyCode === 13 && !event.shiftKey) {
+              event.preventDefault();
+              sendButton.click();
+          }
+      });
+  </script> -->
+  
 </body>
 </html>

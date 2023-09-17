@@ -1,0 +1,47 @@
+""" INSTALLED_APPS = [
+    ...
+    'users',
+    'messaging',  
+    'channels',
+    ...
+]
+
+Channel layers settings
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
+
+Use channels for routing
+ASGI_APPLICATION = 'temanuni.routing.application'
+
+^
+Add this to settings.py in temanuni (i think)
+
+from channels.routing import ProtocolTypeRouter, URLRouter
+import messaging.routing  # Add this line
+
+application = ProtocolTypeRouter({
+    'websocket': URLRouter(
+        messaging.routing.websocket_urlpatterns
+    ),
+})
+
+^
+Add this to routing.py in temanuni 
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('users/', include('users.urls')),
+    path('messaging/', include('messaging.urls')),  # Add this line
+]
+
+^
+Add this to urls.py in temanuni"""
