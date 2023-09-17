@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,9 +33,9 @@
                 <label for="{{ form.password.id_for_label }}">Password</label>
                 <div class="error-message" id="password-error">
                     {% for message in error_messages %}
-                        {% if message != "Invalid email or password" %}
-                            {{ message }}
-                        {% endif %}
+                     {% if message != "Invalid email or password" %}
+                        {{ message }}
+                     {% endif %}
                     {% endfor %}
             </div>              
                 {{ form.password }}

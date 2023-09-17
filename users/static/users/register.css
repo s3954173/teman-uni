@@ -134,3 +134,7 @@ input[type=submit]:hover {
         font-weight: 500;
         line-height: normal;
 }
+
+.error-message {
+    color: red; /* Set the text color to red */
+}

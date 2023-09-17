@@ -24,15 +24,19 @@ def register(request):
                 # Save user data to the temanuni database using temanuni_form
                 temanuni_form.save(commit=True)  # Save the data using your custom form
 
-                messages.success(request, f"You've been successfully registered!")
-                return redirect('login')
-            else:
-                messages.success(request, f"Email found, not registered")
                 return redirect('home')
+            else:
+                messages.error(request, f"This email has already been registered")
+                # return redirect('home')
+        else:
+            messages.error(request, f"Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.")
+
             
     else:
         form = UserRegisterForm()
-    return render(request, 'users/registerold.html', {'form': form})
+
+    error_messages = messages.get_messages(request)    
+    return render(request, 'users/register.html', {'form': form, 'error_messages': error_messages})
 
 
 def login_view(request):
