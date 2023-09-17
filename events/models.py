@@ -13,33 +13,33 @@ def validate_word_limit(value):
             params={'limit':word_limit},
         )
 
-class Event(models.Model):
-    eventName = models.CharField(max_length=100)
-    eventDate = models.DateField()
-    eventTime = models.TimeFields()
-    eventDesc = models.TextField(max_length=1000)
-    eventID = models.AutoField(primary_key=True)
-    eventAdmin = models.ForeignKey(on_delete=models.CASCADE)
+# class Event(models.Model):
+#     eventName = models.CharField(max_length=100)
+#     eventDate = models.DateField()
+#     eventTime = models.TimeFields()
+#     eventDesc = models.TextField(max_length=1000)
+#     eventID = models.AutoField(primary_key=True)
+#     eventAdmin = models.ForeignKey(on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.eventName
+#     def __str__(self):
+#         return self.eventName
     
     
-class SubmitEvent(models.Model):
-    eventName = models.CharField(max_length=100)
-    eventDate = models.DateField()
-    eventTime = models.TimeFields()
-    eventDesc = models.TextField(max_length=1000)
-    eventID = models.AutoField(primary_key=True)
-    eventAdmin = models.ForeignKey(on_delete=models.CASCADE)
-    creatorID = models.OneToOneField(on_delete=models.CASCADE, related_name='creator_profile')
+# class SubmitEvent(models.Model):
+#     eventName = models.CharField(max_length=100)
+#     eventDate = models.DateField()
+#     eventTime = models.TimeFields()
+#     eventDesc = models.TextField(max_length=1000)
+#     eventID = models.AutoField(primary_key=True)
+#     eventAdmin = models.ForeignKey(on_delete=models.CASCADE)
+#     creatorID = models.OneToOneField(on_delete=models.CASCADE, related_name='creator_profile')
 
-    def __str__(self):
-        return self.eventName
+#     def __str__(self):
+#         return self.eventName
 
-class InvitedFriends(models.Model):
-    friendID = models.ForeignKey(on_delete=models.CASCADE)
-    eventID = models.ForeignKey('Event', on_delete=models.CASCADE)
+# class InvitedFriends(models.Model):
+#     friendID = models.ForeignKey(on_delete=models.CASCADE)
+#     eventID = models.ForeignKey('Event', on_delete=models.CASCADE)
 
-    def __str__(self):
-        return f"Invited friend: {self.friendID.username} for Event: {self.eventID.eventName}"
+#     def __str__(self):
+#         return f"Invited friend: {self.friendID.username} for Event: {self.eventID.eventName}"
