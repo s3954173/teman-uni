@@ -142,4 +142,14 @@ class ProfileLanguages(models.Model):
         unique_together = (('profile_id', 'language_id'),)
 
 
+class Friends(models.Model):
+    user1_id = models.ForeignKey('User', on_delete=models.CASCADE, related_name='matches_as_user1')
+    user2_id = models.ForeignKey('User', on_delete=models.CASCADE, related_name='matches_as_user2')
+    match_user1 = models.BooleanField(default=False)
+    match_user2 = models.BooleanField(default=False)
+
+    class Meta:
+        managed = False
+        db_table = 'friends'
+        unique_together = (('user1_id', 'user2_id'),)
 
