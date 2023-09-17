@@ -62,13 +62,14 @@ def login_view(request):
                     return redirect('test')  # Redirect to the home page or any other page
                 else:
                     # Authentication failed, show an error message
-                    messages.error(request, 'Invalid email or password', extra_tags='invalid_login')
+                    messages.error(request, 'Invalid email or password')
+
         else:
             form = tmLoginForm()
 
         # Include the error message in the template context
-        error_message = messages.get_messages(request)        
-        return render(request, 'users/login.html', {'form': form, 'error_message': error_message})
+        error_messages = messages.get_messages(request)        
+        return render(request, 'users/login.html', {'form': form, 'error_messages': error_messages})
     else:
         return redirect('home')
 
