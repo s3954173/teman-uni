@@ -1,6 +1,7 @@
 from django import forms
 from temanuni.models import Events
 from datetime import datetime
+from .models import InvitedFriends
 
 
 class EventForm(forms.ModelForm):
@@ -56,16 +57,12 @@ class EventForm(forms.ModelForm):
                 self.add_error('eventDate', 'Event date and time must be in the future.')
 
 
-#submitEventForm
-#  
-#     def __init__(self, *args, **kwargs):
-        # super(submitEventForm, self).__init__(*args, **kwargs)
-        
-        # # Get the current user
-        # creator_id = request.session['user_id']
-        #self.fields['creator_id].widget.attrs = creator_id
-        
-        # # Set min attributes for eventDate and eventTime widgets
-        # self.fields['eventDate'].widget.attrs['min'] = current_datetime.date()
-        # self.fields['eventTime'].widget.attrs['min'] = current_datetime.strftime('%H:%M')
-#InvitedUsersForm
+class SubmitEventForm (forms.ModelForm):
+    class Meta:
+        model = Events
+        fields = ['eventName', 'eventDate', 'eventTime', 'eventDesc', 'eventID', 'creatorID']
+
+class InvitedFriendsForm(forms.ModelForm):
+    class Meta:
+        model = InvitedFriends
+        fields = ['friendID', 'eventID']
