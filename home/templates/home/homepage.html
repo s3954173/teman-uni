@@ -1,0 +1,187 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="bootstrap3.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap">
+    <!-- <link rel="stylesheet" href="chat.css"> -->
+    <link rel="stylesheet" href="{% static 'home/homepage.css' %}">
+</head>
+<body>
+
+  <!-- NAV BAR SECTION -->
+  <div class="container-header">
+    <div class="navbar">
+        <img class="logo" src="{% static 'home/img/logo.png' %}" alt="Logo">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="{% url 'about' %}">About</a></li>
+            <li class="nav-item"><a href="{% url 'messages' %}"><img src="{% static 'home/img/message.png' %}" alt="Messages"></a></li>
+            <li class="nav-item"><a href="#"><img src="{% static 'home/img/events.png' %}" alt="Events"></a></li>
+            <li class="nav-item"><a href="{% url 'profile' %}"><img src="{% static 'home/img/profile.png' %}" alt="Profile"></a></li>
+            <li class="nav-item"><a href="{% url 'notifications' %}"><img src="{% static 'home/img/notification.png' %}" alt="Notifications"></a></li>
+            <li class="nav-item"><a href="#"><img src="{% static 'home/img/logout.png' %}" alt="Log Out"></a></li>
+        </ul>
+    </div>
+  </div>
+
+
+  <div id="app" class="app">
+
+    <!-- LEFT SECTION -->
+    
+    <section id="main-left" class="main-left">
+      <!-- header -->
+      <div id="header-left" class="header-left">
+          <!-- Add "messages" header here -->
+        <div>Messages</div>
+      </div>
+
+<!-- chat list -->
+<div id="chat-list" class="chat-list">
+  <!-- user lists -->
+  <a href="{% url 'messages' %}">
+      <div class="friends">
+          <!-- photo -->
+          <div class="profile friends-photo">
+              <img src="{% static 'img/rebeccaicon.png' %}" alt="Rebecca's Photo">
+          </div>
+          <div class="friends-credent">
+              <!-- name -->
+              <span class="friends-name">Rebecca</span>
+              <!-- last message -->
+              <span class="friends-message">about to sleep LOL wbu</span>
+          </div>
+          <!-- online activity -->
+          <span class="badge notif-badge"><img src="{% static 'img/onlinedot.png' %}" alt="Online"></span>
+      </div>
+  </a>
+
+  <div class="friends">
+      <!-- photo -->
+      <div class="profile friends-photo">
+          <img src="{% static 'img/ellioticon.png' %}" alt="Eliott's Photo">
+      </div>
+      <div class="friends-credent">
+          <!-- name -->
+          <span class="friends-name">Eliott</span>
+          <!-- last message -->
+          <span class="friends-message">Last Online 3 days ago</span>
+      </div>
+      <!-- online activity -->
+      <span class="badge notif-badge"><img src="{% static 'img/offlinedot.png' %}" alt="Offline"></span>
+  </div>
+
+  <div class="friends">
+      <!-- photo -->
+      <div class="profile friends-photo">
+          <img src="{% static 'img/pedroicon.png' %}" alt="Pedro's Photo">
+      </div>
+      <div class="friends-credent">
+          <!-- name -->
+          <span class="friends-name">Pedro</span>
+          <!-- last message -->
+          <span class="friends-message">Let's meet up again!</span>
+      </div>
+      <!-- online activity -->
+      <span class="badge notif-badge"><img src="{% static 'img/onlinedot.png' %}" alt="Online"></span>
+  </div>
+
+  <div class="friends">
+      <!-- photo -->
+      <div class="profile friends-photo">
+          <img src="{% static 'img/anhicon.png' %}" alt="Anh's Photo">
+      </div>
+      <div class="friends-credent">
+          <!-- name -->
+          <span class="friends-name">Anh</span>
+          <!-- last message -->
+          <span class="friends-message">omw to class -_-</span>
+      </div>
+      <!-- online activity -->
+      <span class="badge notif-badge"><img src="{% static 'img/onlinedot.png' %}" alt="Online"></span>
+  </div>
+
+  <div class="friends">
+      <!-- photo -->
+      <div class="profile friends-photo">
+          <img src="{% static 'img/theresaicon.png' %}" alt="Theresa's Photo">
+      </div>
+      <div class="friends-credent">
+          <!-- name -->
+          <span class="friends-name">Theresa</span>
+          <!-- last message -->
+          <span class="friends-message">Last online 5 days ago</span>
+      </div>
+      <!-- online activity -->
+      <span class="badge notif-badge"><img src="{% static 'img/offlinedot.png' %}" alt="Offline"></span>
+  </div>
+
+  <div class="friends">
+      <!-- photo -->
+      <div class="profile friends-photo">
+          <img src="{% static 'img/jamesicon.png' %}" alt="James's Photo">
+      </div>
+      <div class="friends-credent">
+          <!-- name -->
+          <span class="friends-name">James</span>
+          <!-- last message -->
+          <span class="friends-message">Hey! I'm James, how are you?</span>
+      </div>
+      <!-- online activity -->
+      <span class="badge notif-badge"><img src="{% static 'img/offlinedot.png' %}" alt="Offline"></span>
+  </div>
+</div>
+
+<!-- Add "see all messages" link here -->
+<div style="padding-top: 10px; text-align: center;">
+  <a href="#" style="color: #3B82F6;">See all messages</a>
+</div>
+
+
+<section>
+  <!-- RIGHT SECTION -->
+  <section id="main-right" class="main-right">
+      <div id="header-right" class="header-right">
+          <!-- match picture -->
+          <img src="{% static 'img/matchpic.png' %}" alt="Match Picture">
+          <!-- match name -->
+          <div class="text-container">
+              <span class="match-name">Karolina Dame</span>
+              <span class="match-detail">Studying Bachelors of Arts</span>
+              <span class="match-detail">RMIT University</span>
+          </div>
+
+          <div class="main-tag">
+              <a><span class="tag">Drawing</span></a>
+              <a><span class="tag">Yoga</span></a>
+              <a><span class="tag">Arts and crafts</span></a>
+          </div>
+          <div class="main-tag">
+              <a><span class="tag">Arts and crafts</span></a>
+          </div>
+
+          <div class="for-button">
+              <button type="button" class="btn-close">
+                  <img src="{% static 'img/notmatch.png' %}" alt="Not Matched">
+              </button>
+              <button type="button" class="btn-star">
+                  <img id="star" src="{% static 'img/yesmatch.png' %}" alt="Yes Matched">
+              </button>
+          </div>
+      </div>
+  </section>
+</section>
+
+  
+
+
+    <!-- jQuey, Popper, BootstrapJS -->
+    <script src="bootstrap3.3/js/jquery-3.3.1.min.js"></script>
+    <script src="bootstrap3.3/js/bootstrap.min.js"></script>
+</body>
+</html>
