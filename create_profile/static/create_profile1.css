@@ -1,0 +1,658 @@
+
+.create_profile_form {
+    background-color: white;
+    border-radius: 20px;
+    width: 482px;
+    height: auto;
+    padding: 20px;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.create_your_profile {
+    font-family: Lexend Deca;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+    padding: 0px;
+}
+
+.note {
+    color: #000;
+    font-family: Lexend Deca;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    width: 350px;
+    margin-bottom: 30px;
+}
+
+hr.line {
+    border: 1px  solid #6A4E39;
+    width: 320px;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.name {
+    font-family: Lexend Deca;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+
+
+.first_name {
+    & label {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+    & input {
+    text-align: center;    
+    margin: auto;
+    display: block;
+    width: 250px;
+    height: 39px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+}
+
+.last_name {
+    & label {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+    & input {
+    text-align: center;
+    margin: auto;
+    display: block;
+    width: 250px;
+    height: 39px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+}
+
+.gender {
+
+    & label {
+        display: block;
+        justify-content: center;
+        text-align: center;
+        font-family: Lexend Deca;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-bottom: 11px;
+    }
+    & select {
+        text-align: center;
+        margin: auto;
+        display: block;
+        width: 258px;
+        height: 43px;
+        border-width: 2px;
+        border-radius: 5px;
+        margin-bottom: 30px;
+    }
+}
+
+.birthday {
+    font-family: Lexend Deca;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 22px;
+}
+
+.DOB {
+    & label {
+        display: block;
+        justify-content: center;
+        text-align: center;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-bottom: 10px;
+    }
+}   
+
+.DOB_select {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 0px 20px;
+    margin-bottom: 30px;
+
+}   
+
+input,
+select {
+    width: 110px;
+    height: 39px;
+    border-radius: 5px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 0px 25px;
+}
+
+.back {
+    background-color: #808080;
+    color: white;
+    border: none;
+    text-align: center;
+    display: table-cell;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    text-decoration: none;
+    font-weight: 500;
+    line-height: normal;
+    width: 172.5px;
+    height: 39px;
+    vertical-align: middle;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.back:hover {
+    background-color: #5b5b5b;
+}
+
+.next {
+    background-color: #FBC000;
+    width: 172.5px;
+    height: 39px;
+    border-radius: 10px;
+}
+
+input[type=submit] {
+    background-color: #FBC000;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width: 172.5px;
+    height: 39px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: #FBC000;
+}
+
+input[type=submit]:hover {
+    background-color: #e8b200;
+    border: #e8b200;
+}
+
+
+
+
+.create-your-profile2 {
+    font-family: Lexend Deca;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+    padding: 0px;
+}
+
+.note2 {
+    color: #000;
+    font-family: Lexend Deca;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    width: 250px;
+    margin-bottom: 30px;
+}
+
+
+.location {
+    font-family: Lexend Deca;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+
+
+.state {
+    & label {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+    & input {
+    text-align: center;    
+    margin: auto;
+    display: block;
+    width: 250px;
+    height: 39px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+}
+
+.city {
+    & label {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+    & input {
+    text-align: center;
+    margin: auto;
+    display: block;
+    width: 250px;
+    height: 39px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+}
+
+.uni-go-to {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    width: 180px;
+    font-family: Lexend Deca;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 11px;
+}
+
+.uni {
+
+    & label {
+        display: block;
+        justify-content: center;
+        text-align: center;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-bottom: 11px;
+    }
+    & select {
+        text-align: center;
+        margin: auto;
+        display: block;
+        width: 258px;
+        height: 43px;
+        border-width: 2px;
+        border-radius: 5px;
+        margin-bottom: 30px;
+    }
+}
+
+
+.your-course {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    font-family: Lexend Deca;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 11px;
+}
+
+.course {
+
+    & label {
+        display: block;
+        justify-content: center;
+        text-align: center;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-bottom: 11px;
+    }
+    & select {
+        text-align: center;
+        margin: auto;
+        display: block;
+        width: 258px;
+        height: 43px;
+        border-width: 2px;
+        border-radius: 5px;
+        margin-bottom: 30px;
+    }
+}
+
+
+
+
+
+.create-your-profile3 {
+    font-family: Lexend Deca;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+    padding: 0px;
+}
+
+.note3 {
+    color: #000;
+    font-family: Lexend Deca;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    width: 250px;
+    margin-bottom: 30px;
+}
+
+.interests {
+    font-family: Lexend Deca;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+
+
+.box {
+    width: 300px;
+    height: 300px;
+    border: 2px solid #000;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    overflow: hidden;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.scrollbox {
+    width: 100%;
+    max-height: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.category {
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-family: Lexend Deca;
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.choose_interests {
+    display: flex;
+    justify-content: space-between;
+    transform: translate(-5px, 0px);
+    margin-bottom: 10px; 
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0; 
+    border-radius: 50px; 
+    padding: 10px 20px;
+    width: 48%;
+}
+
+.checkbox-label input[type="checkbox"] {
+    appearance: none;
+    width: 10px;
+    height: 10px; 
+    background-color: #fff; 
+    border-radius: 50%; 
+    border: 2px solid #000;  
+}
+
+.checkbox-label input[type="checkbox"]:checked {
+    background-color: #e8b200; 
+    border-color: #e8b200; 
+}
+
+.what_language {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    width: 180px;
+    font-family: Lexend Deca;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 11px;
+}
+
+
+
+.language {
+
+    & label {
+        display: block;
+        justify-content: center;
+        text-align: center;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-bottom: 11px;
+    }
+    & select {
+        text-align: center;
+        margin: auto;
+        display: block;
+        width: 258px;
+        height: 43px;
+        border-width: 2px;
+        border-radius: 5px;
+        margin-bottom: 30px;
+    }
+}
+
+
+
+.note4 {
+    color: #000;
+    font-family: Lexend Deca;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    width: 250px;
+    margin-bottom: 30px;
+}
+
+
+/*.add_picture {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-pic {
+    width: 200px;
+    max-height: 200px;
+    display: inline-block;
+}
+
+.file-upload {
+    display: none;
+}
+.circle {
+    border-radius: 100% !important;
+    overflow: hidden;
+    width: 128px;
+    height: 128px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    position: absolute;
+    top: 72px;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+.p-image {
+  position: absolute;
+  top: 167px;
+  right: 30px;
+  color: #666666;
+  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+}
+.p-image:hover {
+  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+}
+.upload-button {
+  font-size: 1.2em;
+}
+
+.upload-button:hover {
+  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+  color: #999;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,281 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #F9F1D8;
+        }
+    </style>
+
+    <link rel="stylesheet" href="{% static 'create_profile1.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="{% static 'create_profile1.js' %}"></script>
+
+</head>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+            <!-- {{ form.as_p }} -->
+
+            <div class="create_profile_form">
+
+                <div class="create_your_profile">Create your Profile</div>
+
+                <div class="note">You won't be able to change this later on, so keep that in mind.</div>
+
+                <div class="name">What's your Name?</div>
+
+                <div>
+                    <div class="first_name">
+                        <label for="first_name">First Name</label>
+                        <input type="text" name="first_name" id="first_name" placeholder="Enter your First Name" required>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="last_name">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" name="last_name" id="last_name" placeholder="Enter your Last Name" required>
+                    </div>
+                </div>
+
+                <div class="gender">
+                    <label for="gender">What's your gender?</label>
+                    <select name="gender" id="gender" required>
+                        <option disabled selected>Gender</option>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                        <option value="non-binary">Non-Binary</option>
+                        <option value="other">Other</option>
+                        <option value="prefer-not-to-answer">Prefer not to answer</option>
+                    </select>
+                </div>
+
+                <div class="birthday">When's your Birthday?</div>
+
+                <div class="DOB">
+                    <label for="DOB">Date of Birth</label>
+                    <div class="DOB_select">
+                        <select name="day" id="day"></select>
+
+                        <select name="month" id="month"></select>
+
+                        <select name="year" id="year">Year:</select>
+                    </div>
+                </div>
+
+
+                <div>
+                    <hr class="line">
+                </div>
+
+                <div class="create-your-profile2">Create your Profile</div>
+    
+                <div class="note2">This'll help you in the matchmaking process.</div>
+    
+                <div class="location">Set up your location</div>
+    
+                <div>
+                    <div class="state">
+                        <label for="state">State</label>
+                        <input type="text" name="state" id="state" placeholder="Enter your State Name" required>
+                    </div>
+                </div>
+    
+                <div>
+                    <div class="city">
+                        <label for="city">City</label>
+                        <input type="text" name="city" id="city" placeholder="Enter your City Name" required>
+                    </div>
+                </div>
+    
+                <div class="uni-go-to">What University do you go to?</div>
+    
+                <div class="uni">
+                    <label for="uni">University Name</label>
+                    <select name="university" id="uni" required>
+                        <option disabled selected>Enter University Name</option>
+                        <option value="RMIT">Royal Melbourne Institute of Technology</option>
+                        <option value="Melb-Uni">The University Of Melbourne</option>
+                        <option value="LaTrobe">LA Trobe University</option>
+                        <option value="VicUni">Victoria University</option>
+                        <option value="Monash">Monash University</option>
+                        <option value="Swinburne">Swinburne University Of Technology</option>
+                    </select>
+                </div>
+    
+                <div class="your-course">What's your course?</div>
+    
+                <div class="course">
+                    <label for="course">Course Name</label>
+                    <select name="course" id="course" required>
+                        <option disabled selected>Enter Course Name</option>
+                        <option value="Business">Bachelor of Business</option>
+                        <option value="IT">Bachelor of Information Technology</option>
+                        <option value="Pharma">Bachelor of Pharmaceutical Sciences</option>
+                        <option value="Nursing">Bachelor of Nursing</option>
+                        <option value="BioMed">Bachelor of Biomedical Science</option>
+                        <option value="Enviro">Bachelor of Environmental Science</option>
+                    </select>
+                </div>
+
+                 
+                <div>
+                    <hr class="line">
+                </div>
+
+                <div class="create-your-profile3">Complete your Profile</div>
+    
+                <div class="note3">This'll help you in the matchmaking process.</div>
+    
+                <div class="interests">Choose your interests</div>
+
+                <div class="box">
+                    <div class="scrollbox">
+                        <div class="category">Values & traits</div>
+                        <div class="choose_interests">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="selected_choices">
+                                <span> Being active</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="selected_choices">
+                                <span>Ambition</span>
+                            </label>
+                        </div>
+                        <div class="choose_interests">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="selected_choices">
+                                <span>Confidence</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="selected_choices">
+                                <span>Positivity</span>
+                            </label>
+                        </div>
+                        <div class="category">Bumble values & Allyship</div>
+                        <div class="choose_interests">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="selected_choices">
+                                <span>BLS</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="selected_choices">
+                                <span>Feminismt</span>
+                            </label>
+                        </div>
+                        <div class="choose_interests">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="selected_choices">
+                                <span>Human Rights</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="selected_choices">
+                                <span>Environmentalism</span>
+                            </label>
+                        </div>
+                        <div class="category">Travelling</div>
+                        <div class="choose_interests">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="selected_choices">
+                                <span>Beaches</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="selected_choices">
+                                <span>Camping</span>
+                            </label>
+                        </div>
+                        <div class="choose_interests">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="selected_choices">
+                                <span>Spa</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="selected_choices">
+                                <span>Country Escape</span>
+                            </label>
+                        </div>
+                        <div class="category">Media</div>
+                        <div class="choose_interests">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="selected_choices">
+                                <span>Romance</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="selected_choices">
+                                <span>Fantasy</span>
+                            </label>
+                        </div>
+                        <div class="choose_interests">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="selected_choices">
+                                <span>Sci-fi</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="selected_choices">
+                                <span>Anime</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+    
+    
+                <div class="what_language">What language do you speak?</div>
+    
+                <div class="language">
+                    <label for="language">Language</label>
+                    <select name="language" id="language" required>
+                        <option disabled selected>My Languages</option>
+                        <option value="RMIT">English</option>
+                        <option value="Melb-Uni">Mandarin</option>
+                        <option value="LaTrobe">Vietnamese</option>
+                        <option value="VicUni">Japanese</option>
+                        <option value="Monash">Italian</option>
+                        <option value="Swinburne">French</option>
+                    </select>
+                </div>
+
+                <div>
+                    <hr class="line">
+                </div>
+
+               <!-- <div class="note4">Add whatever picture you like!</div>
+                <div class="add_picture">
+                    <label for="profile_picture">Add some pictures</label>
+                    <div class="row">
+                        <div class="small-12 medium-2 large-2 columns">
+                          <div class="circle">
+                            <img class="profile-pic" src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg">
+                     
+                          </div>
+                          <div class="p-image">
+                            <i class="fa fa-camera upload-button"></i>
+                             <input class="file-upload" type="file" accept="image/*"/>
+                          </div>
+                       </div>
+                     </div>
+                </div> -->
+
+                <div class="buttons">
+                    <div>
+                        <a class="back" href="create-profile1.html">Back</a>
+                    </div>
+                    <div class="next">
+                        <a href="../create-profile2/create-profile2.html">
+                            <input type="submit" value="Next">
+                        </a>
+                    </div>
+                </div> 
+
+            </div>
+
+
+                
+
+    
+                    
+        
+    </form>
+
+</html>
