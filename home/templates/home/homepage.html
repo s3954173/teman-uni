@@ -22,7 +22,7 @@
         <ul class="nav-list">
             <li class="nav-item"><a href="">About</a></li>
             <li class="nav-item"><a href=""><img src="{% static 'home/img/message.png' %}" alt="Messages"></a></li>
-            <li class="nav-item"><a href=""><img src="{% static 'home/img/events.png' %}" alt="Events"></a></li>
+            <li class="nav-item"><a href="{% url 'events' %}"><img src="{% static 'home/img/events.png' %}" alt="Events"></a></li>
             <li class="nav-item"><a href=""><img src="{% static 'home/img/profile.png' %}" alt="Profile"></a></li>
             <li class="nav-item"><a href=""><img src="{% static 'home/img/notification.png' %}" alt="Notifications"></a></li>
             <li class="nav-item"><a href="{% url 'logout' %}"><img src="{% static 'home/img/logout.png' %}" alt="Log Out"></a></li>

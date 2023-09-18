@@ -63,7 +63,7 @@ def login_view(request):
                     login(request, user)
                     
 
-                    return redirect('test')  # Redirect to the home page or any other page
+                    return redirect('home')  # Redirect to the home page or any other page
                 else:
                     # Authentication failed, show an error message
                     messages.error(request, 'Invalid email or password')
