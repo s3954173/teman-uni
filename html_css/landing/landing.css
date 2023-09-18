@@ -1,0 +1,175 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container-header {
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+.navbar {
+    background-color: #000000;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 80px;
+    box-shadow: 0px 2px 5px rgba(209, 207, 207, 0.1);
+    display: flex;  
+    width: 100%;  /* take the full width of the parent container */
+    padding: 0px 2%;  /* use percentage for padding to keep it responsive */
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+}
+
+.nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    text-align: center;
+    position: relative;
+}
+
+.nav-item a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    color: #fff; 
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+}
+
+.nav-item a:hover {
+    background-color: #808080;
+}
+
+/* Login Button Style */
+.btn-login {
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    background: var(--Primary-Colour, #FBC000);
+}
+
+/* Register Button Style */
+.btn-register {
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    background: var(--secondary-colour-dark, #1C152D);
+}
+
+/* Main Landing */
+.main-landing {
+    display: flex;
+    width: 1440px;
+    height: 1024px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: radial-gradient(247.61% 161.12% at 32.71% 46.68%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 166, 62, 0.45) 47.35%), rgba(253, 181, 28, 0.60);
+}
+
+/* "Teman Uni" Text */
+.text-teman-uni {
+    width: 554px;
+    height: 92px;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 96px;
+    font-weight: 800;
+    line-height: normal;
+}
+
+/* Main About Us div */
+.about-us {
+    display: flex;
+    height: 1020px;
+    padding: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border-radius: 20px;
+    background: var(--Lighter-Neutral-Radial, radial-gradient(69.22% 35.21% at 50% 50%, rgba(255, 255, 255, 0.40) 0%, rgba(253, 181, 28, 0.40) 100%), #FFF);
+}
+
+/* The smaller divs inside the main div */
+.about-section {
+    display: flex;
+    width: 880px;
+    padding: 20px 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    border-radius: 20px;
+}
+
+/* Picture styles */
+.picture {
+    width: 495px;
+    height: 259px;
+    flex-shrink: 0;
+}
+
+/* Heading of the text */
+.heading-text {
+    color: #000;
+    text-align: right;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+/* The text itself */
+.paragraph-text {
+    width: 267px;
+    color: #000;
+    text-align: right;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* For the images in the third div */
+.images {
+    display: flex;
+    padding: 10px 0px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+}

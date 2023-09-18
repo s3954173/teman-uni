@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="landing.css">
+</head>
+
+<body>
+    <!-- NAV BAR SECTION -->
+    <div class="container-header">
+        <div class="navbar">
+            <a src="">
+                <img class="logo" src="{% static 'home/img/logo.png' %}" alt="Logo">
+            </a>
+            <ul class="nav-list">
+                <li class="nav-item"><a href="{% url 'About' %}">About</a></li>
+                <li class="nav-item"><a href="{% url 'Testimonials' %}">Testimonials</a></li>
+                <li class="nav-item"><a href="{% url 'login' %}" class="btn-login">Login</a></li>
+                <li class="nav-item"><a href="{% url 'register' %}" class="btn-register">Register</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- MAIN LANDING SECTION -->
+    <div class="main-landing">
+        <div class="text-teman-uni">Teman Uni</div>
+        <div>
+            <a href="{% url 'login' %}" class="btn-login">Login</a>
+            <a href="{% url 'register' %}" class="btn-register">Register</a>
+        </div>
+    </div>
+
+    <!-- ABOUT US SECTION -->
+    <div class="about-us">
+
+        <!-- First Div -->
+        <div class="about-section">
+            <img src="{% static 'path_to_image.jpg' %}" alt="Description of Image" class="picture">
+            <div>
+                <div class="heading-text">What is Teman Uni?</div>
+                <p class="paragraph-text">Teman Uni is a student-created web matchmaking platform connecting university students based on shared interests and backgrounds.</p>
+            </div>
+        </div>
+
+        <!-- Second Div -->
+        <div class="about-section">
+            <div>
+                <div class="heading-text">Why Teman Uni?</div>
+                <p class="paragraph-text">We created Teman Uni to bridge global gaps among international students by fostering connections, support, and shared experiences.</p>
+            </div>
+            <img src="{% static 'path_to_another_image.jpg' %}" alt="Description of Image" class="picture">
+        </div>
+
+        <!-- Third Div -->
+        <div class="about-section">
+            <div class="heading-text">We hope you can...</div>
+            <div class="images">
+                <img src="{% static 'image1.jpg' %}" alt="Description of Image">
+                <img src="{% static 'image2.jpg' %}" alt="Description of Image">
+                <img src="{% static 'image3.jpg' %}" alt="Description of Image">
+            </div>
+        </div>
+
+    </div>
+
+    <h1>Landing Page</h1>
+</body>
+
+</html>
