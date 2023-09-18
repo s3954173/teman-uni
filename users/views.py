@@ -81,17 +81,15 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return render(request, 'users/logout.html')
+    return redirect('home')
 
-# Testing Purposes
-def test(request):
-    if 'user_id' in request.session and request.session['user_id']:
-        # The user is authenticated, perform actions accordingly
-        # You can also pass 'user' to the template context for use in the template
-        return render(request, 'users/test_authenticated.html')
-    else:
-        # The user is not authenticated, display a different template or message
-        return render(request, 'users/test_unauthenticated.html')
+# # Testing Purposes
+# def test(request):
+#     if 'user_id' in request.session and request.session['user_id']:
+#         # The user is authenticated, perform actions accordingly
+#         # You can also pass 'user' to the template context for use in the template
+#         return render(request, 'users/test_authenticated.html')
+#     else:
+#         # The user is not authenticated, display a different template or message
+#         return render(request, 'users/test_unauthenticated.html')
 
-def new_login(request):
-    return render(request, 'users/login.html')
