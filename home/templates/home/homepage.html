@@ -9,8 +9,9 @@
     <title>Homepage</title>
     <link rel="stylesheet" href="bootstrap3.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap">
-    <!-- <link rel="stylesheet" href="chat.css"> -->
+    <!-- <link rel="stylesheet" href="{% static 'home/chat.css' %}"> -->
     <link rel="stylesheet" href="{% static 'home/homepage.css' %}">
+
 </head>
 <body>
 
@@ -19,12 +20,12 @@
     <div class="navbar">
         <img class="logo" src="{% static 'home/img/logo.png' %}" alt="Logo">
         <ul class="nav-list">
-            <li class="nav-item"><a href="{% url 'about' %}">About</a></li>
-            <li class="nav-item"><a href="{% url 'messages' %}"><img src="{% static 'home/img/message.png' %}" alt="Messages"></a></li>
-            <li class="nav-item"><a href="#"><img src="{% static 'home/img/events.png' %}" alt="Events"></a></li>
-            <li class="nav-item"><a href="{% url 'profile' %}"><img src="{% static 'home/img/profile.png' %}" alt="Profile"></a></li>
-            <li class="nav-item"><a href="{% url 'notifications' %}"><img src="{% static 'home/img/notification.png' %}" alt="Notifications"></a></li>
-            <li class="nav-item"><a href="#"><img src="{% static 'home/img/logout.png' %}" alt="Log Out"></a></li>
+            <li class="nav-item"><a href="">About</a></li>
+            <li class="nav-item"><a href=""><img src="{% static 'home/img/message.png' %}" alt="Messages"></a></li>
+            <li class="nav-item"><a href=""><img src="{% static 'home/img/events.png' %}" alt="Events"></a></li>
+            <li class="nav-item"><a href=""><img src="{% static 'home/img/profile.png' %}" alt="Profile"></a></li>
+            <li class="nav-item"><a href=""><img src="{% static 'home/img/notification.png' %}" alt="Notifications"></a></li>
+            <li class="nav-item"><a href="{% url 'logout' %}"><img src="{% static 'home/img/logout.png' %}" alt="Log Out"></a></li>
         </ul>
     </div>
   </div>
@@ -44,11 +45,11 @@
 <!-- chat list -->
 <div id="chat-list" class="chat-list">
   <!-- user lists -->
-  <a href="{% url 'messages' %}">
+  <!-- <a href="#"> -->
       <div class="friends">
           <!-- photo -->
           <div class="profile friends-photo">
-              <img src="{% static 'img/rebeccaicon.png' %}" alt="Rebecca's Photo">
+              <img src="{% static 'home/img/rebeccaicon.png' %}" alt="Rebecca's Photo">
           </div>
           <div class="friends-credent">
               <!-- name -->
@@ -57,14 +58,14 @@
               <span class="friends-message">about to sleep LOL wbu</span>
           </div>
           <!-- online activity -->
-          <span class="badge notif-badge"><img src="{% static 'img/onlinedot.png' %}" alt="Online"></span>
+          <span class="badge notif-badge"><img src="{% static 'home/img/onlinedot.png' %}" alt="Online"></span>
       </div>
-  </a>
+  <!-- </a> -->
 
   <div class="friends">
       <!-- photo -->
       <div class="profile friends-photo">
-          <img src="{% static 'img/ellioticon.png' %}" alt="Eliott's Photo">
+          <img src="{% static 'home/img/ellioticon.png' %}" alt="Eliott's Photo">
       </div>
       <div class="friends-credent">
           <!-- name -->
@@ -73,13 +74,13 @@
           <span class="friends-message">Last Online 3 days ago</span>
       </div>
       <!-- online activity -->
-      <span class="badge notif-badge"><img src="{% static 'img/offlinedot.png' %}" alt="Offline"></span>
+      <span class="badge notif-badge"><img src="{% static 'home/img/offlinedot.png' %}" alt="Offline"></span>
   </div>
 
   <div class="friends">
       <!-- photo -->
       <div class="profile friends-photo">
-          <img src="{% static 'img/pedroicon.png' %}" alt="Pedro's Photo">
+          <img src="{% static 'home/img/pedroicon.png' %}" alt="Pedro's Photo">
       </div>
       <div class="friends-credent">
           <!-- name -->
@@ -88,13 +89,13 @@
           <span class="friends-message">Let's meet up again!</span>
       </div>
       <!-- online activity -->
-      <span class="badge notif-badge"><img src="{% static 'img/onlinedot.png' %}" alt="Online"></span>
+      <span class="badge notif-badge"><img src="{% static 'home/img/onlinedot.png' %}" alt="Online"></span>
   </div>
 
   <div class="friends">
       <!-- photo -->
       <div class="profile friends-photo">
-          <img src="{% static 'img/anhicon.png' %}" alt="Anh's Photo">
+          <img src="{% static 'home/img/anhicon.png' %}" alt="Anh's Photo">
       </div>
       <div class="friends-credent">
           <!-- name -->
@@ -103,13 +104,13 @@
           <span class="friends-message">omw to class -_-</span>
       </div>
       <!-- online activity -->
-      <span class="badge notif-badge"><img src="{% static 'img/onlinedot.png' %}" alt="Online"></span>
+      <span class="badge notif-badge"><img src="{% static 'home/img/onlinedot.png' %}" alt="Online"></span>
   </div>
 
   <div class="friends">
       <!-- photo -->
       <div class="profile friends-photo">
-          <img src="{% static 'img/theresaicon.png' %}" alt="Theresa's Photo">
+          <img src="{% static 'home/img/theresaicon.png' %}" alt="Theresa's Photo">
       </div>
       <div class="friends-credent">
           <!-- name -->
@@ -118,13 +119,13 @@
           <span class="friends-message">Last online 5 days ago</span>
       </div>
       <!-- online activity -->
-      <span class="badge notif-badge"><img src="{% static 'img/offlinedot.png' %}" alt="Offline"></span>
+      <span class="badge notif-badge"><img src="{% static 'home/img/offlinedot.png' %}" alt="Offline"></span>
   </div>
 
   <div class="friends">
       <!-- photo -->
       <div class="profile friends-photo">
-          <img src="{% static 'img/jamesicon.png' %}" alt="James's Photo">
+          <img src="{% static 'home/img/jamesicon.png' %}" alt="James's Photo">
       </div>
       <div class="friends-credent">
           <!-- name -->
@@ -133,7 +134,7 @@
           <span class="friends-message">Hey! I'm James, how are you?</span>
       </div>
       <!-- online activity -->
-      <span class="badge notif-badge"><img src="{% static 'img/offlinedot.png' %}" alt="Offline"></span>
+      <span class="badge notif-badge"><img src="{% static 'home/img/offlinedot.png' %}" alt="Offline"></span>
   </div>
 </div>
 
@@ -143,12 +144,12 @@
 </div>
 
 
-<section>
+</section>
   <!-- RIGHT SECTION -->
   <section id="main-right" class="main-right">
       <div id="header-right" class="header-right">
           <!-- match picture -->
-          <img src="{% static 'img/matchpic.png' %}" alt="Match Picture">
+          <img src="{% static 'home/img/matchpic.png' %}" alt="Match Picture">
           <!-- match name -->
           <div class="text-container">
               <span class="match-name">Karolina Dame</span>
@@ -167,15 +168,15 @@
 
           <div class="for-button">
               <button type="button" class="btn-close">
-                  <img src="{% static 'img/notmatch.png' %}" alt="Not Matched">
+                  <img src="{% static 'home/img/notmatch.png' %}" alt="Not Matched">
               </button>
               <button type="button" class="btn-star">
-                  <img id="star" src="{% static 'img/yesmatch.png' %}" alt="Yes Matched">
+                  <img id="star" src="{% static 'home/img/yesmatch.png' %}" alt="Yes Matched">
               </button>
           </div>
       </div>
   </section>
-</section>
+
 
   
 
