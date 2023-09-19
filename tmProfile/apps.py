@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class CreateProfileConfig(AppConfig):
+class TmprofileConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'create_profile'
+    name = 'tmProfile'
