@@ -91,12 +91,13 @@ body {
 /* Main Landing */
 .main-landing {
     display: flex;
-    width: 1440px;
-    height: 1024px;
+    height: 1020px;
+    padding: 30px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
+    border-radius: 20px;
     background: radial-gradient(247.61% 161.12% at 32.71% 46.68%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 166, 62, 0.45) 47.35%), rgba(253, 181, 28, 0.60);
 }
 
@@ -172,4 +173,154 @@ body {
     gap: 10px;
     flex: 1 0 0;
     align-self: stretch;
+}
+
+.testimonials-container {
+    display: flex;
+    width: 1060px;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 8px 20px;
+    flex-wrap: wrap;
+    background: var(--White, #FFF);
+}
+
+.testimonial-block {
+    display: flex;
+    width: 520px;
+    height: 215px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    background: var(--Neutral, #F9F1D8);
+}
+
+.testimonial-image {
+    width: 98px;
+    height: 98px;
+    flex-shrink: 0;
+}
+
+.testimonial-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.testimonial-heading1 {
+    color: #000;
+    text-align: center;
+    font-family: Lexend Deca;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.testimonial-heading2 {
+    color: #000;
+    text-align: center;
+    font-family: Lexend Deca;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.testimonial-paragraph {
+    width: 322px;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.contactus-container{
+    display: flex;
+    height: 1020px;
+    padding: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    background: var(--secondary-colour-dark, #1C152D);
+}
+
+.contact-us {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 100px; /* You can adjust this as per your design requirements */
+}
+
+/* Left Side */
+.contact-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.contact-logo {
+    width: 250px;
+    height: 187px;
+}
+
+.catchphrase {
+    color: var(--White, #FFF);
+    text-align: center;
+    font-family: Lexend Deca;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.social-media-logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+.footer-links {
+    color: var(--White, #FFF);
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Right Side */
+.contact-right {
+    display: flex;
+    padding: 10px 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.quick-links {
+    color: var(--Grey, #808080);
+    text-align: center;
+    font-family: Lexend Deca;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.footer-nav-link {
+    color: var(--White, #FFF);
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none; /* Removes the underline from the links */
+    transition: 0.3s; /* For a smooth color transition on hover */
+}
+
+.footer-nav-link:hover {
+    color: var(--Grey, #808080); /* Change color on hover */
 }

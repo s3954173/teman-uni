@@ -62,10 +62,77 @@
                 <img src="{% static 'image3.jpg' %}" alt="Description of Image">
             </div>
         </div>
-
+        
     </div>
 
-    <h1>Landing Page</h1>
+<!-- TESTIMONIAL SECTION -->
+<div class="testimonials-container">
+    
+    <!-- First Testimonial -->
+    <div class="testimonial-block">
+        <img src="{% static 'path_to_testimonial_image1.jpg' %}" alt="Person's Name" class="testimonial-image">
+        <div class="testimonial-text">
+            <h2 class="testimonial-heading1">Rebecca, 18</h2>
+            <h3 class="testimonial-heading2">Munich to Melbourne</h3>
+            <p class="testimonial-paragraph">"Teman Uni made my transition to a new country so much easier! I found friends with similar interests and been having a blast!</p>
+        </div>
+    </div>
+
+    <!-- Second Testimonial -->
+    <div class="testimonial-block">
+        <img src="{% static 'path_to_testimonial_image1.jpg' %}" alt="Person's Name" class="testimonial-image">
+        <div class="testimonial-text">
+            <h2 class="testimonial-heading1">Eliott, 23</h2>
+            <h3 class="testimonial-heading2">France to Melbourne</h3>
+            <p class="testimonial-paragraph">"As an international student, Teman Uni's matching system was perfect. Connected with students from my country and it made me feel at home!"</p>
+        </div>
+    </div>
+
+    <!-- Third Testimonial -->
+    <div class="testimonial-block">
+        <img src="{% static 'path_to_testimonial_image1.jpg' %}" alt="Person's Name" class="testimonial-image">
+        <div class="testimonial-text">
+            <h2 class="testimonial-heading1">Anh, 21</h2>
+            <h3 class="testimonial-heading2">Vietnam to Melbourne</h3>
+            <p class="testimonial-paragraph">"Teman Uni helped me meet some incredible people at a study group event. Highly recommend if you were feeling lost like I was!"</p>
+        </div>
+    </div>
+
+    <!-- Fourth Testimonial -->
+    <div class="testimonial-block">
+        <img src="{% static 'path_to_testimonial_image1.jpg' %}" alt="Person's Name" class="testimonial-image">
+        <div class="testimonial-text">
+            <h2 class="testimonial-heading1">Pedro, 19</h2>
+            <h3 class="testimonial-heading2">South Africa to Melbourne</h3>
+            <p class="testimonial-paragraph">“Navigating university life in a new country was daunting, but Teman Uni changed that for me. I found new friends who shared my hobbies!”</p>
+        </div>
+    </div>
+
+<!-- CONTACT US SECTION -->
+<div class="contact-us" style="background: var(--secondary-colour-dark, #1C152D);">
+
+    <!-- Left Side -->
+    <div class="contact-left">
+        <img src="{% static 'path_to_logo.jpg' %}" alt="Website Logo" class="contact-logo">
+        <p class="catchphrase">Connect Globally, Befriend Locally</p>
+        <div class="social-media-logos">
+            <a href="your_instagram_link"><img src="{% static 'instagram_logo.jpg' %}" alt="Instagram Logo"></a>
+            <a href="your_facebook_link"><img src="{% static 'facebook_logo.jpg' %}" alt="Facebook Logo"></a>
+            <a href="your_twitter_link"><img src="{% static 'twitter_logo.jpg' %}" alt="Twitter Logo"></a>
+        </div>
+        <p class="footer-links">FAQ | Support | Terms & Conditions<br>Privacy Policy | Guidelines</p>
+    </div>
+
+    <!-- Right Side -->
+    <div class="contact-right">
+        <p class="quick-links">Quick Links</p>
+        <a href="{% url 'About' %}" class="footer-nav-link">About</a>
+        <a href="{% url 'Testimonials' %}" class="footer-nav-link">Testimonials</a>
+        <a href="{% url 'login' %}" class="footer-nav-link">Login</a>
+        <a href="{% url 'register' %}" class="footer-nav-link">Register</a>
+    </div>
+
+</div>
 </body>
 
 </html>
