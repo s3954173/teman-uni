@@ -1,13 +1,11 @@
 from django import forms
 from temanuni.models import Events, EventInvitedUsers, Friends
 from datetime import datetime
+from django.db.models import Q
 
 
 
-
-class EventForm(forms.ModelForm):
-    
-
+class EventForm(forms.Form):
     eventName = forms.CharField(label='Event Name', required=True)
     eventDate = forms.DateField(label='Event Date', required=True, widget=forms.DateInput(attrs={'type': 'date'}))
     eventTime = forms.TimeField(label='Event Time', required=True, widget=forms.TimeInput(attrs={'type': 'time'}))
@@ -24,8 +22,8 @@ class EventForm(forms.ModelForm):
 
         if user_id is not None:
             # Query friends and populate the 'friends' field based on user_id
-            matches = Friends.objects.filter(
-                (Q(user1_id=user_id) | Q(user2_id=user_id)) & Q(match_user1=True, match_user2=True)
+            matches = Friends.objects.using('temanuni').filter(
+                (Q(user1_id=user_id) | Q(user2_id=user_id)) & Q(user1_interest=1, user2_interest=1)
             )
 
             friend_user_ids = []
@@ -73,6 +71,10 @@ class EventForm(forms.ModelForm):
             # Check if the event_datetime is in the past
             if event_datetime <= current_datetime:
                 self.add_error('eventDate', 'Event date and time must be in the future.')
+    
+    class Meta:
+            fields = ['eventName', 'eventDate', 'eventTime', 'eventDesc', 'friends']
+
 
 
 class SubmitEventForm (forms.ModelForm):
@@ -80,7 +82,16 @@ class SubmitEventForm (forms.ModelForm):
     eventDate = forms.DateField(label='Event Date', required=True, widget=forms.DateInput(attrs={'type': 'date'}))
     eventTime = forms.TimeField(label='Event Time', required=True, widget=forms.TimeInput(attrs={'type': 'time'}))
     eventDesc = forms.CharField(label='Event Description', required=True, widget=forms.Textarea)
-    creator_id = forms.IntegerField()
+    creator_id = forms.IntegerField(required=True)
+
+    def __init__(self, *args, **kwargs):
+        user_id = kwargs.pop('user_id', None)
+        super(SubmitEventForm, self).__init__(*args, **kwargs)
+        
+        # Set the initial value for creator_id if user_id is provided
+        if user_id is not None:
+            self.fields['creator_id'].initial = user_id
+
     class Meta:
         model = Events
         fields = ['event_name', 'start_date', 'start_time', 'description', 'creator_id']

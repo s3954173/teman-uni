@@ -18,8 +18,8 @@ class User(models.Model):
         managed = False
         db_table = 'user'
     
-    def __str__(self):
-        return self.user_id
+    # def __str__(self):
+    #     return self.user_id
 
 class Events(models.Model):
     event_id = models.BigAutoField(primary_key=True)
@@ -145,11 +145,18 @@ class ProfileLanguages(models.Model):
 class Friends(models.Model):
     user1_id = models.ForeignKey('User', on_delete=models.CASCADE, related_name='matches_as_user1')
     user2_id = models.ForeignKey('User', on_delete=models.CASCADE, related_name='matches_as_user2')
-    match_user1 = models.BooleanField(default=False)
-    match_user2 = models.BooleanField(default=False)
+    
+    # Use IntegerField with choices to represent boolean values
+    USER_INTEREST_CHOICES = (
+        (0, 'No'),
+        (1, 'Yes'),
+    )
+    user1_interest = models.IntegerField(choices=USER_INTEREST_CHOICES, default=0)
+    user2_interest = models.IntegerField(choices=USER_INTEREST_CHOICES, default=0)
 
     class Meta:
         managed = False
         db_table = 'friends'
         unique_together = (('user1_id', 'user2_id'),)
+
 
