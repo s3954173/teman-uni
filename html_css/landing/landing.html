@@ -3,16 +3,18 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="landing.css">
 </head>
 
 <body>
+    <div class="content-wrapper">
     <!-- NAV BAR SECTION -->
     <div class="container-header">
         <div class="navbar">
             <a src="">
-                <img class="logo" src="{% static 'home/img/logo.png' %}" alt="Logo">
+                <img class="logo" src="./img/logo.png" alt="Logo">
             </a>
             <ul class="nav-list">
                 <li class="nav-item"><a href="{% url 'About' %}">About</a></li>
@@ -26,18 +28,19 @@
     <!-- MAIN LANDING SECTION -->
     <div class="main-landing">
         <div class="text-teman-uni">Teman Uni</div>
-        <div>
+        <div class="button-container">
             <a href="{% url 'login' %}" class="btn-login">Login</a>
             <a href="{% url 'register' %}" class="btn-register">Register</a>
         </div>
     </div>
+
 
     <!-- ABOUT US SECTION -->
     <div class="about-us">
 
         <!-- First Div -->
         <div class="about-section">
-            <img src="{% static 'path_to_image.jpg' %}" alt="Description of Image" class="picture">
+            <img src="./img/aboutus1.png" alt="Description of Image" class="picture">
             <div>
                 <div class="heading-text">What is Teman Uni?</div>
                 <p class="paragraph-text">Teman Uni is a student-created web matchmaking platform connecting university students based on shared interests and backgrounds.</p>
@@ -50,16 +53,16 @@
                 <div class="heading-text">Why Teman Uni?</div>
                 <p class="paragraph-text">We created Teman Uni to bridge global gaps among international students by fostering connections, support, and shared experiences.</p>
             </div>
-            <img src="{% static 'path_to_another_image.jpg' %}" alt="Description of Image" class="picture">
+            <img src="img/aboutus2.png" alt="Description of Image" class="picture">
         </div>
 
         <!-- Third Div -->
         <div class="about-section">
             <div class="heading-text">We hope you can...</div>
             <div class="images">
-                <img src="{% static 'image1.jpg' %}" alt="Description of Image">
-                <img src="{% static 'image2.jpg' %}" alt="Description of Image">
-                <img src="{% static 'image3.jpg' %}" alt="Description of Image">
+                <img src="img/befriend.png" alt="Description of Image">
+                <img src="img/connect.png" alt="Description of Image">
+                <img src="img/thrive.png" alt="Description of Image">
             </div>
         </div>
         

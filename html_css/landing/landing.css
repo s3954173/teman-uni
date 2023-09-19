@@ -65,29 +65,6 @@ body {
     background-color: #808080;
 }
 
-/* Login Button Style */
-.btn-login {
-    display: flex;
-    padding: 10px 20px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 10px;
-    background: var(--Primary-Colour, #FBC000);
-}
-
-/* Register Button Style */
-.btn-register {
-    display: flex;
-    padding: 10px 20px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 10px;
-    border: 1px solid #000;
-    background: var(--secondary-colour-dark, #1C152D);
-}
-
 /* Main Landing */
 .main-landing {
     display: flex;
@@ -96,15 +73,12 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 30px;
-    border-radius: 20px;
+    gap: 20px;  /* Provides spacing between items */
     background: radial-gradient(247.61% 161.12% at 32.71% 46.68%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 166, 62, 0.45) 47.35%), rgba(253, 181, 28, 0.60);
 }
 
 /* "Teman Uni" Text */
 .text-teman-uni {
-    width: 554px;
-    height: 92px;
     flex-shrink: 0;
     color: #000;
     text-align: center;
@@ -113,6 +87,42 @@ body {
     font-weight: 800;
     line-height: normal;
 }
+
+.button-container {
+    display: flex;
+    flex-direction: row;  /* Make buttons side-by-side */
+    gap: 10px;  /* Provides spacing between buttons */
+    align-items: center;  /* Vertically center align buttons */
+}
+
+/* Login Button Style */
+.btn-login {
+    color: #000;  /* Black text color for Login */
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: var(--Primary-Colour, #FBC000);
+    text-align: center;
+    flex: 1;  /* Ensure button grows to fill container */
+}
+
+/* Register Button Style */
+.btn-register {
+    color: #FFF;  /* White text color for Register */
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid #000;
+    background: var(--secondary-colour-dark, #1C152D);
+    text-align: center;
+    flex: 1;  /* Ensure button grows to fill container */
+}
+
+
 
 /* Main About Us div */
 .about-us {
@@ -123,7 +133,6 @@ body {
     justify-content: center;
     align-items: center;
     gap: 30px;
-    border-radius: 20px;
     background: var(--Lighter-Neutral-Radial, radial-gradient(69.22% 35.21% at 50% 50%, rgba(255, 255, 255, 0.40) 0%, rgba(253, 181, 28, 0.40) 100%), #FFF);
 }
 
@@ -135,7 +144,6 @@ body {
     justify-content: center;
     align-items: center;
     gap: 25px;
-    border-radius: 20px;
 }
 
 /* Picture styles */
@@ -148,11 +156,13 @@ body {
 /* Heading of the text */
 .heading-text {
     color: #000;
-    text-align: right;
+    text-align: center; /* Changed from 'right' to 'center' */
     font-family: 'Lexend Deca', sans-serif;
     font-size: 32px;
     font-weight: 500;
+    margin-bottom: 10px; /* Add some margin at the bottom to separate from the images */
 }
+
 
 /* The text itself */
 .paragraph-text {
@@ -169,19 +179,26 @@ body {
     display: flex;
     padding: 10px 0px;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     gap: 10px;
-    flex: 1 0 0;
-    align-self: stretch;
 }
 
+.images img {
+    width: 150px; /* or any suitable width */
+    height: auto; /* to maintain the aspect ratio */
+    margin: 0 10px; /* optional: to add some spacing between images */
+}
+
+
 .testimonials-container {
-    display: flex;
+    display: grid;
     width: 1060px;
-    align-items: flex-start;
-    align-content: flex-start;
-    gap: 8px 20px;
-    flex-wrap: wrap;
+    height: 1020px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
     background: var(--White, #FFF);
 }
 
@@ -190,15 +207,15 @@ body {
     width: 520px;
     height: 215px;
     padding: 10px;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    align-content: center;
+    flex-direction: row;
     gap: 10px;
     flex-shrink: 0;
-    flex-wrap: wrap;
     border-radius: 20px;
     background: var(--Neutral, #F9F1D8);
 }
+
 
 .testimonial-image {
     width: 98px;
@@ -253,7 +270,7 @@ body {
 .contact-us {
     display: flex;
     justify-content: space-between;
-    padding: 30px 100px; /* You can adjust this as per your design requirements */
+    padding: 30px 100px; 
 }
 
 /* Left Side */
