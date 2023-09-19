@@ -1,22 +1,40 @@
 from django import forms
-from temanuni.models import Events
+from temanuni.models import Events, EventInvitedUsers, Friends
 from datetime import datetime
-from .models import InvitedFriends
+from django.db.models import Q
 
 
-class EventForm(forms.ModelForm):
+
+class EventForm(forms.Form):
     eventName = forms.CharField(label='Event Name', required=True)
     eventDate = forms.DateField(label='Event Date', required=True, widget=forms.DateInput(attrs={'type': 'date'}))
     eventTime = forms.TimeField(label='Event Time', required=True, widget=forms.TimeInput(attrs={'type': 'time'}))
     eventDesc = forms.CharField(label='Event Description', required=True, widget=forms.Textarea)
-    creator_id = forms.CharField(label='Event Name', required=True)
-    # friends = forms.ModelMultipleChoiceField(
-    #     queryset=Friend.objects.all(),
-    #     widget=forms.CheckboxSelectMultiple,
-    # )
+    friends = forms.ModelMultipleChoiceField(
+        queryset= None,
+        widget=forms.CheckboxSelectMultiple,
+    )
 
     def __init__(self, *args, **kwargs):
+        
+        user_id = kwargs.pop('user_id', None)  # Retrieve user_id from kwargs
         super(EventForm, self).__init__(*args, **kwargs)
+
+        if user_id is not None:
+            # Query friends and populate the 'friends' field based on user_id
+            matches = Friends.objects.using('temanuni').filter(
+                (Q(user1_id=user_id) | Q(user2_id=user_id)) & Q(user1_interest=1, user2_interest=1)
+            )
+
+            friend_user_ids = []
+
+            for match in matches:
+                if match.user1_id == user_id:
+                    friend_user_ids.append(match.user2_id)
+                else:
+                    friend_user_ids.append(match.user1_id)
+
+            self.fields['friends'].queryset = friend_user_ids
         
         # Get the current date and time
         current_datetime = datetime.now()
@@ -25,9 +43,7 @@ class EventForm(forms.ModelForm):
         self.fields['eventDate'].widget.attrs['min'] = current_datetime.date()
         self.fields['eventTime'].widget.attrs['min'] = current_datetime.strftime('%H:%M')
 
-    class Meta:
-        model = Events
-        fields = ['eventName', 'eventDate', 'eventTime', 'eventDesc']
+        
    
     
     def clean_eventDesc(self):
@@ -55,14 +71,34 @@ class EventForm(forms.ModelForm):
             # Check if the event_datetime is in the past
             if event_datetime <= current_datetime:
                 self.add_error('eventDate', 'Event date and time must be in the future.')
+    
+    class Meta:
+            fields = ['eventName', 'eventDate', 'eventTime', 'eventDesc', 'friends']
+
 
 
 class SubmitEventForm (forms.ModelForm):
+    eventName = forms.CharField(label='Event Name', required=True)
+    eventDate = forms.DateField(label='Event Date', required=True, widget=forms.DateInput(attrs={'type': 'date'}))
+    eventTime = forms.TimeField(label='Event Time', required=True, widget=forms.TimeInput(attrs={'type': 'time'}))
+    eventDesc = forms.CharField(label='Event Description', required=True, widget=forms.Textarea)
+    creator_id = forms.IntegerField(required=True)
+
+    def __init__(self, *args, **kwargs):
+        user_id = kwargs.pop('user_id', None)
+        super(SubmitEventForm, self).__init__(*args, **kwargs)
+        
+        # Set the initial value for creator_id if user_id is provided
+        if user_id is not None:
+            self.fields['creator_id'].initial = user_id
+
     class Meta:
         model = Events
-        fields = ['eventName', 'eventDate', 'eventTime', 'eventDesc', 'eventID', 'creatorID']
+        fields = ['event_name', 'start_date', 'start_time', 'description', 'creator_id']
 
 class InvitedFriendsForm(forms.ModelForm):
+    friendID = forms.CharField(max_length=100)
+    eventID = forms.CharField(max_length=100)   
     class Meta:
-        model = InvitedFriends
+        model = EventInvitedUsers
         fields = ['friendID', 'eventID']
