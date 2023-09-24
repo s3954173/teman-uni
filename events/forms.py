@@ -113,8 +113,21 @@ class SubmitEventForm (forms.ModelForm):
         return event
 
 class InvitedFriendsForm(forms.ModelForm):
-    friendID = forms.CharField(max_length=100)
-    eventID = forms.CharField(max_length=100)   
+    event_id = forms.ModelChoiceField(queryset=Events.objects.using('temanuni').all(), required=True)
+    user_id = forms.ModelChoiceField(queryset=User.objects.using('temanuni').all(), required=True)
+
     class Meta:
         model = EventInvitedUsers
-        fields = ['friendID', 'eventID']
+        fields = ['event_id', 'user_id']
+    
+    def save(self, commit=True, using='temanuni'):
+        invited_friend = super(InvitedFriendsForm, self).save(commit=False)
+        
+        # Set the event_id and user_id fields
+        invited_friend.event_id = self.cleaned_data['event_id']
+        invited_friend.user_id = self.cleaned_data['user_id']
+        
+        if commit:
+            invited_friend.save(using=using)  # Save the invited friend to the database
+
+        return invited_friend

@@ -9,7 +9,6 @@ def events(request):
             form = EventForm(request.POST, creator_id=creator_id)
             print(form.errors)
             if form.is_valid():
-                print('test')
                 creator = User.objects.using('temanuni').get(pk=creator_id)
                 # Create an instance of SubmitEventForm and populate its fields
                 dbEventForm = SubmitEventForm({
@@ -21,9 +20,15 @@ def events(request):
                 })
                 
                 if dbEventForm.is_valid():
-                    dbEventForm = dbEventForm.save(commit=True)
-                    event_id = dbEventForm.event_id
-                    print(event_id)
+                    event = dbEventForm.save(commit=True)
+                    for friend in form.cleaned_data['friends']:
+                        dbInvitedFriendsForm = InvitedFriendsForm({
+                            'event_id': event,
+                            'user_id': friend,
+                        })
+                        if dbInvitedFriendsForm.is_valid():
+                            dbInvitedFriendsForm.save(commit=True)
+                            print("works!")
                     return redirect('home')
                 else:
                     print("invalid dbEventForm")
