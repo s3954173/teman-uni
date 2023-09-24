@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'events/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Events Page</h1>
+    </header>
+
+    <div class="filter-bar">
+        <label for="sort">Sort By:</label>
+        <select id="sort">
+            <option value="date">Date</option>
+            <option value="status">Event Status</option>
+        </select>
+    </div>
+
+    <div class="event-list">
+
+    </div>
+
+    <div class="create-event">
+        <button id="openPopupButton">Create Event</button>
+    </div>
+
+    <iframe src="eventCreation.html" id="eventCreationFrame" class="popup" frameborder="0"></iframe>
+
+    <script src="script.js"></script>
+</body>
+</html>
