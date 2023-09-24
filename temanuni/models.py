@@ -18,8 +18,6 @@ class User(models.Model):
         managed = False
         db_table = 'user'
     
-    # def __str__(self):
-    #     return self.user_id
 
 class Events(models.Model):
     event_id = models.BigAutoField(primary_key=True)
@@ -64,33 +62,35 @@ class Messages(models.Model):
         db_table = 'messages'
 
 class EventInvitedUsers(models.Model):
-    event_id = models.OneToOneField('Events', models.DO_NOTHING, primary_key=True)  # The composite primary key (event_id, user_id) found, that is not supported. The first column is selected.
+    invited_id = models.BigAutoField(primary_key=True)
+    event_id = models.OneToOneField('Events', models.DO_NOTHING)
     user_id = models.ForeignKey('User', models.DO_NOTHING)
 
     class Meta:
         managed = False
         db_table = 'event_invited_users'
-        unique_together = (('event_id', 'user_id'),)
 
 
 class EventUsersDeclined(models.Model):
-    event_id = models.OneToOneField('Events', models.DO_NOTHING, primary_key=True)  # The composite primary key (event_id, user_id) found, that is not supported. The first column is selected.
+    declined_id = models.BigAutoField(primary_key=True)
+    event_id = models.OneToOneField('Events', models.DO_NOTHING)
     user_id = models.ForeignKey('User', models.DO_NOTHING)
 
     class Meta:
         managed = False
         db_table = 'event_users_declined'
-        unique_together = (('event_id', 'user_id'),)
+     
 
 
 class EventUsersGoing(models.Model):
-    event_id = models.OneToOneField('Events', models.DO_NOTHING, primary_key=True)  # The composite primary key (event_id, user_id) found, that is not supported. The first column is selected.
+    going_id = models.BigAutoField(primary_key=True)
+    event_id = models.OneToOneField('Events', models.DO_NOTHING)
     user_id = models.ForeignKey('User', models.DO_NOTHING)
 
     class Meta:
         managed = False
         db_table = 'event_users_going'
-        unique_together = (('event_id', 'user_id'),)
+     
 
 
 
@@ -123,26 +123,27 @@ class Profile(models.Model):
 
 
 class ProfileInterests(models.Model):
+    profileinterests_id = models.BigAutoField(primary_key=True)
     profile_id = models.OneToOneField(Profile, models.DO_NOTHING, primary_key=True)  # The composite primary key (profile_id, interest_id) found, that is not supported. The first column is selected.
     interest_id = models.ForeignKey(Interests, models.DO_NOTHING)
 
     class Meta:
         managed = False
         db_table = 'profile_interests'
-        unique_together = (('profile_id', 'interest_id'),)
 
 
 class ProfileLanguages(models.Model):
+    profilelanguage_id = models.BigAutoField(primary_key=True)
     profile_id = models.OneToOneField(Profile, models.DO_NOTHING, primary_key=True)  # The composite primary key (profile_id, language_id) found, that is not supported. The first column is selected.
     language_id = models.ForeignKey(Languages, models.DO_NOTHING)
 
     class Meta:
         managed = False
         db_table = 'profile_languages'
-        unique_together = (('profile_id', 'language_id'),)
 
 
 class Friends(models.Model):
+    friends_id = models.BigAutoField(primary_key=True)
     user1_id = models.ForeignKey('User', on_delete=models.CASCADE, related_name='matches_as_user1')
     user2_id = models.ForeignKey('User', on_delete=models.CASCADE, related_name='matches_as_user2')
     
@@ -157,6 +158,6 @@ class Friends(models.Model):
     class Meta:
         managed = False
         db_table = 'friends'
-        unique_together = (('user1_id', 'user2_id'),)
+     
 
 
