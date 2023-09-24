@@ -18,8 +18,6 @@ class User(models.Model):
         managed = False
         db_table = 'user'
     
-    # def __str__(self):
-    #     return self.user_id
 
 class Events(models.Model):
     event_id = models.BigAutoField(primary_key=True)
@@ -27,7 +25,7 @@ class Events(models.Model):
     start_date = models.DateField()
     start_time = models.TimeField()
     description = models.TextField()
-    creator_id = models.ForeignKey('User', models.DO_NOTHING)
+    creator_id = models.ForeignKey('User', models.DO_NOTHING, db_column='creator_id', related_name='creator_id')
 
     class Meta:
         managed = False
@@ -54,8 +52,8 @@ class Languages(models.Model):
 
 class Messages(models.Model):
     message_id = models.BigAutoField(primary_key=True)
-    sender_id = models.ForeignKey('User', models.DO_NOTHING)
-    receiver_id = models.ForeignKey('User', models.DO_NOTHING, related_name='messages_receiver_set')
+    sender_id = models.ForeignKey('User', models.DO_NOTHING, db_column='sender_id', related_name='sender_id', related_query_name='sender_id')
+    receiver_id = models.ForeignKey('User', models.DO_NOTHING, db_column='receiver_id', related_name='receiver_id', related_query_name='receiver_id')
     message_text = models.TextField()
     timestamp = models.DateTimeField()
 
@@ -64,33 +62,35 @@ class Messages(models.Model):
         db_table = 'messages'
 
 class EventInvitedUsers(models.Model):
-    event_id = models.OneToOneField('Events', models.DO_NOTHING, primary_key=True)  # The composite primary key (event_id, user_id) found, that is not supported. The first column is selected.
-    user_id = models.ForeignKey('User', models.DO_NOTHING)
+    invited_id = models.BigAutoField(primary_key=True)
+    event_id = models.ForeignKey('Events', models.DO_NOTHING, db_column='event_id')
+    user_id = models.ForeignKey('User', models.DO_NOTHING, db_column='user_id')
 
     class Meta:
         managed = False
         db_table = 'event_invited_users'
-        unique_together = (('event_id', 'user_id'),)
 
 
 class EventUsersDeclined(models.Model):
-    event_id = models.OneToOneField('Events', models.DO_NOTHING, primary_key=True)  # The composite primary key (event_id, user_id) found, that is not supported. The first column is selected.
-    user_id = models.ForeignKey('User', models.DO_NOTHING)
+    declined_id = models.BigAutoField(primary_key=True)
+    event_id = models.ForeignKey('Events', models.DO_NOTHING, db_column='event_id')
+    user_id = models.ForeignKey('User', models.DO_NOTHING, db_column='user_id')
 
     class Meta:
         managed = False
         db_table = 'event_users_declined'
-        unique_together = (('event_id', 'user_id'),)
+     
 
 
 class EventUsersGoing(models.Model):
-    event_id = models.OneToOneField('Events', models.DO_NOTHING, primary_key=True)  # The composite primary key (event_id, user_id) found, that is not supported. The first column is selected.
-    user_id = models.ForeignKey('User', models.DO_NOTHING)
+    going_id = models.BigAutoField(primary_key=True)
+    event_id = models.ForeignKey('Events', models.DO_NOTHING, db_column='event_id')
+    user_id = models.ForeignKey('User', models.DO_NOTHING, db_column='user_id')
 
     class Meta:
         managed = False
         db_table = 'event_users_going'
-        unique_together = (('event_id', 'user_id'),)
+     
 
 
 
@@ -98,7 +98,7 @@ class EventUsersGoing(models.Model):
 
 class Photos(models.Model):
     photo_id = models.BigAutoField(primary_key=True)
-    profile_id = models.ForeignKey('Profile', models.DO_NOTHING)
+    profile_id = models.ForeignKey('Profile', models.DO_NOTHING, db_column='profile_id')
     photo_filename = models.CharField(max_length=255)
     photo_path = models.CharField(max_length=255)
 
@@ -108,7 +108,7 @@ class Photos(models.Model):
 
 
 class Profile(models.Model):
-    profile_id = models.OneToOneField('User', models.DO_NOTHING, primary_key=True)
+    profile_id = models.OneToOneField('User', models.DO_NOTHING, primary_key=True, db_column='profile_id', related_name='profile_id')
     dob = models.DateField()
     gender = models.CharField(max_length=255)
     first_name = models.CharField(max_length=255)
@@ -123,28 +123,29 @@ class Profile(models.Model):
 
 
 class ProfileInterests(models.Model):
-    profile_id = models.OneToOneField(Profile, models.DO_NOTHING, primary_key=True)  # The composite primary key (profile_id, interest_id) found, that is not supported. The first column is selected.
-    interest_id = models.ForeignKey(Interests, models.DO_NOTHING)
+    profileinterests_id = models.BigAutoField(primary_key=True)
+    profile_id = models.ForeignKey(Profile, models.DO_NOTHING, db_column='profile_id')
+    interest_id = models.ForeignKey(Interests, models.DO_NOTHING, db_column='interest_id')
 
     class Meta:
         managed = False
         db_table = 'profile_interests'
-        unique_together = (('profile_id', 'interest_id'),)
 
 
 class ProfileLanguages(models.Model):
-    profile_id = models.OneToOneField(Profile, models.DO_NOTHING, primary_key=True)  # The composite primary key (profile_id, language_id) found, that is not supported. The first column is selected.
-    language_id = models.ForeignKey(Languages, models.DO_NOTHING)
+    profilelanguage_id = models.BigAutoField(primary_key=True)
+    profile_id = models.ForeignKey(Profile, models.DO_NOTHING, db_column='profile_id')
+    language_id = models.ForeignKey(Languages, models.DO_NOTHING, db_column='language_id')
 
     class Meta:
         managed = False
         db_table = 'profile_languages'
-        unique_together = (('profile_id', 'language_id'),)
 
 
 class Friends(models.Model):
-    user1_id = models.ForeignKey('User', on_delete=models.CASCADE, related_name='matches_as_user1')
-    user2_id = models.ForeignKey('User', on_delete=models.CASCADE, related_name='matches_as_user2')
+    friends_id = models.BigAutoField(primary_key=True)
+    user1_id = models.ForeignKey('User', on_delete=models.CASCADE,  db_column="user1_id", related_name='user1', related_query_name='user1')
+    user2_id = models.ForeignKey('User', on_delete=models.CASCADE,  db_column="user2_id", related_name='user2', related_query_name='user2')
     
     # Use IntegerField with choices to represent boolean values
     USER_INTEREST_CHOICES = (
@@ -157,6 +158,6 @@ class Friends(models.Model):
     class Meta:
         managed = False
         db_table = 'friends'
-        unique_together = (('user1_id', 'user2_id'),)
+     
 
 
