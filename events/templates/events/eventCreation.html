@@ -45,8 +45,13 @@
 
                     <!-- <textarea id="eventDesc" name="eventDesc" rows="4" cols="50" required></textarea> -->
                 </div>
-
+                
                 <div class="form-field">
+                    <label for="inviteFriends">Invite Friends:</label>
+                    {{ form.friends }}
+                </div>
+                
+                <!-- <div class="form-field">
                     <label for="inviteFriends">Invite Friends:</label>
                     <ul class="friend-list">
                         {% for friend in form.friends.field.queryset %}
@@ -55,7 +60,7 @@
                         </li>
                         {% endfor %}
                     </ul>
-                </div>
+                </div> -->
                 
                 <div class="button-container">
                     <input type="submit" class="create-event" value="Create Event">

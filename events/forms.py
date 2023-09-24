@@ -11,6 +11,7 @@ class EventForm(forms.Form):
     eventTime = forms.TimeField(label='Event Time', required=True, widget=forms.TimeInput(attrs={'type': 'time'}))
     eventDesc = forms.CharField(label='Event Description', required=True, widget=forms.Textarea)
     friends = forms.ModelMultipleChoiceField(
+        required=True,
         queryset= None,
         widget=forms.CheckboxSelectMultiple,
     )
@@ -32,10 +33,12 @@ class EventForm(forms.Form):
                     friends.append(match.user2_id.user_id)
                 else:
                     friends.append(match.user1_id.user_id)
-            friends_id = User.objects.using('temanuni').filter(user_id__in=friends).values_list('user_id', flat=True)
+            
+            friends = User.objects.using('temanuni').filter(user_id__in=friends).values_list('user_id', flat=True)
+            self.fields['friends'].queryset = User.objects.using('temanuni').filter(user_id__in=friends)
 
-            # Modify the queryset to fetch User objects with only 'user_id' values
-            self.fields['friends'].queryset = friends_id
+            # friends_id = User.objects.using('temanuni').filter(user_id__in=friends).values_list('user_id', flat=True)
+            # self.fields['friends'].queryset = friends_id
 
 
             # friends_id = User.objects.using('temanuni').filter(user_id__in=friends)
@@ -84,19 +87,11 @@ class EventForm(forms.Form):
 
 
 class SubmitEventForm (forms.ModelForm):
-    eventName = forms.CharField(label='Event Name', required=True)
-    eventDate = forms.DateField(label='Event Date', required=True, widget=forms.DateInput(attrs={'type': 'date'}))
-    eventTime = forms.TimeField(label='Event Time', required=True, widget=forms.TimeInput(attrs={'type': 'time'}))
-    eventDesc = forms.CharField(label='Event Description', required=True, widget=forms.Textarea)
-    creator_id = forms.IntegerField(required=True)
-
-    # def __init__(self, *args, **kwargs):
-    #     user_id = kwargs.pop('user_id', None)
-    #     super(SubmitEventForm, self).__init__(*args, **kwargs)
-        
-    #     # Set the initial value for creator_id if user_id is provided
-    #     if user_id is not None:
-    #         self.fields['creator_id'].initial = user_id
+    event_name = forms.CharField(label='Event Name', required=True)
+    start_date = forms.DateField(label='Event Date', required=True, widget=forms.DateInput(attrs={'type': 'date'}))
+    start_time = forms.TimeField(label='Event Time', required=True, widget=forms.TimeInput(attrs={'type': 'time'}))
+    description = forms.CharField(label='Event Description', required=True, widget=forms.Textarea)
+    creator_id = forms.ModelChoiceField(queryset=User.objects.using('temanuni').all(), required=True)
 
     class Meta:
         model = Events
