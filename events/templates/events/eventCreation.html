@@ -17,13 +17,8 @@
 
         <div id="eventPopup" class="popup">
             <!--event creation form-->
-            <form onsubmit="return validateForm()">
+            <form method="post" action="{% url 'events' %}">
                 {% csrf_token %}
-                <!-- <label for="eventID">Event ID:</label>
-                <input type="text" id="eventID" name="eventID" readonly>
-
-                <label for="eventAdmin">Admin of Event:</label>
-                <input type="text" id="eventAdmin" name="eventAdmin" readonly> -->
 
                 <div class="form-field">
                     <label for="eventName">Event Name:</label>
@@ -50,17 +45,22 @@
 
                     <!-- <textarea id="eventDesc" name="eventDesc" rows="4" cols="50" required></textarea> -->
                 </div>
-
+                
                 <div class="form-field">
+                    <label for="inviteFriends">Invite Friends:</label>
+                    {{ form.friends }}
+                </div>
+                
+                <!-- <div class="form-field">
                     <label for="inviteFriends">Invite Friends:</label>
                     <ul class="friend-list">
                         {% for friend in form.friends.field.queryset %}
                         <li class="friend-list-item">
-                            <label><input type="checkbox" name="invitedFriends" value="{{ friend.id }}">{{ friend.username }}</label>
+                            <label><input type="checkbox">{{friend}}</label>
                         </li>
                         {% endfor %}
                     </ul>
-                </div>
+                </div> -->
                 
                 <div class="button-container">
                     <input type="submit" class="create-event" value="Create Event">
