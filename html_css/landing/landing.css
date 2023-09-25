@@ -191,36 +191,31 @@ body {
 
 
 .testimonials-container {
-    display: grid;
-    width: 1060px;
-    height: 1020px;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    align-items: center;
+    display: flex;
     justify-content: center;
-    border-radius: 20px;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
     background: var(--White, #FFF);
+    gap: 8px 20px; 
+    padding-top: 10rem;
+    padding-bottom: 10rem;
 }
-
 .testimonial-block {
     display: flex;
-    width: 520px;
-    height: 215px;
+    width: 35%;
+    height: 30%;
     padding: 10px;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
-    flex-direction: row;
     gap: 10px;
-    flex-shrink: 0;
     border-radius: 20px;
     background: var(--Neutral, #F9F1D8);
 }
 
-
 .testimonial-image {
     width: 98px;
     height: 98px;
-    flex-shrink: 0;
 }
 
 .testimonial-text {
@@ -230,9 +225,12 @@ body {
     gap: 25px;
 }
 
+.testimonial-heading1, .testimonial-heading2, .testimonial-paragraph {
+    text-align: center;
+}
+
 .testimonial-heading1 {
     color: #000;
-    text-align: center;
     font-family: Lexend Deca;
     font-size: 24px;
     font-weight: 500;
@@ -240,7 +238,6 @@ body {
 
 .testimonial-heading2 {
     color: #000;
-    text-align: center;
     font-family: Lexend Deca;
     font-size: 20px;
     font-weight: 500;
@@ -249,11 +246,11 @@ body {
 .testimonial-paragraph {
     width: 322px;
     color: #000;
-    text-align: center;
     font-family: Inter;
     font-size: 16px;
     font-weight: 500;
 }
+
 
 .contactus-container{
     display: flex;
@@ -262,23 +259,22 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
     align-self: stretch;
     background: var(--secondary-colour-dark, #1C152D);
 }
 
 .contact-us {
     display: flex;
-    justify-content: space-between;
-    padding: 30px 100px; 
+    padding: 30px 100px; /* You can adjust this as per your design requirements */
 }
 
 /* Left Side */
 .contact-left {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
+    margin-right: 40rem;
+    margin-left: 10rem;
 }
 
 .contact-logo {
