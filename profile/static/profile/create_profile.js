@@ -121,23 +121,31 @@ $(function(){
         previousDay = daySelect.value;
     }
 
-    // Collect selected interests into a comma-separated string
-    const selectedInterests = [];
-    const interestCheckboxes = document.querySelectorAll('input[name="selected_choices"]:checked');
-    interestCheckboxes.forEach((checkbox) => {
-        selectedInterests.push(checkbox.nextElementSibling.textContent.trim());
-    });
-    document.getElementById('interests').value = selectedInterests.join(',');
+    // Function to collect selected interests into a comma-separated string
+    function collectSelectedInterests() {
+        const selectedInterests = [];
+        const interestCheckboxes = document.querySelectorAll('input[name="selected_choices"]:checked');
 
-    // Collect selected languages into a comma-separated string
-    const selectedLanguages = [];
-    const languageSelect = document.getElementById('language');
-    const selectedLanguageOptions = languageSelect.selectedOptions;
-    for (let i = 0; i < selectedLanguageOptions.length; i++) {
-        selectedLanguages.push(selectedLanguageOptions[i].textContent.trim());
+        interestCheckboxes.forEach((checkbox) => {
+            selectedInterests.push(checkbox.nextElementSibling.textContent.trim());
+        });
+
+        document.getElementById('interests').value = selectedInterests.join(',');
     }
-    document.getElementById('languages').value = selectedLanguages.join(',');
-    
+
+    // Function to collect selected languages into a comma-separated string
+    function collectSelectedLanguages() {
+        const selectedLanguages = [];
+        const languageCheckboxes = document.querySelectorAll('input[name="selected_languages"]:checked');
+
+        languageCheckboxes.forEach((checkbox) => {
+            selectedLanguages.push(checkbox.value.trim());
+        });
+
+        document.getElementById('languages').value = selectedLanguages.join(',');
+    }
+
+
     // Add an event listener to the form submission to call combineLocation
     function combineLocation() {
         const city = document.getElementById("city").value;
@@ -151,8 +159,9 @@ $(function(){
     }
 
     $('form').on('submit', function (event) {
-        console.log('Form working?')
         event.preventDefault(); // Prevent the form from submitting immediately
+        collectSelectedInterests(); // Call the function to collect interests
+        collectSelectedLanguages(); // Call the function to collect languages
         combineLocation(); // Call the combineLocation function to update the hidden input
         combineDate(); // Call the combineDate function to update the hidden input
         this.submit(); // Now submit the form

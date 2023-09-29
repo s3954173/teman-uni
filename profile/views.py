@@ -17,32 +17,44 @@ def profile(request):
         # Render Create Profile Form if profile hasn't been created
         if not profile:
             if request.method == 'POST':
+                print(request.POST.get('interests'))
+                print(request.POST.get('languages'))
+
                 profile_form = CreateProfile(request.POST)
-                # Print the value of the 'dob' field
-                print(request.POST.get('dob'))  # Print to console
+
                 if profile_form.is_valid():
                      # Save the form data to the 'temanuni' database
                     profile = profile_form.save(commit=False)
                     profile.profile_id = User.objects.using('temanuni').get(user_id=profile_id)
                     profile.save(using='temanuni')  # Save to the 'temanuni' database
-
+                    
                      # Process and save interests and languages
-                    interests_data = profile_form.cleaned_data['interests']
-                    languages_data = profile_form.cleaned_data['languages']
+                    interests_data = request.POST.get('interests')
+                    languages_data = request.POST.get('languages')
+                    print(interests_data)
+                    print(languages_data)
 
                     # Create Interest instances
-                    interests = interests_data.split(',')
+                    interests = [interest.strip() for interest in interests_data.split(',')]
                     for interest in interests:
                         interest = interest.strip()
-                        interest_obj, _ = Interests.objects.using('temanuni').get_or_create(interest=interest)
+                        interest_obj, created = Interests.objects.using('temanuni').get_or_create(interest=interest)
                         ProfileInterests.objects.using('temanuni').create(profile_id=profile, interest_id=interest_obj)
+                        if created:
+                            print(f"Created new interest: {interest}")
+                        else:
+                            print(f"Existing interest found: {interest_obj.interest}")
 
                     # Create Language instances
-                    languages = languages_data.split(',')
+                    languages = [language.strip() for language in languages_data.split(',')]
                     for language in languages:
                         language = language.strip()
-                        language_obj, _ = Languages.objects.using('temanuni').get_or_create(language=language)
+                        language_obj, created = Languages.objects.using('temanuni').get_or_create(language=language)
                         ProfileLanguages.objects.using('temanuni').create(profile_id=profile, language_id=language_obj)
+                        if created:
+                            print(f"Created new language: {language}")
+                        else:
+                            print(f"Existing language found: {language_obj.language}")
                                                                                                             
 
                     return redirect('profile_success')  # Redirect to a success page\

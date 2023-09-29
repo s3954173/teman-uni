@@ -221,30 +221,51 @@
                             </label>
                         </div>
                     </div>
+                    <input type="hidden" name="interests" id="interests" value="">
                 </div>
     
     
                 <div class="what_language">What language do you speak?</div>
     
                 <div class="language">
-                    <label for="language">Language</label>
-                    <select name="language" id="language" required>
-                        <option disabled selected>My Languages</option>
-                        <option value="RMIT">English</option>
-                        <option value="Melb-Uni">Mandarin</option>
-                        <option value="LaTrobe">Vietnamese</option>
-                        <option value="VicUni">Japanese</option>
-                        <option value="Monash">Italian</option>
-                        <option value="Swinburne">French</option>
-                    </select>
+                    <label>What languages do you speak?</label>
+                    <div class="choose_languages">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="selected_languages" value="English">
+                            <span>English</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="selected_languages" value="Mandarin">
+                            <span>Mandarin</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="selected_languages" value="Vietnamese">
+                            <span>Vietnamese</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="selected_languages" value="Japanese">
+                            <span>Japanese</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="selected_languages" value="Italian">
+                            <span>Italian</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="selected_languages" value="French">
+                            <span>French</span>
+                        </label>
+                        <input type="hidden" name="languages" id="languages" value="">
+                    </div>
+                   
                 </div>
+                
 
                 <div>
                     <hr class="line">
                 </div>
                 <!-- Hidden Input Values -->
-                <input type="hidden" name="interests" id="interests" value="">
-                <input type="hidden" name="languages" id="languages" value="">
+                
+                
                <!-- <div class="note4">Add whatever picture you like!</div>
                 <div class="add_picture">
                     <label for="profile_picture">Add some pictures</label>
