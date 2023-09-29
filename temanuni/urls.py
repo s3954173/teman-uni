@@ -19,6 +19,7 @@ from django.urls import path, include
 from home import views as home_views
 from users import views as user_views
 from events import views as events_views
+from profile import views as profile_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,4 +28,7 @@ urlpatterns = [
     path('login/', user_views.login_view, name='login'),
     path('logout/', user_views.logout_view, name='logout'),
     path('events/', events_views.events, name='events'),
+    path('profile/', profile_views.profile, name='profile'),
+    # Delete below after testing
+    path('profile_success', profile_views.profile, name='profile_success'),
 ]

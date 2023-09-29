@@ -2,16 +2,16 @@ from django.db import models
 
 # Create your models here.
 
-class profile(models.Model):
-    first_name = models.CharField('first_name', max_length=120)
-    last_name = models.CharField('last_name', max_length=120)
-    gender = models.CharField('gender', max_length=120)
-    date_of_birth = models.CharField('DOB', max_length=120, null=True)
-    location = models.CharField('state', max_length=120)
-    university = models.CharField('university', max_length=120)
-    course = models.CharField('course', max_length=120)
-    def _str_(self):
-        return self.first_name + ' ' + self.last_name
+# class profile(models.Model):
+#     first_name = models.CharField('first_name', max_length=120)
+#     last_name = models.CharField('last_name', max_length=120)
+#     gender = models.CharField('gender', max_length=120)
+#     date_of_birth = models.CharField('DOB', max_length=120, null=True)
+#     location = models.CharField('state', max_length=120)
+#     university = models.CharField('university', max_length=120)
+#     course = models.CharField('course', max_length=120)
+#     def _str_(self):
+#         return self.first_name + ' ' + self.last_name
 
 class languages(models.Model):
     language = models.CharField('language', max_length=120)

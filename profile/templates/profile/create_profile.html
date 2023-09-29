@@ -8,22 +8,22 @@
         }
     </style>
 
-    <link rel="stylesheet" href="{% static 'create_profile1.css' %}">
+    <link rel="stylesheet" href="{% static 'profile/create_profile.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="{% static 'create_profile1.js' %}"></script>
+    <script src="{% static 'profile/create_profile.js' %}"></script>
 
 </head>
 
-    <form action="" method="POST">
+    <form action="{% url 'profile' %}" method="POST" >
         {% csrf_token %}
             <!-- {{ form.as_p }} -->
-
+            
             <div class="create_profile_form">
-
+                
                 <div class="create_your_profile">Create your Profile</div>
 
                 <div class="note">You won't be able to change this later on, so keep that in mind.</div>
-
+               
                 <div class="name">What's your Name?</div>
 
                 <div>
@@ -63,6 +63,8 @@
 
                         <select name="year" id="year">Year:</select>
                     </div>
+                    <input type="hidden" name="dob" id="combinedDate">
+
                 </div>
 
 
@@ -74,22 +76,23 @@
     
                 <div class="note2">This'll help you in the matchmaking process.</div>
     
-                <div class="location">Set up your location</div>
-    
-                <div>
-                    <div class="state">
-                        <label for="state">State</label>
-                        <input type="text" name="state" id="state" placeholder="Enter your State Name" required>
+                <div class="location">
+                    Set up your location
+                    <div>
+                        <div class="state">
+                            <label for="state">State</label>
+                            <input type="text" name="state" id="state" placeholder="Enter your State Name" required>
+                        </div>
                     </div>
-                </div>
-    
-                <div>
-                    <div class="city">
-                        <label for="city">City</label>
-                        <input type="text" name="city" id="city" placeholder="Enter your City Name" required>
+        
+                    <div>
+                        <div class="city">
+                            <label for="city">City</label>
+                            <input type="text" name="city" id="city" placeholder="Enter your City Name" required>
+                        </div>
                     </div>
+                    <input type="hidden" name="location" id="location">
                 </div>
-    
                 <div class="uni-go-to">What University do you go to?</div>
     
                 <div class="uni">
@@ -239,7 +242,9 @@
                 <div>
                     <hr class="line">
                 </div>
-
+                <!-- Hidden Input Values -->
+                <input type="hidden" name="interests" id="interests" value="">
+                <input type="hidden" name="languages" id="languages" value="">
                <!-- <div class="note4">Add whatever picture you like!</div>
                 <div class="add_picture">
                     <label for="profile_picture">Add some pictures</label>
@@ -258,18 +263,19 @@
                 </div> -->
 
                 <div class="buttons">
-                    <div>
+                    <!-- <div>
                         <a class="back" href="create-profile1.html">Back</a>
-                    </div>
+                    </div> -->
                     <div class="next">
-                        <a href="../create-profile2/create-profile2.html">
-                            <input type="submit" value="Next">
-                        </a>
+                        <input type="submit" value="Submit">
+                        <!-- <a href="../create-profile2/create-profile2.html"> -->
+                            
+                        <!-- </a> -->
                     </div>
                 </div> 
-
+               
             </div>
-
+       
 
                 
 
