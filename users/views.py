@@ -6,7 +6,7 @@ from .forms import UserRegisterForm
 from .forms import TemanUniLoginForm as tmLoginForm
 from .backends import TemanUniLogin as tmLogin
 from django.views.decorators.csrf import csrf_protect
-
+import random
 
 
 def register(request):
@@ -93,3 +93,11 @@ def logout_view(request):
 #         # The user is not authenticated, display a different template or message
 #         return render(request, 'users/test_unauthenticated.html')
 
+def generate_otp(length=6):
+    otp = ''.join(str(random.randint(0, 9)) for _ in range(length))
+    return otp
+
+def send_otp_to_user(request, phone_number):
+    otp = generate_otp()
+    send_otp_to_user(phone_number, otp) 
+    request.session['otp'] = otp
