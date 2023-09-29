@@ -17,9 +17,6 @@ def profile(request):
         # Render Create Profile Form if profile hasn't been created
         if not profile:
             if request.method == 'POST':
-                print(request.POST.get('interests'))
-                print(request.POST.get('languages'))
-
                 profile_form = CreateProfile(request.POST)
 
                 if profile_form.is_valid():
@@ -40,10 +37,7 @@ def profile(request):
                         interest = interest.strip()
                         interest_obj, created = Interests.objects.using('temanuni').get_or_create(interest=interest)
                         ProfileInterests.objects.using('temanuni').create(profile_id=profile, interest_id=interest_obj)
-                        if created:
-                            print(f"Created new interest: {interest}")
-                        else:
-                            print(f"Existing interest found: {interest_obj.interest}")
+
 
                     # Create Language instances
                     languages = [language.strip() for language in languages_data.split(',')]
@@ -51,10 +45,7 @@ def profile(request):
                         language = language.strip()
                         language_obj, created = Languages.objects.using('temanuni').get_or_create(language=language)
                         ProfileLanguages.objects.using('temanuni').create(profile_id=profile, language_id=language_obj)
-                        if created:
-                            print(f"Created new language: {language}")
-                        else:
-                            print(f"Existing language found: {language_obj.language}")
+
                                                                                                             
 
                     return redirect('profile_success')  # Redirect to a success page\
