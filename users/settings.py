@@ -1,18 +1,14 @@
-TWILIO_ACCOUNT_SID = 'ACfbf3a2cc00f08043b9f8338c2d952600'
-TWILIO_AUTH_TOKEN = '9ef238af45b106606debef26e749368a'
+import os
 from twilio.rest import Client
-from django.cof import settings
 
-def send_otp(phone_number, otp):
-    client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
+account_sid = os.environ['AC6fbe71c8458e7cb9d48961a7da613f5d']
+auth_token = os.environ['8644438cb8370946e5c49f021392194f']
+client = Client(account_sid, auth_token)
 
-    try:
-        message = client.messages.create(
-            body=f'Your OTP is: {otp}',
-            from_='+61415760314',
-            to=phone_number,
-        )
+verification = client.verify \
+                     .v2 \
+                     .services('VAXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
+                     .verifications \
+                     .create(to='recipient@foo.com', channel='email')
 
-        return message.sid
-    except Exception as e:
-        return str(e)
+print(verification.sid)
