@@ -1,4 +1,116 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ProfilePage</title>
+    <link rel="stylesheet" href="bootstrap3.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap">
+    <!-- <link rel="stylesheet" href="{% static 'home/chat.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'profile/profile.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="{% static 'profile/profile.js' %}"></script>
+    <script src="edit_profile.js"></script>
+</head>
+
+
+<body>
+    <!-- NAV BAR SECTION -->
+    <div class="container-header">
+      <div class="navbar">
+          <img class="logo" src="logo.png" alt="Logo">
+          <ul class="nav-list">
+              <li class="nav-item"><a href="">About</a></li>
+              <li class="nav-item"><a href=""><img src="message.png" alt="Messages"></a></li>
+              <li class="nav-item"><a href=""><img src="events.png" alt="Events"></a></li>
+              <li class="nav-item"><a href=""><img src="profile.png" alt="Profile"></a></li>
+              <li class="nav-item"><a href=""><img src="notification.png" alt="Notifications"></a></li>
+              <li class="nav-item"><a href=""><img src="logout.png" alt="Log Out"></a></li>
+          </ul>
+      </div>
+    </div>
+  
+  
+    <div id="app" class="app">
+  
+      <!-- LEFT SECTION -->
+      
+  <section id="main-left" class="main-left">
+        <!-- header -->
+        <div id="header-left" class="header-left">
+          <h1>Profile Page</h1>
+        </div>
+        <div class="picture">
+          <img src="matchpic.png" alt="Match Picture" width="170px">
+        </div>
+  
+        <div>
+          <hr class="line">
+        </div>
+  
+  
+  
+  </section>
+    <!-- RIGHT SECTION -->
+    <section id="main-right" class="main-right">
+        <div id="header-right" class="header-right">
+            <!-- match picture -->
+            <img src="matchpic.png" alt="Match Picture">
+            <!-- match name -->
+            <div class="text-container">
+                <span class="match-name">Karolina Dame, 21</span>
+                <span class="match-detail">📍Melbourne, VIC</span>
+                <span class="match-detail">RMIT University</span>
+                <span class="match-detail">Studying Bachelors of Arts</span>
+            </div>
+  
+            <div class="dropdown" id="dropdown1">
+              <div class="title" onclick="toggleDropdown('dropdown1')">Profile Details</div>
+              <div class="content">
+                  <span class="pill">Pets</span>
+                  <span class="pill">Travel</span>
+              </div>
+          </div>
+          <button onclick="openModal('modal1')">Edit Details</button>
+      
+          <div id="modal1" class="modal">
+              <div class="modal-content">
+                  <p>Do you want to change your profile info?</p>
+                  <button onclick="openModal('modal2')">Yes</button>
+                  <button onclick="closeModal('modal1')">No</button>
+              </div>
+          </div>
+      
+          <div id="modal2" class="modal">
+          <div class="modal-content">
+              <p>Select profile details:</p>
+              <div class="scroll-box">
+                  <label class="pill"><input type="checkbox" value="Books"> Books</label>
+                  <label class="pill"><input type="checkbox" value="Gaming"> Gaming</label>
+                  <label class="pill"><input type="checkbox" value="Pets"> Pets</label>
+                  <label class="pill"><input type="checkbox" value="Travel"> Gaming</label>
+              </div>
+              <button onclick="updateProfile()">Update Profile</button>
+          </div>
+          </div>
+      
+  
+        </div>
+  
+    </section>
+  
+  
+    
+  
+  
+      <!-- jQuey, Popper, BootstrapJS -->
+      <script src="bootstrap3.3/js/jquery-3.3.1.min.js"></script>
+      <script src="bootstrap3.3/js/bootstrap.min.js"></script>
+  </body>
+
+
 </html>
