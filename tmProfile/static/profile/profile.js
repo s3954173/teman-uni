@@ -1,10 +1,11 @@
 function toggleDropdown(dropdownId) {
     var content = document.querySelector('#' + dropdownId + ' .content');
-    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    console.log("test")
 }
 
 function openModal(modalId) {
-    document.getElementById(modalId).style.display = 'block';
+    document.getElementById(modalId).style.display = 'flex';
 }
 
 function closeModal(modalId) {

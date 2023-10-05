@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'users.apps.UsersConfig',
     'events.apps.EventsConfig',
-    'profile.apps.ProfileConfig',
+    'tmProfile.apps.tmProfileConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

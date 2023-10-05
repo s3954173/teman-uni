@@ -48,7 +48,7 @@ def profile(request):
 
                                                                                                             
 
-                    return redirect('profile_success')  # Redirect to a success page\
+                    return redirect('profile')  # Redirect to a success page
                 else:
                     print(profile_form.errors)
             else:
@@ -57,13 +57,18 @@ def profile(request):
         
         # Render user's profile page if profile found
         else:
-            return render(request, 'profile/profile.html')
+            # Retrieve the associated interest names for the profile
+            interests = ProfileInterests.objects.using('temanuni').filter(profile_id=profile).values_list('interest_id__interest', flat=True)
+            # Retrieve the associated language names for the profile
+            languages = ProfileLanguages.objects.using('temanuni').filter(profile_id=profile).values_list('language_id__language', flat=True)
+    
+            return render(request, 'profile/profile.html', {'profile': profile, 'interests': interests, 'languages': languages})
     else:
         # Redirect home if user not logged in
         return redirect('home')
         
 # Delete after testing
-def profile_sucess(request):
+def profile_success(request):
     return render(request, 'profile/profile_success.html')
 
         # first_name = request.POST.get('first_name')
