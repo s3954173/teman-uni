@@ -48,9 +48,9 @@
           <img src="{% static 'profile/matchpic.png' %}" alt="Match Picture" width="170px">
         </div>
   
-        <div>
+        <!-- <div>
           <hr class="line">
-        </div>
+        </div> -->
   
   
   
@@ -62,17 +62,29 @@
             <img src="{% static 'profile/matchpic.png' %}" alt="Match Picture">
             <!-- match name -->
             <div class="text-container">
-                <span class="match-name">Karolina Dame, 21</span>
-                <span class="match-detail">📍Melbourne, VIC</span>
-                <span class="match-detail">RMIT University</span>
-                <span class="match-detail">Studying Bachelors of Arts</span>
+                <span class="match-name">{{profile.first_name}} {{profile.last_name}}</span>
+                <span class="match-detail">📍{{profile.location}}</span>
+                <span class="match-detail">{{profile.university}}</span>
+                <span class="match-detail">Studying {{profile.course}}</span>
             </div>
   
             <div class="dropdown" id="dropdown1">
-              <div class="title" onclick="toggleDropdown('dropdown1')">Profile Details</div>
+              <div class="title" onclick="toggleDropdown('dropdown1')"><strong>Interests</strong></div>
+              
               <div class="content">
-                  <span class="pill">Pets</span>
-                  <span class="pill">Travel</span>
+                {% for interest in interests %}
+                <span class="pill">{{ interest }}</span>
+                {% endfor %}
+              </div>
+          </div>
+
+          <div class="dropdown" id="dropdown2">
+              <div class="title" onclick="toggleDropdown('dropdown2')"><strong>Languages</strong></div>
+              
+              <div class="content">
+                {% for language in languages %}
+                <span class="pill">{{ language }}</span>
+                {% endfor %}
               </div>
           </div>
           <button onclick="openModal('modal1')">Edit Details</button>
