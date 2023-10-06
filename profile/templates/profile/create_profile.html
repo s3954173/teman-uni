@@ -6,7 +6,97 @@
         body {
             background-color: #F9F1D8;
         }
+
+    
+        .error-message {
+            color: red;
+            display: none;
+        }
     </style>
+
+    <script>
+        function validateForm() {
+            // Get all elements
+            var firstNameInput = document.getElementById('first_name');
+            var firstNameError = document.getElementById('first-name-error');
+            var lastNameInput = document.getElementById('last_name');
+            var lastNameError = document.getElementById('last-name-error');
+            var genderSelect = document.getElementById('gender');
+            var genderError = document.getElementById('gender-error');
+            var stateInput = document.getElementById('state');
+            var stateError = document.getElementById('state-error');
+            var cityInput = document.getElementById('city');
+            var cityError = document.getElementById('city-error');
+            var uniSelect = document.getElementById('uni');
+            var uniError = document.getElementById('uni-error');
+            var courseSelect = document.getElementById('course');
+            var courseError = document.getElementById('course-error');
+            // More variables for other inputs...
+
+            // Initial validity flag
+            var isValid = true;
+
+            // Validate First Name
+            if (firstNameInput.value.trim() === '') {
+                firstNameError.style.display = 'inline';
+                isValid = false;
+            } else {
+                firstNameError.style.display = 'none';
+            }
+
+            // Validate Last Name
+            if (lastNameInput.value.trim() === '') {
+                lastNameError.style.display = 'inline';
+                isValid = false;
+            } else {
+                lastNameError.style.display = 'none';
+            }
+
+            // Validate Gender
+            if (genderSelect.value === 'Gender') {
+                genderError.style.display = 'inline';
+                isValid = false;
+            } else {
+                genderError.style.display = 'none';
+            }
+            
+            if (stateInput.value.trim() === '') {
+                stateError.style.display = 'inline';
+                isValid = false;
+            } else {
+                stateError.style.display = 'none';
+            }
+
+        
+                if (cityInput.value.trim() === '') {
+                cityError.style.display = 'inline';
+                isValid = false;
+            } else {
+                cityError.style.display = 'none';
+            }
+
+                if (uniSelect.value === 'Enter University Name') {
+                uniError.style.display = 'inline';
+                isValid = false;
+            } else {
+                uniError.style.display = 'none';
+            }
+        
+                if (courseSelect.value === 'Course Name') {
+                courseError.style.display = 'inline';
+                isValid = false;
+            } else {
+                courseError.style.display = 'none';
+            }
+        
+            // Prevent form submission if there is invalid input
+            if (!isValid) {
+                event.preventDefault();
+            }
+        }
+    </script>
+
+
 
     <link rel="stylesheet" href="{% static 'profile/create_profile.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -26,19 +116,23 @@
                
                 <div class="name">What's your Name?</div>
 
+
                 <div>
                     <div class="first_name">
-                        <label for="first_name">First Name</label>
-                        <input type="text" name="first_name" id="first_name" placeholder="Enter your First Name" required>
-                    </div>
+                    <label for="first_name">First Name</label>
+                    <input type="text" name="first_name" id="first_name" placeholder="Enter your First Name" required>
+                    <span class="error-message" id="first-name-error">First Name is required!</span>
                 </div>
+
 
                 <div>
                     <div class="last_name">
                         <label for="last_name">Last Name</label>
                         <input type="text" name="last_name" id="last_name" placeholder="Enter your Last Name" required>
+                      <span class="error-message" id="last-name-error">Last Name is required!</span>
                     </div>
                 </div>
+
 
                 <div class="gender">
                     <label for="gender">What's your gender?</label>
@@ -50,51 +144,63 @@
                         <option value="other">Other</option>
                         <option value="prefer-not-to-answer">Prefer not to answer</option>
                     </select>
+                   <span class="error-message" id="gender-error">Please select a gender!</span>
                 </div>
 
+
                 <div class="birthday">When's your Birthday?</div>
+
 
                 <div class="DOB">
                     <label for="DOB">Date of Birth</label>
                     <div class="DOB_select">
                         <select name="day" id="day"></select>
 
+
                         <select name="month" id="month"></select>
+
 
                         <select name="year" id="year">Year:</select>
                     </div>
                     <input type="hidden" name="dob" id="combinedDate">
+ 
+
 
                 </div>
+
+
 
 
                 <div>
                     <hr class="line">
                 </div>
 
+
                 <div class="create-your-profile2">Create your Profile</div>
-    
+   
                 <div class="note2">This'll help you in the matchmaking process.</div>
-    
+   
                 <div class="location">
                     Set up your location
                     <div>
                         <div class="state">
                             <label for="state">State</label>
                             <input type="text" name="state" id="state" placeholder="Enter your State Name" required>
+                           <span class="error-message" id="state-error">Please enter a state!</span>
                         </div>
                     </div>
-        
+       
                     <div>
                         <div class="city">
                             <label for="city">City</label>
                             <input type="text" name="city" id="city" placeholder="Enter your City Name" required>
+                           <span class="error-message" id="city-error">Please enter a city!</span>
                         </div>
                     </div>
                     <input type="hidden" name="location" id="location">
                 </div>
                 <div class="uni-go-to">What University do you go to?</div>
-    
+   
                 <div class="uni">
                     <label for="uni">University Name</label>
                     <select name="university" id="uni" required>
@@ -106,10 +212,11 @@
                         <option value="Monash">Monash University</option>
                         <option value="Swinburne">Swinburne University Of Technology</option>
                     </select>
+                   <span class="error-message" id="uni-error">Please select a University!</span>
                 </div>
-    
+   
                 <div class="your-course">What's your course?</div>
-    
+   
                 <div class="course">
                     <label for="course">Course Name</label>
                     <select name="course" id="course" required>
@@ -121,18 +228,22 @@
                         <option value="BioMed">Bachelor of Biomedical Science</option>
                         <option value="Enviro">Bachelor of Environmental Science</option>
                     </select>
+                   <span class="error-message" id="course-error">Please select your course!</span>
                 </div>
+
 
                  
                 <div>
                     <hr class="line">
                 </div>
 
+
                 <div class="create-your-profile3">Complete your Profile</div>
-    
+   
                 <div class="note3">This'll help you in the matchmaking process.</div>
-    
+   
                 <div class="interests">Choose your interests</div>
+
 
                 <div class="box">
                     <div class="scrollbox">
@@ -223,12 +334,17 @@
                     </div>
                     <input type="hidden" name="interests" id="interests" value="">
                 </div>
-    
-    
+   
+   
                 <div class="what_language">What language do you speak?</div>
-    
+   
+                  
+                  
                 <div class="language">
                     <label>What languages do you speak?</label>
+                  
+                     <div class="box">
+                    <div class="scrollbox"> 
                     <div class="choose_languages">
                         <label class="checkbox-label">
                             <input type="checkbox" name="selected_languages" value="English">
@@ -254,17 +370,28 @@
                             <input type="checkbox" name="selected_languages" value="French">
                             <span>French</span>
                         </label>
+                                              <label class="checkbox-label">
+                            <input type="checkbox" name="selected_languages" value="Spanish">
+                            <span>Spanish</span>
+                        </label>
+                                              <label class="checkbox-label">
+                            <input type="checkbox" name="selected_languages" value="Greek">
+                            <span>Greek</span>
+                        </label>
                     </div>
                     <input type="hidden" name="languages" id="languages" value="">
                 </div>
-                
+                </div>
+                  </div>
+               
+
 
                 <div>
                     <hr class="line">
                 </div>
                 <!-- Hidden Input Values -->
-                
-                
+               
+               
                <!-- <div class="note4">Add whatever picture you like!</div>
                 <div class="add_picture">
                     <label for="profile_picture">Add some pictures</label>
@@ -282,26 +409,30 @@
                      </div>
                 </div> -->
 
+
                 <div class="buttons">
                     <!-- <div>
                         <a class="back" href="create-profile1.html">Back</a>
                     </div> -->
                     <div class="next">
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="Submit"  onclick="validateForm()">
                         <!-- <a href="../create-profile2/create-profile2.html"> -->
-                            
+                           
                         <!-- </a> -->
                     </div>
-                </div> 
+                </div>
                
             </div>
        
 
-                
 
-    
-                    
-        
+               
+
+
+   
+                   
+       
     </form>
+
 
 </html>

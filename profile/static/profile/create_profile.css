@@ -1,4 +1,3 @@
-
 .create_profile_form {
     background-color: white;
     border-radius: 20px;
@@ -22,6 +21,7 @@
     padding: 0px;
 }
 
+
 .note {
     color: #000;
     font-family: Lexend Deca;
@@ -36,6 +36,7 @@
     margin-bottom: 30px;
 }
 
+
 hr.line {
     border: 1px  solid #6A4E39;
     width: 320px;
@@ -43,6 +44,7 @@ hr.line {
     text-align: center;
     margin-bottom: 30px;
 }
+
 
 .name {
     font-family: Lexend Deca;
@@ -52,6 +54,8 @@ hr.line {
     line-height: normal;
     margin-bottom: 10px;
 }
+
+
 
 
 .first_name {
@@ -77,6 +81,7 @@ hr.line {
 }
 }
 
+
 .last_name {
     & label {
     display: block;
@@ -100,7 +105,9 @@ hr.line {
 }
 }
 
+
 .gender {
+
 
     & label {
         display: block;
@@ -125,6 +132,7 @@ hr.line {
     }
 }
 
+
 .birthday {
     font-family: Lexend Deca;
     font-size: 24px;
@@ -133,6 +141,7 @@ hr.line {
     line-height: normal;
     margin-bottom: 22px;
 }
+
 
 .DOB {
     & label {
@@ -146,7 +155,8 @@ hr.line {
         line-height: normal;
         margin-bottom: 10px;
     }
-}   
+}  
+
 
 .DOB_select {
     display: flex;
@@ -155,7 +165,9 @@ hr.line {
     gap: 0px 20px;
     margin-bottom: 30px;
 
-}   
+
+}  
+
 
 input,
 select {
@@ -164,12 +176,14 @@ select {
     border-radius: 5px;
 }
 
+
 .buttons {
     display: flex;
     justify-content: center;
     text-align: center;
     gap: 0px 25px;
 }
+
 
 .back {
     background-color: #808080;
@@ -190,9 +204,11 @@ select {
     border-radius: 10px;
 }
 
+
 .back:hover {
     background-color: #5b5b5b;
 }
+
 
 .next {
     background-color: #FBC000;
@@ -200,6 +216,7 @@ select {
     height: 39px;
     border-radius: 10px;
 }
+
 
 input[type=submit] {
     background-color: #FBC000;
@@ -216,10 +233,15 @@ input[type=submit] {
     border: #FBC000;
 }
 
+
 input[type=submit]:hover {
     background-color: #e8b200;
     border: #e8b200;
 }
+
+
+
+
 
 
 
@@ -233,6 +255,7 @@ input[type=submit]:hover {
     text-align: center;
     padding: 0px;
 }
+
 
 .note2 {
     color: #000;
@@ -249,6 +272,8 @@ input[type=submit]:hover {
 }
 
 
+
+
 .location {
     font-family: Lexend Deca;
     font-size: 24px;
@@ -257,6 +282,8 @@ input[type=submit]:hover {
     line-height: normal;
     margin-bottom: 10px;
 }
+
+
 
 
 .state {
@@ -282,6 +309,7 @@ input[type=submit]:hover {
 }
 }
 
+
 .city {
     & label {
     display: block;
@@ -305,6 +333,7 @@ input[type=submit]:hover {
 }
 }
 
+
 .uni-go-to {
     display: block;
     justify-content: center;
@@ -319,7 +348,9 @@ input[type=submit]:hover {
     margin-bottom: 11px;
 }
 
+
 .uni {
+
 
     & label {
         display: block;
@@ -343,6 +374,8 @@ input[type=submit]:hover {
         margin-bottom: 30px;
     }
 }
+
+
 
 
 .your-course {
@@ -358,7 +391,9 @@ input[type=submit]:hover {
     margin-bottom: 11px;
 }
 
+
 .course {
+
 
     & label {
         display: block;
@@ -387,6 +422,11 @@ input[type=submit]:hover {
 
 
 
+
+
+
+
+
 .create-your-profile3 {
     font-family: Lexend Deca;
     font-size: 42px;
@@ -396,6 +436,7 @@ input[type=submit]:hover {
     text-align: center;
     padding: 0px;
 }
+
 
 .note3 {
     color: #000;
@@ -411,6 +452,7 @@ input[type=submit]:hover {
     margin-bottom: 30px;
 }
 
+
 .interests {
     font-family: Lexend Deca;
     font-size: 24px;
@@ -419,6 +461,8 @@ input[type=submit]:hover {
     line-height: normal;
     margin-bottom: 10px;
 }
+
+
 
 
 .box {
@@ -434,6 +478,7 @@ input[type=submit]:hover {
     margin-bottom: 30px;
 }
 
+
 .scrollbox {
     width: 100%;
     max-height: 100%;
@@ -443,6 +488,7 @@ input[type=submit]:hover {
     overflow-y: auto;
     padding: 10px;
 }
+
 
 .category {
     justify-content: center;
@@ -454,35 +500,40 @@ input[type=submit]:hover {
     margin-top: 5px;
 }
 
+
 .choose_interests {
     display: flex;
     justify-content: space-between;
     transform: translate(-5px, 0px);
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 }
+
 
 .checkbox-label {
     display: flex;
     align-items: center;
-    background-color: #f0f0f0; 
-    border-radius: 50px; 
+    background-color: #f0f0f0;
+    border-radius: 50px;
     padding: 10px 20px;
     width: 48%;
 }
 
+
 .checkbox-label input[type="checkbox"] {
     appearance: none;
     width: 10px;
-    height: 10px; 
-    background-color: #fff; 
-    border-radius: 50%; 
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
     border: 2px solid #000;  
 }
 
+
 .checkbox-label input[type="checkbox"]:checked {
-    background-color: #e8b200; 
-    border-color: #e8b200; 
+    background-color: #e8b200;
+    border-color: #e8b200;
 }
+
 
 .what_language {
     display: block;
@@ -500,7 +551,17 @@ input[type=submit]:hover {
 
 
 
+.checkbox-label {
+      justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+
+
+
 .language {
+
 
     & label {
         display: block;
@@ -527,6 +588,9 @@ input[type=submit]:hover {
 
 
 
+
+
+
 .note4 {
     color: #000;
     font-family: Lexend Deca;
@@ -540,119 +604,3 @@ input[type=submit]:hover {
     width: 250px;
     margin-bottom: 30px;
 }
-
-
-/*.add_picture {
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.profile-pic {
-    width: 200px;
-    max-height: 200px;
-    display: inline-block;
-}
-
-.file-upload {
-    display: none;
-}
-.circle {
-    border-radius: 100% !important;
-    overflow: hidden;
-    width: 128px;
-    height: 128px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    position: absolute;
-    top: 72px;
-}
-img {
-    max-width: 100%;
-    height: auto;
-}
-.p-image {
-  position: absolute;
-  top: 167px;
-  right: 30px;
-  color: #666666;
-  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
-}
-.p-image:hover {
-  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
-}
-.upload-button {
-  font-size: 1.2em;
-}
-
-.upload-button:hover {
-  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
-  color: #999;
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
