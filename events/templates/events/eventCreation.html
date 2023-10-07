@@ -15,8 +15,8 @@
         <ul>
             {% for event in events_invited %}
                 <li>{{ event.event_name }} - {{ event.start_date }}</li>
-                <button id="accept_{{ event.id }}" data-event-id="{{ event.id }}" data-status="going">Accept</button>
-                <button id="decline_{{ event.id }}" data-event-id="{{ event.id }}" data-status="declined">Decline</button>
+                <button id="accept_{{ event.event_id }}" data-event-id="{{ event.event_id }}" data-status="going">Accept</button>
+                <button id="decline_{{ event.event_id }}" data-event-id="{{ event.event_id }}" data-status="declined">Decline</button>
             {% endfor %}
         </ul>
         <!-- Display Declined Events -->
@@ -82,12 +82,31 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
             $(document).ready(function () {
+                // Function to get CSRF token from cookie
+                function getCookie(name) {
+                    let cookieValue = null;
+                    if (document.cookie && document.cookie !== '') {
+                        const cookies = document.cookie.split(';');
+                        for (let i = 0; i < cookies.length; i++) {
+                            const cookie = $.trim(cookies[i]);
+                            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                break;
+                            }
+                        }
+                    }
+                    return cookieValue;
+                }
+        
                 // Handle Accept and Decline buttons click
                 $('button').click(function () {
                     const button = $(this);
                     const eventId = button.data('event-id');
                     const status = button.data('status');
-
+        
+                    // Get the CSRF token
+                    const csrfToken = getCookie('csrftoken');
+        
                     // Make an AJAX request to create EventUsersGoing or EventUsersDeclined object
                     $.ajax({
                         url: '/create_event_user/',
@@ -95,6 +114,9 @@
                         data: {
                             event_id: eventId,
                             status: status,
+                        },
+                        headers: {
+                            'X-CSRFToken': csrfToken,  // Include the CSRF token in the headers
                         },
                         success: function (response) {
                             if (response.success) {

@@ -29,6 +29,7 @@ urlpatterns = [
     path('login/', user_views.login_view, name='login'),
     path('logout/', user_views.logout_view, name='logout'),
     path('events/', events_views.events, name='events'),
+    path('create_event_user/', events_views.create_event_user, name='create_event_user'),
     path('profile/', profile_views.profile, name='profile'),
     path('mfa/', mfa_views.mfa, name='mfa'),
     path('verify/', mfa_views.verify, name='verify'),

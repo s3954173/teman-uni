@@ -1,5 +1,5 @@
 from django import forms
-from temanuni.models import Events, EventInvitedUsers, Friends, User, Profile
+from temanuni.models import Events, EventInvitedUsers, Friends, User, Profile, EventUsersGoing, EventUsersDeclined
 from datetime import datetime
 from django.db.models import Q
 
@@ -140,3 +140,46 @@ class InvitedFriendsForm(forms.ModelForm):
             invited_friend.save(using=using)  # Save the invited friend to the database
 
         return invited_friend
+
+
+# ModelForm for EventUsersGoing
+class EventUsersGoingForm(forms.ModelForm):
+    event_id = forms.ModelChoiceField(queryset=Events.objects.using('temanuni').all(), required=True)
+    user_id = forms.ModelChoiceField(queryset=User.objects.using('temanuni').all(), required=True)
+
+    class Meta:
+        model = EventUsersGoing
+        fields = ['event_id', 'user_id']
+
+    def save(self, commit=True, using='temanuni'):
+        event_going = super(EventUsersGoingForm, self).save(commit=False)
+
+        # Set the event_id and user_id fields
+        event_going.event_id = self.cleaned_data['event_id']
+        event_going.user_id = self.cleaned_data['user_id']
+
+        if commit:
+            event_going.save(using=using)  # Save the event going to the database
+
+        return event_going
+
+# ModelForm for EventUsersDeclined
+class EventUsersDeclinedForm(forms.ModelForm):
+    event_id = forms.ModelChoiceField(queryset=Events.objects.using('temanuni').all(), required=True)
+    user_id = forms.ModelChoiceField(queryset=User.objects.using('temanuni').all(), required=True)
+
+    class Meta:
+        model = EventUsersDeclined
+        fields = ['event_id', 'user_id']
+
+    def save(self, commit=True, using='temanuni'):
+        event_declined = super(EventUsersDeclinedForm, self).save(commit=False)
+
+        # Set the event_id and user_id fields
+        event_declined.event_id = self.cleaned_data['event_id']
+        event_declined.user_id = self.cleaned_data['user_id']
+
+        if commit:
+            event_declined.save(using=using)  # Save the event declined to the database
+
+        return event_declined

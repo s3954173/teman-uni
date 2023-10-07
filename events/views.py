@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .forms import EventForm, InvitedFriendsForm, SubmitEventForm, User
+from .forms import EventForm, InvitedFriendsForm, SubmitEventForm, User, EventUsersGoingForm, EventUsersDeclinedForm
 from temanuni.models import Events, EventInvitedUsers, EventUsersDeclined, EventUsersGoing
+from django.http import JsonResponse
 
 def events(request):
     if 'user_id' in request.session and request.session['user_id']:
@@ -57,6 +58,38 @@ def events(request):
     else:
         return redirect('home')
 
+def create_event_user(request):
+    if request.method == 'POST':
+        status = request.POST.get('status')
+        event = request.POST.get('event_id')
+        user = request.session['user_id']
+        if status in ('going', 'declined'):
+            if status == 'going':
+                form = EventUsersGoingForm({
+                    'event_id': event,
+                    'user_id': user
+                })
+            else:
+                form = EventUsersDeclinedForm({
+                    'event_id': event,
+                    'user_id': user
+                })
+
+            if form.is_valid():
+                dbEventGoingDeclined = form.save(commit=False)
+                dbEventGoingDeclined.save(using='temanuni')
+
+                 # Retrieve the corresponding invited_users object
+                invited_users = EventInvitedUsers.objects.using('temanuni').filter(event_id=event, user_id=user).first()
+
+                if invited_users:
+                    # Delete the invited_users object
+                    invited_users.delete(using='temanuni')
+                return redirect('events')
+            else:
+                return JsonResponse({'success': False, 'errors': form.errors})
+
+    return JsonResponse({'success': False})
 
 
-    
+
