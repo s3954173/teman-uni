@@ -18,6 +18,19 @@ class User(models.Model):
         managed = False
         db_table = 'user'
     
+    @property
+    def profile(self):
+        # Assuming you have a ForeignKey or OneToOneField relationship between User and Profile
+        try:
+            return Profile.objects.using("temanuni").get(profile_id=self.user_id)
+        except Profile.DoesNotExist:
+            return None
+
+    def __str__(self):
+        profile = self.profile
+        if profile:
+            return f"{profile.first_name} {profile.last_name}"
+        return str(self.user_id)
 
 class Events(models.Model):
     event_id = models.BigAutoField(primary_key=True)
@@ -121,6 +134,8 @@ class Profile(models.Model):
         managed = False
         db_table = 'profile'
 
+    # def __str__(self):
+    #     return f"{self.first_name} {self.last_name}"
 
 class ProfileInterests(models.Model):
     profileinterests_id = models.BigAutoField(primary_key=True)

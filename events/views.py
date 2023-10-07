@@ -1,13 +1,30 @@
 from django.shortcuts import render, redirect
 from .forms import EventForm, InvitedFriendsForm, SubmitEventForm, User
+from temanuni.models import Events, EventInvitedUsers, EventUsersDeclined, EventUsersGoing
 
 def events(request):
     if 'user_id' in request.session and request.session['user_id']:
         creator_id = request.session['user_id']  # Retrieve user_id from session
-        
+
+        # Find Event Objects based upon whether user is invited, declined or going to events
+
+        # Invited Events
+        invited_users = EventInvitedUsers.objects.using('temanuni').filter(user_id=creator_id)
+        invited_events = invited_users.using('temanuni').values_list('event_id', flat=True)
+        events_invited = Events.objects.using('temanuni').filter(event_id__in=invited_events)
+
+        #Declined Event
+        declined_users = EventUsersDeclined.objects.using('temanuni').filter(user_id=creator_id)
+        declined_events = declined_users.using('temanuni').values_list('event_id', flat=True)
+        events_declined = Events.objects.using('temanuni').filter(event_id__in=declined_events)
+
+        #Going Events
+        going_users = EventUsersGoing.objects.using('temanuni').filter(user_id=creator_id)
+        going_events = going_users.using('temanuni').values_list('event_id', flat=True)
+        events_going = Events.objects.using('temanuni').filter(event_id__in=going_events)
+
         if request.method == 'POST':
             form = EventForm(request.POST, creator_id=creator_id)
-            print(form.errors)
             if form.is_valid():
                 creator = User.objects.using('temanuni').get(pk=creator_id)
                 # Create an instance of SubmitEventForm and populate its fields
@@ -28,17 +45,17 @@ def events(request):
                         })
                         if dbInvitedFriendsForm.is_valid():
                             dbInvitedFriendsForm.save(commit=True)
-                            print("works!")
                     return redirect('home')
                 else:
                     print("invalid dbEventForm")
                     print(dbEventForm.errors)
         else:
             form = EventForm(creator_id=creator_id)  # Pass user_id as a keyword argument
-        return render(request, 'events/eventCreation.html', {'form': form})
+        return render(request, 'events/eventCreation.html', 
+        {'form': form, 'events_invited': events_invited, 'events_declined': events_declined, 'events_going': events_going }
+        )
     else:
         return redirect('home')
-
 
 
 

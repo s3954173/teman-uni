@@ -36,4 +36,5 @@ function updateProfile() {
             contentElement.appendChild(newPill);
         }
     });
+
 }

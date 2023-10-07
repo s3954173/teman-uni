@@ -20,6 +20,7 @@ from home import views as home_views
 from users import views as user_views
 from events import views as events_views
 from tmProfile import views as profile_views
+from mfa import views as mfa_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,5 +30,6 @@ urlpatterns = [
     path('logout/', user_views.logout_view, name='logout'),
     path('events/', events_views.events, name='events'),
     path('profile/', profile_views.profile, name='profile'),
-    path('profile_success/', profile_views.profile, name='profile_success'),
+    path('mfa/', mfa_views.mfa, name='mfa'),
+    path('verify/', mfa_views.verify, name='verify'),
 ]

@@ -10,6 +10,31 @@
     </head>
     {% block content %}
     <body>
+                <!-- Display Invited Events -->
+        <h3>Invited Events:</h3>
+        <ul>
+            {% for event in events_invited %}
+                <li>{{ event.event_name }} - {{ event.start_date }}</li>
+                <button id="accept_{{ event.id }}" data-event-id="{{ event.id }}" data-status="going">Accept</button>
+                <button id="decline_{{ event.id }}" data-event-id="{{ event.id }}" data-status="declined">Decline</button>
+            {% endfor %}
+        </ul>
+        <!-- Display Declined Events -->
+        <h3>Declined Events:</h3>
+        <ul>
+            {% for event in events_declined %}
+                <li>{{ event.event_name }} - {{ event.start_date }}</li>
+
+            {% endfor %}
+        </ul>
+
+        <!-- Display Going Events -->
+        <h3>Going Events:</h3>
+        <ul>
+            {% for event in events_going %}
+                <li>{{ event.event_name }} - {{ event.start_date }}</li>
+            {% endfor %}
+        </ul>
         <!--popup button-->
         <button id="openPopupButton">Create Event</button>
 
@@ -23,44 +48,28 @@
                 <div class="form-field">
                     <label for="eventName">Event Name:</label>
                     {{ form.eventName }} 
-                    <!-- form.eventName calling the form field from forms.py -->
-                    <!-- <input type="text" id="eventName" name="eventName" maxlength="100" required> -->
                 </div>
 
                 <div class="form-field">
                     <label for="eventDate">Event Date:</label>
                     {{ form.eventDate }}
-                    <!-- <input type="date" id="eventDate" name="eventDate" required> -->
                 </div>
 
                 <div class="form-field">
                     <label for="eventTime">Event Time:</label>
                     {{form.eventTime}}
-                    <!-- <input type="time" id="eventTime" name="eventTime" required> -->
                 </div>
 
                 <div class="form-field">
                     <label for="eventDesc">Description: (max 100 words)</label>
                     {{form.eventDesc}}
-
-                    <!-- <textarea id="eventDesc" name="eventDesc" rows="4" cols="50" required></textarea> -->
                 </div>
                 
                 <div class="form-field">
                     <label for="inviteFriends">Invite Friends:</label>
-                    {{ form.friends }}
+                    {{form.friends}}           
                 </div>
-                
-                <!-- <div class="form-field">
-                    <label for="inviteFriends">Invite Friends:</label>
-                    <ul class="friend-list">
-                        {% for friend in form.friends.field.queryset %}
-                        <li class="friend-list-item">
-                            <label><input type="checkbox">{{friend}}</label>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div> -->
+      
                 
                 <div class="button-container">
                     <input type="submit" class="create-event" value="Create Event">
@@ -70,6 +79,39 @@
         </div>
         <script src="{% static 'events/eventCreation.js' %}"></script>
         <script src="{% static 'events/date_timeValidation.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                // Handle Accept and Decline buttons click
+                $('button').click(function () {
+                    const button = $(this);
+                    const eventId = button.data('event-id');
+                    const status = button.data('status');
+
+                    // Make an AJAX request to create EventUsersGoing or EventUsersDeclined object
+                    $.ajax({
+                        url: '/create_event_user/',
+                        method: 'POST',
+                        data: {
+                            event_id: eventId,
+                            status: status,
+                        },
+                        success: function (response) {
+                            if (response.success) {
+                                // Remove the event from the Invited list
+                                button.closest('li').remove();
+                            } else {
+                                alert('Failed to update the event status.');
+                            }
+                        },
+                        error: function () {
+                            alert('An error occurred while making the request.');
+                        },
+                    });
+                });
+            });
+        </script>
+
     </body>
     {% endblock content %}
 </html>

@@ -88,7 +88,30 @@
             } else {
                 courseError.style.display = 'none';
             }
-        
+            
+                    // Validate Interests
+            var interestsInputs = document.querySelectorAll('input[name="selected_choices"]');
+            var selectedInterests = Array.from(interestsInputs).filter(input => input.checked);
+            var interestsError = document.getElementById('interests-error');
+
+            if (selectedInterests.length === 0) {
+                interestsError.style.display = 'inline';
+                isValid = false;
+            } else {
+                interestsError.style.display = 'none';
+            }
+
+            // Validate Languages
+            var languagesInputs = document.querySelectorAll('input[name="selected_languages"]');
+            var selectedLanguages = Array.from(languagesInputs).filter(input => input.checked);
+            var languagesError = document.getElementById('languages-error');
+
+            if (selectedLanguages.length === 0) {
+                languagesError.style.display = 'inline';
+                isValid = false;
+            } else {
+                languagesError.style.display = 'none';
+            }
             // Prevent form submission if there is invalid input
             if (!isValid) {
                 event.preventDefault();
@@ -120,22 +143,25 @@
                 <div>
                     <div class="first_name">
                     <label for="first_name">First Name</label>
-                    <input type="text" name="first_name" id="first_name" placeholder="Enter your First Name" required>
                     <span class="error-message" id="first-name-error">First Name is required!</span>
+                    <input type="text" name="first_name" id="first_name" placeholder="Enter your First Name" required>
+                  
                 </div>
 
 
                 <div>
                     <div class="last_name">
                         <label for="last_name">Last Name</label>
+                        <span class="error-message" id="last-name-error">Last Name is required!</span>
                         <input type="text" name="last_name" id="last_name" placeholder="Enter your Last Name" required>
-                      <span class="error-message" id="last-name-error">Last Name is required!</span>
+                     
                     </div>
                 </div>
 
 
                 <div class="gender">
                     <label for="gender">What's your gender?</label>
+                    <span class="error-message" id="gender-error">Please select a gender!</span>
                     <select name="gender" id="gender" required>
                         <option disabled selected>Gender</option>
                         <option value="female">Female</option>
@@ -144,7 +170,7 @@
                         <option value="other">Other</option>
                         <option value="prefer-not-to-answer">Prefer not to answer</option>
                     </select>
-                   <span class="error-message" id="gender-error">Please select a gender!</span>
+             
                 </div>
 
 
@@ -185,16 +211,18 @@
                     <div>
                         <div class="state">
                             <label for="state">State</label>
+                            <span class="error-message" id="state-error">Please enter a state!</span>
                             <input type="text" name="state" id="state" placeholder="Enter your State Name" required>
-                           <span class="error-message" id="state-error">Please enter a state!</span>
+                        
                         </div>
                     </div>
        
                     <div>
                         <div class="city">
                             <label for="city">City</label>
+                            <span class="error-message" id="city-error">Please enter a city!</span>
                             <input type="text" name="city" id="city" placeholder="Enter your City Name" required>
-                           <span class="error-message" id="city-error">Please enter a city!</span>
+                        
                         </div>
                     </div>
                     <input type="hidden" name="location" id="location">
@@ -203,6 +231,7 @@
    
                 <div class="uni">
                     <label for="uni">University Name</label>
+                    <span class="error-message" id="uni-error">Please select a University!</span>
                     <select name="university" id="uni" required>
                         <option disabled selected>Enter University Name</option>
                         <option value="RMIT University">Royal Melbourne Institute of Technology</option>
@@ -219,6 +248,7 @@
    
                 <div class="course">
                     <label for="course">Course Name</label>
+                    <span class="error-message" id="course-error">Please select your course!</span>
                     <select name="course" id="course" required>
                         <option disabled selected>Enter Course Name</option>
                         <option value="Bachelor of Business">Bachelor of Business</option>
@@ -228,7 +258,7 @@
                         <option value="Bachelor of Biomedical Science">Bachelor of Biomedical Science</option>
                         <option value="Bachelor of Environmental Science">Bachelor of Environmental Science</option>
                     </select>
-                   <span class="error-message" id="course-error">Please select your course!</span>
+                 
                 </div>
 
 
@@ -248,6 +278,7 @@
                 <div class="box">
                     <div class="scrollbox">
                         <div class="category">Values & traits</div>
+                        <span class="error-message" id="interests-error">Select at least one interest</span>
                         <div class="choose_interests">
                             <label class="checkbox-label">
                                 <input type="checkbox" name="selected_choices">
@@ -342,7 +373,8 @@
                   
                 <div class="language">
                     <label>What languages do you speak?</label>
-                  
+                    <span class="error-message" id="languages-error">Select at least one language</span>
+
                      <div class="box">
                     <div class="scrollbox"> 
                     <div class="choose_languages">

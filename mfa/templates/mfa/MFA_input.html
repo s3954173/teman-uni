@@ -9,7 +9,8 @@
 
   <body>
         <h1>Verify your phone number</h1>
-        <form action="/phone_verification" accept-charset="UTF-8" method="post">
+        <form action="{% url 'mfa' %}" accept-charset="UTF-8" method="post">
+          {% csrf_token %}
           <div>
             <label for="authy-countries">Country code:</label>
             <select name="country_code" id="authy-countries" data-show-as="number"></select>
@@ -18,7 +19,7 @@
             <label for="phone_number">Phone number:</label>
             <input type="tel" name="phone_number" id="phone_number" />
           </div>
-            <div>
+          <div>
             <p>Verification method</p>
             <label for="method_sms">SMS: </label>
             <input type="radio" name="method" id="method_sms" value="sms" />

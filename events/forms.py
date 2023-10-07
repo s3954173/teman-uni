@@ -1,5 +1,5 @@
 from django import forms
-from temanuni.models import Events, EventInvitedUsers, Friends, User
+from temanuni.models import Events, EventInvitedUsers, Friends, User, Profile
 from datetime import datetime
 from django.db.models import Q
 
@@ -34,8 +34,17 @@ class EventForm(forms.Form):
                 else:
                     friends.append(match.user1_id.user_id)
             
-            friends = User.objects.using('temanuni').filter(user_id__in=friends).values_list('user_id', flat=True)
-            self.fields['friends'].queryset = User.objects.using('temanuni').filter(user_id__in=friends)
+            friend_users = User.objects.using('temanuni').filter(user_id__in=friends)
+            # self.fields['friends'].queryset = User.objects.using('temanuni').filter(user_id__in=friends)
+            # self.fields['friends'].queryset = User.objects.using('temanuni').filter(user_id__in=friends).values_list('email', flat=True)
+
+            # Get Profile objects of friends based on friend_ids
+            friend_profiles = Profile.objects.using('temanuni').filter(profile_id__in=friend_users)
+
+            # Build a queryset of friend Profiles
+            self.fields['friends'].queryset = friend_users
+
+     
 
             # friends_id = User.objects.using('temanuni').filter(user_id__in=friends).values_list('user_id', flat=True)
             # self.fields['friends'].queryset = friends_id
