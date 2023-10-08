@@ -1,3 +1,112 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container-header {
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+.navbar {
+    background-color: #000000;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 80px;
+    box-shadow: 0px 2px 5px rgba(209, 207, 207, 0.1);
+    display: flex;  
+    width: 100%;  /* take the full width of the parent container */
+    padding: 0px 2%;  /* use percentage for padding to keep it responsive */
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+}
+
+.nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    text-align: center;
+    position: relative;
+}
+
+.nav-item a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    color: #fff; 
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+}
+
+.nav-item a:hover {
+    background-color: #808080;
+}
+
+/* Example of a media query */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;  /* stack elements vertically on smaller screens */
+        align-items: flex-start;
+        height: auto;  /* let the height adjust automatically */
+    }
+    .nav-list {
+        flex-direction: column;
+    }
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;  /* Make buttons side-by-side */
+    gap: 10px;  /* Provides spacing between buttons */
+    align-items: center;  /* Vertically center align buttons */
+}
+
+/* Login Button Style */
+.btn-login {
+    color: #000;  /* Black text color for Login */
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: var(--Primary-Colour, #FBC000);
+    text-align: center;
+    flex: 1;  /* Ensure button grows to fill container */
+}
+
+/* Register Button Style */
+.btn-register {
+    color: #FFF;  /* White text color for Register */
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid #000;
+    background: var(--secondary-colour-dark, #1C152D);
+    text-align: center;
+    flex: 1;  /* Ensure button grows to fill container */
+}
+
 .register-form {
     background-color: white;
     border-radius: 20px;
@@ -138,3 +247,4 @@ input[type=submit]:hover {
 .error-message {
     color: red; /* Set the text color to red */
 }
+

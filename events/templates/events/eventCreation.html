@@ -8,9 +8,25 @@
         <link rel="stylesheet" type="text/css" href="{% static 'events/style.css' %}">
 
     </head>
-    {% block content %}
+    
     <body>
+        <div class="container-header">
+            <div class="navbar">
+                <a href="{% url 'home' %}"><img class="logo" src="{% static 'home/img/logo.png' %}" alt="Logo"></a>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="">About</a></li>
+                    <li class="nav-item"><a href=""><img src="{% static 'home/img/message.png' %}" alt="Messages"></a></li>
+                    <li class="nav-item"><a href="{% url 'events' %}"><img src="{% static 'home/img/events.png' %}" alt="Events"></a></li>
+                    <li class="nav-item"><a href="{% url 'profile' %}"><img src="{% static 'home/img/profile.png' %}" alt="Profile"></a></li>
+                    <li class="nav-item"><a href=""><img src="{% static 'home/img/notification.png' %}" alt="Notifications"></a></li>
+                    <li class="nav-item"><a href="{% url 'logout' %}"><img src="{% static 'home/img/logout.png' %}" alt="Log Out"></a></li>
+                </ul>
+            </div>
+          </div>
+
+          {% block content %}
                 <!-- Display Invited Events -->
+    <div id="events">
         <h3>Invited Events:</h3>
         <ul>
             {% for event in events_invited %}
@@ -35,6 +51,15 @@
                 <li>{{ event.event_name }} - {{ event.start_date }}</li>
             {% endfor %}
         </ul>
+
+        <!-- Events Created -->
+        <h3>Events Created:</h3>
+        <ul>
+            {% for event in events_created %}
+                <li>{{ event.event_name }} - {{ event.start_date }}</li>
+            {% endfor %}
+        </ul>
+    
         <!--popup button-->
         <button id="openPopupButton">Create Event</button>
 
@@ -77,6 +102,7 @@
                 </div>
             </form>
         </div>
+    </div>
         <script src="{% static 'events/eventCreation.js' %}"></script>
         <script src="{% static 'events/date_timeValidation.js' %}"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -122,9 +148,7 @@
                             if (response.success) {
                                 // Remove the event from the Invited list
                                 button.closest('li').remove();
-                            } else {
-                                alert('Failed to update the event status.');
-                            }
+                            } 
                         },
                         error: function () {
                             alert('An error occurred while making the request.');

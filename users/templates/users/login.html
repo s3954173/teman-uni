@@ -9,6 +9,20 @@
 </head>
 
 <body>
+<!-- NAV BAR SECTION -->
+    <div class="container-header">
+        <div class="navbar">
+            <a href="{% url 'home' %}">
+                <img class="logo" src="{% static 'home/img/logo.png'%}" alt="Logo">
+            </a>
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#">About</a></li>
+                <li class="nav-item"><a href="#">Testimonials</a></li>
+                <li class="nav-item"><a href="{% url 'login' %}" class="btn-login">Login</a></li>
+                <li class="nav-item"><a href="{% url 'register' %}" class="btn-register">Register</a></li>
+            </ul>
+        </div>
+    </div>
 <div class="split-right">
     <div class="login-form">
 
@@ -40,7 +54,7 @@
             </div>              
                 {{ form.password }}
 
-                <div class="Cant-login"><a href="forgot-password.html">Can't log in?</a></div>
+                <div class="Cant-login"><a href="">Can't log in?</a></div>
             </div>
 
             <div class="login">
@@ -50,11 +64,14 @@
 
 
         <div class="create-account">
-            <a href="register.html">Create an account</a>
+            <a href="{% url 'register' %}">Create an account</a>
         </div>
             
     </div>
 </div>
+</body>
+</html>
+
 <!-- Include the JavaScript file -->
 
    <!-- Include jQuery -->
@@ -96,6 +113,4 @@
 
    <!-- <script src="{% static 'users/login.js' %}"></script> -->
    
-</body>
-</html>
 
