@@ -1,0 +1,322 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container-header {
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+.navbar {
+    background-color: #000000;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 80px;
+    box-shadow: 0px 2px 5px rgba(209, 207, 207, 0.1);
+    display: flex;  
+    width: 100%;  /* take the full width of the parent container */
+    padding: 0px 2%;  /* use percentage for padding to keep it responsive */
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+}
+
+.nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    text-align: center;
+    position: relative;
+}
+
+.nav-item a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    color: #fff; 
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+}
+
+.nav-item a:hover {
+    background-color: #808080;
+}
+
+/* Example of a media query */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;  /* stack elements vertically on smaller screens */
+        align-items: flex-start;
+        height: auto;  /* let the height adjust automatically */
+    }
+    .nav-list {
+        flex-direction: column;
+    }
+}
+
+
+
+.app {
+    border: 3px solid #ffffff;
+    width: 95%;
+    margin: 25px auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-auto-rows: minmax(500px, calc(100vh - 100px));
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    width: 45px;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.profile img {
+    width: inherit;
+}
+
+.main-left {
+    background: #fff;
+    display: grid;
+    grid-template-rows: 1fr 6fr 1fr;
+    grid-auto-flow: row;
+    border-radius: 10px;
+    width: 422px;
+    padding: 15px;
+}
+
+.header-left {
+    color: #000;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 10px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: start; 
+}
+
+
+.event-choices-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 100px;
+    overflow-y: auto;
+}
+
+.event-choices-list::-webkit-scrollbar {
+    width: 0px;
+}
+
+.event-item {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    gap: 20px;
+    align-self: stretch;
+}
+
+.event-item:hover {
+    background: #d4d4d4;
+}
+
+.event-icon {
+    place-self: center;
+    width: 59px;
+    height: 59px;
+}
+
+.event-details {
+    padding: 5px;
+    display: grid;
+    grid-auto-flow: row;
+    place-items: center start;
+    overflow: hidden;
+}
+
+.event-choice {
+    color: #000;
+    text-align: center;
+    
+    /* Heading 2 */
+    font-family: Lexend Deca;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width: 80px;
+}
+
+.notif-badge {
+    width: 30.6px;
+    height: 17px;
+}
+
+
+/* END OF LEFT SECTION */
+/* ################################################## */
+/* START OF RIGHT SECTION */
+
+.main-right {
+    border-radius: 10px;
+    background-color: #FFE2A5;
+    display: flex;
+    width: auto;
+    height: 588px;
+    padding: 40px 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: 1fr 6fr 1fr;
+}
+
+.header-right {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 6fr 2fr;
+    place-items: center;
+}
+
+.header-img {
+    place-content: center start;
+    place-self: center end;
+}
+
+.header-right {
+    /* Center everything inside this div */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-right img {
+    /* Just to ensure the image scales appropriately within its container; this can be adjusted to your preference */
+    width: 100%;
+    max-width: 250px; 
+    height: auto;
+    margin-bottom: 10px; 
+}
+
+.text-container {
+    /* Stacking text on top of each other */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.match-name {
+    /* Add some space between the text elements */
+    margin: 5px 0;
+    color: #000;
+    text-align: center;
+
+    /* Heading 1 */
+    font-family: Lexend Deca;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.event-overview-container {
+    display: flex;
+    width: 670px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 22.906px;
+    background: var(--background-background-primary, #FFF);
+    margin-top: 20px; /* This will give some spacing. Adjust as needed. */
+}
+
+.event-overview-container:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+
+.event-details-container {
+    display: flex;
+    align-items: center;
+    gap: 30.541px;
+    align-self: stretch;
+    padding: 10px 20px; /* Padding for breathing space */
+}
+
+.separator {
+    width: 5.726px;
+    height: 85.635px;
+    background: #4CA69C;
+    box-shadow: 0px 0px 9.54416px 0px rgba(0, 0, 0, 0.20);
+}
+
+.date-container {
+    font-size: 1.5em; /* Example size. Adjust as necessary. */
+    font-weight: bold; 
+}
+
+.event-info-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.event-name {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.username {
+    color: grey; /* Adjust as necessary */
+}
+
+.event-btn {
+    position: absolute;
+    bottom: 10px;  /* Adjust this value as needed for exact positioning */
+    right: 10px;   /* Adjust this value as needed for exact positioning */
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+}
+
+.event-btn img {
+    display: block;
+    width: 40px; /* Or whatever size you want for your image */
+    height: auto;
+}
+
+
+
+

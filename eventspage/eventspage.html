@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Events page</title>
+    <link rel="stylesheet" href="bootstrap3.3/css/bootstrap.min.css">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap">
+    <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="eventspage.css">
+</head>
+<body>
+
+    <!-- NAV BAR SECTION -->
+    <div class="container-header">
+        <div class="navbar">
+            <img class="logo" src="./img/logo.png">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="about.hml">About</a></li>
+                <li class="nav-item"><a href="messages.html"><img src="./img/message.png" alt="Messages"></a></li>
+                <li class="nav-item"><a href="profile.html"><img src="./img/profile.png" alt="Profile"></a></li>
+                <li class="nav-item"><a href="notifications.html"><img src="./img/notification.png" alt="Notifications"></a></li>
+                <li class="nav-item"><a href="#"><img src="./img/logout.png" alt="Log Out"></a></li>
+            </ul>
+        </div>
+    </div>
+  <div id="app" class="app">
+
+    <!-- LEFT SECTION -->
+    
+    <section id="main-left" class="main-left">
+      <!-- header -->
+      <div id="header-left" class="header-left">
+          <!-- Add "messages" header here -->
+        <div>Events Page</div>
+      </div>
+
+<!-- event choices list -->
+<div id="event-choices-list" class="event-choices-list">
+  
+  <!-- event listings -->
+  <div id="event-item" class="event-item">
+      <!-- event icon -->
+      <div class="event-profile event-icon">
+          <img src="./img/inbox.png" alt="Event Icon 1">
+      </div>
+      
+      <div class="event-details">
+          <!-- event choice -->
+          <span class="event-choice">Inbox</span>
+      </div>
+      <!-- event activity -->
+      <span class="badge event-badge"><img src="./img/frontarrow.png" alt=""></span>
+  </div>
+
+  <div id="event-item" class="event-item">
+      <!-- event icon -->
+      <div class="event-profile event-icon">
+          <img src="./img/sent.png" alt="Event Icon 2">
+      </div>
+      
+      <div class="event-details">
+          <!-- event choice -->
+          <span class="event-choice">Sent</span>
+      </div>
+      <!-- event activity -->
+      <span class="badge event-badge"><img src="./img/frontarrow.png" alt=""></span>
+  </div>
+
+  <div id="event-item" class="event-item">
+      <!-- event icon -->
+      <div class="event-profile event-icon">
+          <img src="./img/declined.png" alt="Event Icon 3">
+      </div>
+      
+      <div class="event-details">
+          <!-- event choice -->
+          <span class="event-choice">Declined</span>
+      </div>
+      <!-- event activity -->
+      <span class="badge event-badge"><img src="./img/frontarrow.png" alt=""></span>
+  </div>
+
+</div>
+
+
+</section>
+<!-- RIGHT SECTION -->
+
+<section id="main-right" class="main-right">
+    <div id="header-right" class="header-right">
+        <!-- match name -->
+        <div class="text-container">
+            <span class="match-name">My Events</span>
+        </div>
+    </div>
+
+      <!-- Event Overview Container -->
+      <div class="event-overview-container">
+        <div class="event-details-container">
+            <div class="date-container">
+                <span>24 Sept</span>
+            </div>
+            <div class="separator"></div>
+            <div class="event-info-container">
+                <span class="event-name">Event Name</span>
+                <br>
+                <span class="username">@username</span>
+            </div>
+        </div>
+    </div>
+
+      <!-- Event Overview Container -->
+      <div class="event-overview-container">
+        <div class="event-details-container">
+            <div class="date-container">
+                <span>24 Sept</span>
+            </div>
+            <div class="separator"></div>
+            <div class="event-info-container">
+                <span class="event-name">Event Name</span>
+                <br>
+                <span class="username">@username</span>
+            </div>
+        </div>
+    </div>
+
+      <!-- Event Overview Container -->
+      <div class="event-overview-container">
+        <div class="event-details-container">
+            <div class="date-container">
+                <span>24 Sept</span>
+            </div>
+            <div class="separator"></div>
+            <div class="event-info-container">
+                <span class="event-name">Event Name</span>
+                <br>
+                <span class="username">@username</span>
+            </div>
+        </div>
+    </div>
+
+      <!-- Button at the bottom-right -->
+      <button type="button" class="btn btn-primary event-btn" data-toggle="modal" data-target="#tesModal">
+        <img src="./img/addevent.png" alt="Button Image">
+      </button>
+
+      <div class="modal fade" id="tesModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" data-dismiss="modal"><span>&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Create a New Event with Teman Uni?</h4>
+            </div>
+            <!--body-->
+            <div class="modal-body">
+                <form action="/submit_form" method="post">
+                    <div class="form-group">
+                      <label for="name">Event:</label>
+                      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Event:</label>
+                      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="datetime">Date and Time:</label>
+                        <input type="datetime-local" class="form-control" id="datetime" name="datetime">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea class="form-control" id="description" placeholder="Enter description" name="description" maxlength="100"></textarea>
+                      </div>
+                  </form> 
+            </div>
+            <!--footer-->
+            <div class="modal-footer">
+                <button class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button class="btn btn-danger" data-dismiss="modal">Create</button>
+              </div>
+          </div>
+        </div>
+      </div>
+
+
+</section>
+
+    <!-- jQuey, Popper, BootstrapJS -->
+    <script src="bootstrap3.3/js/jquery-3.3.1.min.js"></script>
+    <script src="bootstrap3.3/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
