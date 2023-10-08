@@ -126,6 +126,20 @@
     <script src="{% static 'profile/create_profile.js' %}"></script>
 
 </head>
+<body>
+<div class="container-header">
+    <div class="navbar">
+        <a href="{% url 'home' %}"><img class="logo" src="{% static 'home/img/logo.png' %}" alt="Logo"></a>
+        <ul class="nav-list">
+            <li class="nav-item"><a href="">About</a></li>
+            <li class="nav-item"><a href=""><img src="{% static 'home/img/message.png' %}" alt="Messages"></a></li>
+            <li class="nav-item"><a href="{% url 'events' %}"><img src="{% static 'home/img/events.png' %}" alt="Events"></a></li>
+            <li class="nav-item"><a href="{% url 'profile' %}"><img src="{% static 'home/img/profile.png' %}" alt="Profile"></a></li>
+            <li class="nav-item"><a href=""><img src="{% static 'home/img/notification.png' %}" alt="Notifications"></a></li>
+            <li class="nav-item"><a href="{% url 'logout' %}"><img src="{% static 'home/img/logout.png' %}" alt="Log Out"></a></li>
+        </ul>
+    </div>
+  </div>
 
     <form action="{% url 'profile' %}" method="POST" >
         {% csrf_token %}
@@ -462,6 +476,7 @@
                    
        
     </form>
-
+    
+</body>
 
 </html>
