@@ -23,6 +23,10 @@ def events(request):
         going_users = EventUsersGoing.objects.using('temanuni').filter(user_id=creator_id)
         going_events = going_users.using('temanuni').values_list('event_id', flat=True)
         events_going = Events.objects.using('temanuni').filter(event_id__in=going_events)
+        
+        # Events Created
+        events_created = Events.objects.using('temanuni').filter(creator_id=creator_id)
+
 
         if request.method == 'POST':
             form = EventForm(request.POST, creator_id=creator_id)
@@ -46,14 +50,14 @@ def events(request):
                         })
                         if dbInvitedFriendsForm.is_valid():
                             dbInvitedFriendsForm.save(commit=True)
-                    return redirect('home')
+                    return redirect('events')
                 else:
                     print("invalid dbEventForm")
                     print(dbEventForm.errors)
         else:
             form = EventForm(creator_id=creator_id)  # Pass user_id as a keyword argument
         return render(request, 'events/eventCreation.html', 
-        {'form': form, 'events_invited': events_invited, 'events_declined': events_declined, 'events_going': events_going }
+        {'form': form, 'events_invited': events_invited, 'events_declined': events_declined, 'events_going': events_going, 'events_created': events_created }
         )
     else:
         return redirect('home')

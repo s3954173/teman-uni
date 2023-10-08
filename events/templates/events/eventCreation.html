@@ -26,6 +26,7 @@
 
           {% block content %}
                 <!-- Display Invited Events -->
+    <div id="events">
         <h3>Invited Events:</h3>
         <ul>
             {% for event in events_invited %}
@@ -50,6 +51,15 @@
                 <li>{{ event.event_name }} - {{ event.start_date }}</li>
             {% endfor %}
         </ul>
+
+        <!-- Events Created -->
+        <h3>Events Created:</h3>
+        <ul>
+            {% for event in events_created %}
+                <li>{{ event.event_name }} - {{ event.start_date }}</li>
+            {% endfor %}
+        </ul>
+    
         <!--popup button-->
         <button id="openPopupButton">Create Event</button>
 
@@ -92,6 +102,7 @@
                 </div>
             </form>
         </div>
+    </div>
         <script src="{% static 'events/eventCreation.js' %}"></script>
         <script src="{% static 'events/date_timeValidation.js' %}"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -137,9 +148,7 @@
                             if (response.success) {
                                 // Remove the event from the Invited list
                                 button.closest('li').remove();
-                            } else {
-                                alert('Failed to update the event status.');
-                            }
+                            } 
                         },
                         error: function () {
                             alert('An error occurred while making the request.');

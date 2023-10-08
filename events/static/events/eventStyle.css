@@ -137,6 +137,10 @@ label[for="inviteFriends"] {
 }
 
 body {
-    margin:0;
+    margin-top:0;
     font-family: Arial, sans-serif;
+}
+
+#events {
+    margin: 10px;
 }
